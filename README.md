@@ -18,8 +18,5 @@ ruby -run -e httpd . -p 8080       # servidor local → http://localhost:8080
 
 ## Fuentes
 
-Las tipografías de marca (Youth y K Labil Grotesk) **no se incluyen** en el repositorio porque son de licencia comercial.
-Copia estos archivos en una carpeta `fonts/` junto a `index.html`:
-
-- `Youth-Bold.otf`, `Youth-Medium.otf`, `Youth-Black.otf`
-- `KLabilGrotesk-50Regular.otf`, `KLabilGrotesk-70Bold.otf`
+Las tipografías de marca (Youth y K Labil Grotesk) se sirven en formato web (`fonts/*.woff2`), con la licencia web de Dogfy Diet.
+No reutilizar estos archivos fuera de los proyectos de Dogfy Diet.
