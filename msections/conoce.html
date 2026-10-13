@@ -1,0 +1,129 @@
+<section id="m-conoce" class="snap relative w-full bg-[#dbeafe] overflow-hidden">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&display=swap" rel="stylesheet">
+  <style>
+    #m-conoce .mcn-dm { font-family: 'DM Sans', system-ui, sans-serif; font-variation-settings: "opsz" 14; }
+    #m-conoce .mcn-pill { transition: transform .25s ease, box-shadow .25s ease; }
+    #m-conoce .mcn-pill:hover { transform: translateY(-3px); box-shadow: 0 14px 32px 0 rgba(41,38,36,0.14); }
+    #m-conoce .mcn-sticker { transition: transform .4s ease; }
+    #m-conoce .mcn-sticker:hover, #m-conoce .mcn-sticker:active { transform: rotate(-12deg) scale(1.04); }
+    #m-conoce .mcn-sticker.is-spinning { animation: mcn-sticker-spin .9s cubic-bezier(.3,.7,.3,1); }
+    @keyframes mcn-sticker-spin { 0% { transform: none; } 45% { transform: rotate(-12deg) scale(1.04); } 75% { transform: rotate(3deg); } 100% { transform: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      #m-conoce .mcn-sticker.is-spinning { animation: none; }
+      #m-conoce .mcn-pill, #m-conoce .mcn-sticker { transition: none; }
+      #m-conoce .mcn-pill:hover { transform: none; }
+      #m-conoce .mcn-sticker:hover, #m-conoce .mcn-sticker:active { transform: none; }
+    }
+  </style>
+
+  <!-- Onda superior (Figma mobile 24548:570) -->
+  <div class="relative w-full h-[21.086px] md:h-[32px]">
+    <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/m-conoce/onda-superior.svg">
+  </div>
+
+  <!-- Trazos decorativos bajo la onda (grupos de elipses de escritorio, escalados) -->
+  <div aria-hidden="true" class="absolute left-0 right-0 top-0 h-[90px] pointer-events-none">
+    <div class="absolute left-[-14px] top-[4px] w-[180px] h-[80px] origin-top-left scale-[.55] md:scale-[.7]">
+      <div class="absolute flex h-[56.422px] items-center justify-center left-[45.54px] top-[7.59px] w-[86.051px]"><div class="-scale-y-100 flex-none rotate-[-153.4deg]"><div class="h-[19.908px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse110.svg"></div></div></div>
+      <div class="absolute flex h-[69.706px] items-center justify-center left-[78.29px] top-[3.68px] w-[93.152px]"><div class="-scale-y-100 flex-none rotate-[-154.1deg]"><div class="h-[35.601px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse111.svg"></div></div></div>
+      <div class="absolute flex h-[77.544px] items-center justify-center left-0 top-0 w-[91.501px]"><div class="-scale-y-100 flex-none rotate-[-146.23deg]"><div class="h-[35.601px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse112.svg"></div></div></div>
+    </div>
+    <div class="absolute right-[-30px] top-[4px] w-[180px] h-[80px] origin-top-right scale-[.55] md:scale-[.7]">
+      <div class="absolute flex h-[56.422px] items-center justify-center left-[45.54px] top-[7.59px] w-[86.051px]"><div class="-scale-y-100 flex-none rotate-[-153.4deg]"><div class="h-[19.908px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse110.svg"></div></div></div>
+      <div class="absolute flex h-[69.706px] items-center justify-center left-[78.29px] top-[3.68px] w-[93.152px]"><div class="-scale-y-100 flex-none rotate-[-154.1deg]"><div class="h-[35.601px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse111.svg"></div></div></div>
+      <div class="absolute flex h-[77.544px] items-center justify-center left-0 top-0 w-[91.501px]"><div class="-scale-y-100 flex-none rotate-[-146.23deg]"><div class="h-[35.601px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse112.svg"></div></div></div>
+    </div>
+  </div>
+
+  <div class="relative flex flex-col items-center gap-[32px] md:gap-[40px] pt-[40px] md:pt-[56px] px-[24px] w-full max-w-[720px] mx-auto">
+    <!-- Título -->
+    <h2 class="m-0 font-normal flex flex-col items-center gap-[6px] text-center">
+      <!-- Móvil: "Conoce nuestra comida / natural para perros." · Tablet (como escritorio): "Conoce nuestra / comida natural para perros." -->
+      <span class="block font-['Youth:Bold'] text-[24px] leading-[32px] md:text-[32px] md:leading-[40px] text-[#2a2724] whitespace-nowrap">Conoce nuestra<span class="md:hidden"> comida</span></span>
+      <span class="flex items-center gap-[8px] md:gap-[10px]">
+        <span class="hidden md:inline font-['Youth:Bold'] text-[32px] leading-[40px] text-[#2a2724] whitespace-nowrap">comida</span>
+        <!-- Etiqueta "natural" con trazos (mismo diseño que escritorio, escalado) -->
+        <span class="relative inline-block shrink-0 rotate-2 w-[126px] h-[34px] md:w-[151px] md:h-[40px]">
+          <span class="absolute left-0 top-0 w-[188.724px] h-[49.946px] origin-top-left scale-[.667] md:scale-[.8]">
+            <span class="absolute flex h-[56.422px] items-center justify-center left-[51.97px] top-[14.04px] w-[86.051px]">
+              <span class="block flex-none rotate-[153.4deg]"><span class="block h-[19.908px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse108.svg"></span></span>
+            </span>
+            <span class="absolute flex h-[69.706px] items-center justify-center left-[84.72px] top-[4.67px] w-[93.152px]">
+              <span class="block flex-none rotate-[154.1deg]"><span class="block h-[35.601px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse107.svg"></span></span>
+            </span>
+            <span class="absolute flex h-[77.544px] items-center justify-center left-[6.43px] top-[0.5px] w-[91.501px]">
+              <span class="block flex-none rotate-[146.23deg]"><span class="block h-[35.601px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse109.svg"></span></span>
+            </span>
+            <span class="absolute inset-0 bg-[#fa592d] flex items-center justify-center px-[11.118px] py-[2.172px] rounded-[7.783px]">
+              <span class="font-['Youth:Bold'] text-[48px] leading-[48px] text-white whitespace-nowrap">natural</span>
+            </span>
+          </span>
+        </span>
+        <span class="font-['Youth:Bold'] text-[24px] leading-[32px] md:text-[32px] md:leading-[40px] text-[#2a2724] whitespace-nowrap">para perros.</span>
+      </span>
+    </h2>
+
+    <!-- Etiquetas -->
+    <ul class="list-none m-0 p-0 grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 md:grid-flow-col gap-[12px] md:gap-[16px] w-full">
+      <li class="mcn-pill bg-white flex md:flex-row-reverse md:text-right gap-[14px] items-center pl-[8px] pr-[20px] md:pl-[20px] md:pr-[8px] py-[8px] rounded-[999px] shadow-[0px_8px_24px_0px_rgba(41,38,36,0.08)] min-w-0">
+        <span class="bg-[#f4f1ec] flex items-center justify-center rounded-[999px] shrink-0 size-[60px]">
+          <span class="block h-[36.1px] relative w-[40px]"><span class="absolute inset-[-0.99%_0_-2.54%_0]"><img alt="" class="block max-w-none size-full" src="assets/conoce/picto-vitaminas.svg"></span></span>
+        </span>
+        <span class="flex flex-col gap-[2px] min-w-0 flex-1">
+          <span class="mcn-dm font-bold text-[16px] leading-[22px] md:leading-[24px] text-[#2a2724]">Con vitaminas y minerales</span>
+          <span class="mcn-dm font-normal text-[13px] leading-[18px] md:leading-[20px] text-[#5c5753]">Una receta completa y equilibrada.</span>
+        </span>
+      </li>
+      <li class="mcn-pill bg-white flex md:flex-row-reverse md:text-right gap-[14px] items-center pl-[8px] pr-[20px] md:pl-[20px] md:pr-[8px] py-[8px] rounded-[999px] shadow-[0px_8px_24px_0px_rgba(41,38,36,0.08)] min-w-0">
+        <span class="bg-[#f4f1ec] flex items-center justify-center rounded-[999px] shrink-0 size-[60px]">
+          <span class="block h-[43.607px] relative w-[40px]"><span class="absolute inset-[-2.63%_-2.87%]"><img alt="" class="block max-w-none size-full" src="assets/conoce/picto-veterinarios.svg"></span></span>
+        </span>
+        <span class="flex flex-col gap-[2px] min-w-0 flex-1">
+          <span class="mcn-dm font-bold text-[16px] leading-[22px] md:leading-[24px] text-[#2a2724]">Formulada por veterinarios</span>
+          <span class="mcn-dm font-normal text-[13px] leading-[18px] md:leading-[20px] text-[#5c5753]">Nutricionistas detrás de cada menú.</span>
+        </span>
+      </li>
+      <li class="mcn-pill bg-white flex gap-[14px] items-center pl-[8px] pr-[20px] py-[8px] rounded-[999px] shadow-[0px_8px_24px_0px_rgba(41,38,36,0.08)] min-w-0">
+        <span class="bg-[#f4f1ec] flex items-center justify-center rounded-[999px] shrink-0 size-[60px]">
+          <span class="block h-[39.772px] relative w-[40px]"><span class="absolute inset-[-2.58%_-2.56%_-2.59%_-2.56%]"><img alt="" class="block max-w-none size-full" src="assets/conoce/picto-ingredientes.svg"></span></span>
+        </span>
+        <span class="flex flex-col gap-[2px] min-w-0 flex-1">
+          <span class="mcn-dm font-bold text-[16px] leading-[22px] md:leading-[24px] text-[#2a2724]">Con ingredientes reconocibles</span>
+          <span class="mcn-dm font-normal text-[13px] leading-[18px] md:leading-[20px] text-[#5c5753]">Carne, pescado y verduras de verdad.</span>
+        </span>
+      </li>
+      <li class="mcn-pill bg-white flex gap-[14px] items-center pl-[8px] pr-[20px] py-[8px] rounded-[999px] shadow-[0px_8px_24px_0px_rgba(41,38,36,0.08)] min-w-0">
+        <span class="bg-[#f4f1ec] flex items-center justify-center rounded-[999px] shrink-0 size-[60px]">
+          <span class="block h-[35.714px] relative w-[40px]"><span class="absolute inset-[-2.8%_-2.08%]"><img alt="" class="block max-w-none size-full" src="assets/conoce/picto-baja-temp.svg"></span></span>
+        </span>
+        <span class="flex flex-col gap-[2px] min-w-0 flex-1">
+          <span class="mcn-dm font-bold text-[16px] leading-[22px] md:leading-[24px] text-[#2a2724]">Heces pequeñas y compactas</span>
+          <span class="mcn-dm font-normal text-[13px] leading-[18px] md:leading-[20px] text-[#5c5753]">Mejoras en las digestiones.</span>
+        </span>
+      </li>
+    </ul>
+
+    <!-- Bol + sticker FEDIAF -->
+    <div class="relative w-[310px] h-[359.496px] md:w-[380px] md:h-[440.68px] shrink-0">
+      <img alt="Perro comiendo de un bol de comida natural Dogfy" class="absolute inset-0 max-w-none object-bottom pointer-events-none size-full" src="assets/conoce/bol.png">
+      <div class="mcn-sticker absolute right-[-16px] bottom-[28px] size-[104px] md:right-[-150px] md:bottom-[60px] md:size-[150px]">
+        <img alt="Formulado según las guías de la FEDIAF" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/sticker-fediaf.svg">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Sello FEDIAF: repite el giro cada vez que entra en pantalla al hacer scroll (como escritorio); al tocarlo también gira
+    (function () {
+      var el = document.querySelector('#m-conoce .mcn-sticker');
+      if (!el) return;
+      el.addEventListener('animationend', function () { el.classList.remove('is-spinning'); });
+      el.addEventListener('click', function () { el.classList.remove('is-spinning'); void el.offsetWidth; el.classList.add('is-spinning'); });
+      if (!('IntersectionObserver' in window)) return;
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) el.classList.add('is-spinning'); });
+      }, { threshold: 0.6 }).observe(el);
+    })();
+  </script>
+</section>

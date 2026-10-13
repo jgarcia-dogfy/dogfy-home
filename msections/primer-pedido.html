@@ -1,0 +1,96 @@
+<section id="m-primer-pedido" class="relative w-full bg-[#fff7c9] px-[24px] py-[56px] md:py-[72px]">
+  <style>
+    /* Zoom sutil y no interactivo ligado al scroll: la foto se acerca poco a poco mientras cruza la pantalla */
+    #m-primer-pedido .pp-photo img { transform: scale(var(--pp-s, 1)); transition: transform .25s linear; will-change: transform; }
+  </style>
+  <div class="mx-auto w-full max-w-[520px] md:max-w-[720px] flex flex-col gap-[56px] md:gap-[64px]">
+
+    <!-- Bloque 1 · ¿Qué incluye...? -->
+    <div class="flex flex-col md:flex-row gap-[24px] md:gap-[32px] items-center w-full">
+      <div class="flex flex-col gap-[28px] md:gap-[32px] items-center w-full md:flex-1 md:min-w-0">
+        <h2 class="m-0 font-normal font-['Youth:Bold'] text-[#2a2724] text-[28px] leading-[32px] md:text-[30px] md:leading-[34px] text-center w-full max-w-[470px] [word-break:break-word]">¿Qué incluye mi primer pedido de 14 días con Dogfy?</h2>
+        <a href="https://dogfydiet.com/nuevo-plan?step=1" class="bg-[#f96237] flex items-center justify-center h-[48px] px-[14px] py-[12px] rounded-[999px] w-full max-w-[342px] md:w-auto md:px-[24px] no-underline transition hover:brightness-110 hover:shadow-lg">
+          <span class="font-['Youth:Medium'] leading-[24px] text-[16px] text-center text-white whitespace-nowrap" style="font-feature-settings:'liga' 0, 'calt' 0">Comenzar la prueba</span>
+        </a>
+        <ul class="m-0 p-0 list-none grid grid-cols-3 gap-[8px] md:gap-[4px] w-full">
+          <li class="flex flex-col gap-[12px] items-center min-w-0">
+            <img alt="" class="block size-[32px]" src="assets/primer-pedido/check.svg" />
+            <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[14px] leading-[20px] md:text-[16px] md:leading-[24px] text-center">Bolsitas de<br>comida natural</p>
+          </li>
+          <li class="flex flex-col gap-[12px] items-center min-w-0">
+            <img alt="" class="block size-[32px]" src="assets/primer-pedido/check.svg" />
+            <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[14px] leading-[20px] md:text-[16px] md:leading-[24px] text-center">Manual de<br>bienvenida</p>
+          </li>
+          <li class="flex flex-col gap-[12px] items-center min-w-0">
+            <img alt="" class="block size-[32px]" src="assets/primer-pedido/check.svg" />
+            <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[14px] leading-[20px] md:text-[16px] md:leading-[24px] text-center">Pack de<br>stickers perrunos</p>
+          </li>
+        </ul>
+      </div>
+      <div class="pp-photo relative w-full md:flex-1 md:min-w-0 aspect-[342/266] md:aspect-[628/487] rounded-[22px] overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-[22px]">
+          <img alt="Desembalaje Dogfy Diet con perro curioso" class="absolute inset-0 size-full max-w-none object-cover object-[50%_45%]" src="assets/primer-pedido/unboxing.png" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloque 2 · Seguimiento nutricional -->
+    <div class="flex flex-col md:flex-row gap-[24px] md:gap-[32px] items-center w-full">
+      <div class="pp-photo relative w-full md:flex-1 md:min-w-0 h-[266px] md:h-auto md:aspect-[628/487] rounded-[12.984px] overflow-hidden">
+        <img alt="Seguimiento nutricional" class="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="assets/primer-pedido/box-mockup.png" />
+      </div>
+      <div class="flex flex-col gap-[20px] md:gap-[24px] items-start w-full md:flex-1 md:min-w-0">
+        <div class="bg-[#ffe86c] flex items-center justify-center px-[10px] py-[4px] rounded-[12px]">
+          <p class="m-0 font-['Youth:Bold'] leading-[24px] text-[#2a2724] text-[17px] md:text-[18px] text-center whitespace-nowrap">Incluido en tu suscripción</p>
+        </div>
+        <h3 class="m-0 font-normal font-['Youth:Bold'] text-[28px] leading-[32px] md:text-[30px] md:leading-[34px] text-black [word-break:break-word]">Seguimiento nutricional gratuito</h3>
+        <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#767066] text-[16px] leading-[24px] [word-break:break-word]">¿Tienes dudas sobre la alimentación de tu peludo? ¿Necesitas ayuda para que alcance su peso ideal? ¿Quieres saber qué suplementos puedes darle? Nuestro Equipo de Nutrición canina acompañará a tu peludo en todas sus etapas vitales, ofreciendo seguimiento gratuito y adaptado a su caso.</p>
+      </div>
+    </div>
+
+    <!-- Sellos de calidad (mismos textos y proporciones que escritorio; logos alineados por abajo) -->
+    <div class="flex items-stretch justify-center gap-[10px] min-[380px]:gap-[14px] md:gap-[32px] w-full">
+      <div class="flex flex-1 flex-col gap-[16px] md:gap-[24px] items-center justify-end min-w-0">
+        <div class="h-[70px] md:h-[98px] flex items-end justify-center">
+          <img alt="FEDIAF" class="block h-[65px] md:h-[91px] w-auto max-w-full object-contain" src="assets/primer-pedido/fediaf.png" />
+        </div>
+        <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[14px] leading-[20px] md:text-[18px] md:leading-[28px] text-center">Recetas con <br class="hidden md:inline">estándares FEDIAF</p>
+      </div>
+      <div class="bg-[rgba(255,255,255,0.4)] w-px h-[56px] self-center shrink-0"></div>
+      <div class="flex flex-1 flex-col gap-[16px] md:gap-[24px] items-center justify-end min-w-0">
+        <div class="h-[70px] md:h-[98px] flex items-center justify-center w-full">
+          <img alt="Generalitat de Catalunya" class="block w-full max-w-[124px] md:max-w-[175px] h-auto object-contain" src="assets/primer-pedido/generalitat.png" />
+        </div>
+        <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[14px] leading-[20px] md:text-[18px] md:leading-[28px] text-center">Supervisión y <br class="hidden md:inline">calidad certificada</p>
+      </div>
+      <div class="bg-[rgba(255,255,255,0.4)] w-px h-[56px] self-center shrink-0"></div>
+      <div class="flex flex-1 flex-col gap-[16px] md:gap-[24px] items-center justify-end min-w-0">
+        <div class="h-[70px] md:h-[98px] flex items-end justify-center">
+          <img alt="Università di Bologna" class="block h-[70px] md:h-[98px] w-auto max-w-full object-contain" src="assets/primer-pedido/unibo.png" />
+        </div>
+        <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[14px] leading-[20px] md:text-[18px] md:leading-[28px] text-center">Digestibilidad <br class="hidden md:inline">testeada in vitro</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var photos = document.querySelectorAll('#m-primer-pedido .pp-photo');
+      var ticking = false;
+      function update() {
+        ticking = false;
+        var vh = window.innerHeight;
+        photos.forEach(function (p) {
+          var r = p.getBoundingClientRect();
+          if (!r.height || r.bottom < 0 || r.top > vh) return;
+          var t = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height))); // 0 al entrar por abajo, 1 al salir por arriba
+          p.querySelector('img').style.setProperty('--pp-s', (1 + 0.06 * t).toFixed(4));
+        });
+      }
+      function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      update();
+    })();
+  </script>
+</section>

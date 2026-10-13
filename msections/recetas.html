@@ -1,0 +1,325 @@
+<section id="m-recetas" class="relative w-full bg-white pt-[48px] pb-[32px] md:pt-[64px] md:pb-[40px]">
+  <style>
+    #m-recetas .mrc-chip:hover { background: #ebe5dc; }
+    #m-recetas .mrc-chip.is-active { background: #fa592d !important; }
+    #m-recetas .mrc-chip.is-active:hover { background: color-mix(in srgb, #fa592d 86%, #000) !important; }
+    #m-recetas .mrc-chip.is-active span { color: #fff; }
+    #m-recetas .mrc-chip.is-active img { filter: brightness(0) invert(1); }
+    #m-recetas .mrc-scroller { scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    #m-recetas .mrc-scroller::-webkit-scrollbar { display: none; }
+    #m-recetas .mrc-card { cursor: pointer; transition: box-shadow .3s ease, transform .3s ease; -webkit-tap-highlight-color: transparent; }
+    #m-recetas .mrc-pack { opacity: 0; transition: opacity .35s ease; }
+    #m-recetas .mrc-chev { transition: transform .25s cubic-bezier(.2,.8,.2,1); }
+    /* Hover (solo con puntero real), igual que escritorio */
+    @media (hover: hover) {
+      #m-recetas .mrc-card:hover { box-shadow: 0 14px 36px rgba(41,38,36,.14), 0 3px 8px rgba(41,38,36,.06); transform: translateY(-4px); }
+      #m-recetas .mrc-card:hover .mrc-pack { opacity: 1; }
+      #m-recetas .mrc-card:hover .mrc-chev { transform: translateX(4px); }
+    }
+    /* Equivalente táctil: al pulsar la tarjeta (antes de navegar) se ve el estado hover */
+    #m-recetas .mrc-card.is-press { box-shadow: 0 14px 36px rgba(41,38,36,.14), 0 3px 8px rgba(41,38,36,.06); transform: translateY(-4px); }
+    #m-recetas .mrc-card.is-press .mrc-pack { opacity: 1; }
+    #m-recetas .mrc-card.is-press .mrc-chev { transform: translateX(4px); }
+    /* Tarjeta elegida con un selector o con foco de teclado dentro: estado hover + anillo naranja */
+    #m-recetas .mrc-card.is-highlight, #m-recetas .mrc-card:has(:focus-visible) {
+      box-shadow: 0 0 0 2px #fff, 0 0 0 5px #fa592d, 0 14px 36px rgba(41,38,36,.14); transform: translateY(-4px); }
+    #m-recetas .mrc-card.is-highlight .mrc-pack, #m-recetas .mrc-card:has(:focus-visible) .mrc-pack { opacity: 1; }
+    #m-recetas .mrc-card:has(:focus-visible) .mrc-chev { transform: translateX(4px); }
+    #m-recetas .mrc-detail { transform: translateY(100%); opacity: 0; visibility: hidden; transition: transform .4s cubic-bezier(.2,.8,.2,1), opacity .3s ease, visibility 0s linear .4s; }
+    #m-recetas .mrc-card.is-open .mrc-detail { transform: none; opacity: 1; visibility: visible; transition: transform .4s cubic-bezier(.2,.8,.2,1), opacity .3s ease, visibility 0s; }
+    @media (prefers-reduced-motion: reduce) {
+      #m-recetas .mrc-card, #m-recetas .mrc-pack, #m-recetas .mrc-chev, #m-recetas .mrc-detail { transition: none !important; }
+      #m-recetas .mrc-card:hover, #m-recetas .mrc-card.is-press, #m-recetas .mrc-card.is-highlight, #m-recetas .mrc-card:has(:focus-visible) { transform: none; }
+      #m-recetas .mrc-card .mrc-chev { transform: none !important; }
+    }
+  </style>
+  <div class="flex flex-col gap-[16px] items-center px-[24px] w-full max-w-[720px] mx-auto">
+    <p class="font-['K_Labil_Grotesk:50_Regular'] leading-[22px] text-[16px] md:text-[18px] md:leading-[26px] text-[#767066] text-center w-full m-0 -mb-[8px]">¡Tu perro ya está moviendo la cola!</p>
+    <h2 class="font-['Youth:Bold'] font-normal text-[#2a2724] text-[28px] leading-[32px] md:text-[34px] md:leading-[38px] text-center w-full m-0">
+      Descubre nuestras<br><span class="text-[#fa592d]">recetas cocinadas</span> para perros
+    </h2>
+    <div class="flex flex-wrap gap-[8px] md:gap-[16px] items-start justify-center pt-[8px] md:pt-[16px] w-full max-w-[342px] md:max-w-none" role="group" aria-label="Filtrar recetas">
+        <button type="button" data-chip="pollo" aria-pressed="false" aria-controls="m-receta-pollo" class="mrc-chip bg-[#f4f1ec] flex gap-[8px] items-center justify-center px-[14px] py-[6px] relative rounded-[999px] shrink-0 border-0 cursor-pointer transition-colors duration-200">
+          <span class="relative shrink-0 size-[24px]"><img alt="" class="absolute inset-0 block size-full object-contain" src="assets/recetas/chip-pollo.svg"></span>
+          <span class="font-['K_Labil_Grotesk:50_Regular'] leading-[22px] text-[#2a2724] text-[16px] text-center whitespace-nowrap">Pollo</span>
+        </button>
+        <button type="button" data-chip="salmon" aria-pressed="false" aria-controls="m-receta-salmon" class="mrc-chip bg-[#f4f1ec] flex gap-[8px] items-center justify-center px-[14px] py-[6px] relative rounded-[999px] shrink-0 border-0 cursor-pointer transition-colors duration-200">
+          <span class="relative shrink-0 size-[24px]"><img alt="" class="absolute inset-0 block size-full object-contain" src="assets/recetas/chip-salmon.svg"></span>
+          <span class="font-['K_Labil_Grotesk:50_Regular'] leading-[22px] text-[#2a2724] text-[16px] text-center whitespace-nowrap">Salmón</span>
+        </button>
+        <button type="button" data-chip="buey" aria-pressed="false" aria-controls="m-receta-buey" class="mrc-chip bg-[#f4f1ec] flex gap-[8px] items-center justify-center px-[14px] py-[6px] relative rounded-[999px] shrink-0 border-0 cursor-pointer transition-colors duration-200">
+          <span class="relative shrink-0 size-[24px]"><img alt="" class="absolute inset-0 block size-full object-contain" src="assets/recetas/chip-buey.svg"></span>
+          <span class="font-['K_Labil_Grotesk:50_Regular'] leading-[22px] text-[#2a2724] text-[16px] text-center whitespace-nowrap">Buey</span>
+        </button>
+        <button type="button" data-chip="pavo" aria-pressed="false" aria-controls="m-receta-pavo" class="mrc-chip bg-[#f4f1ec] flex gap-[8px] items-center justify-center px-[14px] py-[6px] relative rounded-[999px] shrink-0 border-0 cursor-pointer transition-colors duration-200">
+          <span class="relative shrink-0 size-[24px]"><img alt="" class="absolute inset-0 block size-full object-contain" src="assets/recetas/chip-pavo.svg"></span>
+          <span class="font-['K_Labil_Grotesk:50_Regular'] leading-[22px] text-[#2a2724] text-[16px] text-center whitespace-nowrap">Pavo</span>
+        </button>
+    </div>
+  </div>
+  <div class="flex flex-col gap-[24px] md:gap-[32px] items-center pt-[20px] md:pt-[32px] w-full">
+    <div class="w-full md:max-w-[720px] md:mx-auto md:px-[24px]">
+      <div class="mrc-scroller flex md:grid md:grid-cols-2 gap-[16px] md:gap-[20px] items-stretch overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none px-[24px] md:px-0 pt-[12px] pb-[24px]" aria-label="Recetas">
+        <article id="m-receta-pollo" data-receta="pollo" class="mrc-card snap-center md:snap-align-none bg-white flex flex-col overflow-clip relative rounded-[24px] md:rounded-[28px] shadow-[0px_1px_2px_0px_rgba(41,38,36,0.06),0px_16px_32px_-16px_rgba(41,38,36,0.22)] shrink-0 w-[280px] min-[400px]:w-[300px] md:w-auto md:min-w-0">
+          <div class="p-[8px] pb-0 w-full">
+            <div class="aspect-[4/3] relative overflow-hidden rounded-[18px] md:rounded-[22px] w-full">
+              <img alt="Receta de Pollo Dogfy" loading="lazy" class="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="assets/recetas/pollo.png">
+              <img alt="Envase Dogfy Diet Pollo" loading="lazy" class="mrc-pack absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="assets/recetas/pack-chicken.jpg">
+            </div>
+          </div>
+          <div class="flex flex-col gap-[10px] px-[18px] pt-[16px] pb-[18px] w-full flex-1">
+            <div class="flex items-baseline justify-between gap-[8px]">
+              <h3 class="font-['Youth:Bold'] font-normal leading-[24px] text-[#2a2724] text-[18px] m-0">Pollo</h3>
+              <span class="font-['K_Labil_Grotesk:70_Bold'] text-[13px] leading-[18px] text-[#2a2724] whitespace-nowrap">120.384 <span class="font-['K_Labil_Grotesk:50_Regular'] text-[#767066]">vendidos/mes</span></span>
+            </div>
+            <ul class="list-none m-0 p-0 flex flex-col gap-[2px] font-['K_Labil_Grotesk:50_Regular'] text-[14px] leading-[21px] text-[#767066]">
+              <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/heart.svg">Mantiene los músculos fuertes.</li>
+              <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/sparkles.svg">Favorece un pelaje sano y brillante.</li>
+              <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/ham.svg">Contiene una sola fuente de proteína.</li>
+            </ul>
+            <div class="flex justify-end pt-[4px] mt-auto">
+              <a href="https://dogfydiet.com/nuestras-recetas/menu-pollo" class="rc-toggle mrc-toggle no-underline inline-flex items-center gap-[4px] h-[36px] pl-[16px] pr-[12px] rounded-[999px] bg-[#f4f1ec] text-[#2a2724] transition-colors duration-200 hover:bg-[#ebe5dc]" aria-label="Ver la receta de Pollo">
+                <span class="font-['Youth:Medium'] leading-[18px] text-[14px] whitespace-nowrap" style="font-feature-settings:'liga' 0,'calt' 0">Ver receta</span>
+                <svg class="mrc-chev shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+              </a>
+            </div>
+          </div>
+          <!-- Panel de detalle (superpuesto sobre el cuerpo de la tarjeta; igual que escritorio, solo se cierra) -->
+          <div id="m-receta-pollo-detalle" class="mrc-detail absolute inset-0 bg-[#fffdf2] px-[20px] pt-[16px] pb-[16px] flex flex-col gap-[10px] overflow-y-auto" aria-hidden="true">
+            <div class="flex items-start justify-between gap-[16px]">
+              <h3 class="font-['Youth:Bold'] font-normal leading-[24px] text-[#2a2724] text-[18px] m-0">Pollo</h3>
+              <button type="button" class="mrc-close shrink-0 size-[36px] rounded-full bg-white text-[#2a2724] text-[18px] leading-none border-0 shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1)] hover:opacity-80" aria-label="Cerrar detalle">&times;</button>
+            </div>
+            <div>
+              <p class="font-['Youth:Medium'] text-[16px] leading-[24px] text-[#2a2724] m-0 mb-[4px]">Composición</p>
+              <div class="flex h-[12px] rounded-full overflow-hidden bg-white">
+                <div class="bg-[#fa592d] w-[60%]"></div><div class="bg-[#f7b199] w-[40%]"></div>
+              </div>
+              <div class="flex justify-between gap-[12px] mt-[6px] text-[13px] leading-[18px] text-[#565049]">
+                <span class="shrink-0"><span class="font-['K_Labil_Grotesk:70_Bold']">60%</span> pollo</span>
+                <span class="text-right"><span class="font-['K_Labil_Grotesk:70_Bold']">40%</span> zanahoria, calabaza y otras verduras</span>
+              </div>
+            </div>
+            <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[15px] leading-[22px] text-[#565049]">
+              <li class="flex gap-[10px]"><span class="text-[#fa592d]">&#10003;</span>Una sola fuente de proteína: pollo.</li>
+              <li class="flex gap-[10px]"><span class="text-[#fa592d]">&#10003;</span>Receta completa, con vitaminas y minerales.</li>
+              <li class="flex gap-[10px]"><span class="text-[#fa592d]">&#10003;</span>Cocinada a baja temperatura.</li>
+              <li class="flex gap-[10px]"><span class="text-[#fa592d]">&#10003;</span>Formulada por veterinarios nutricionistas.</li>
+            </ul>
+            <a href="https://dogfydiet.com/nuevo-plan?step=1" class="mt-auto self-center bg-[#f96237] flex items-center justify-center px-[24px] h-[48px] rounded-[999px] no-underline hover:brightness-110 transition">
+              <span class="font-['Youth:Medium'] leading-[24px] text-[16px] text-white" style="font-feature-settings:'liga' 0,'calt' 0">Crear su plan</span>
+            </a>
+          </div>
+        </article>
+        <article id="m-receta-salmon" data-receta="salmon" class="mrc-card snap-center md:snap-align-none bg-white flex flex-col overflow-clip relative rounded-[24px] md:rounded-[28px] shadow-[0px_1px_2px_0px_rgba(41,38,36,0.06),0px_16px_32px_-16px_rgba(41,38,36,0.22)] shrink-0 w-[280px] min-[400px]:w-[300px] md:w-auto md:min-w-0">
+          <div class="p-[8px] pb-0 w-full">
+            <div class="aspect-[4/3] relative overflow-hidden rounded-[18px] md:rounded-[22px] w-full">
+              <img alt="Receta de Salmón Dogfy" loading="lazy" class="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="assets/recetas/salmon.png">
+              <img alt="Envase Dogfy Diet Salmón" loading="lazy" class="mrc-pack absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="assets/recetas/pack-salmon.jpg">
+            </div>
+          </div>
+          <div class="flex flex-col gap-[10px] px-[18px] pt-[16px] pb-[18px] w-full flex-1">
+            <div class="flex items-baseline justify-between gap-[8px]">
+              <h3 class="font-['Youth:Bold'] font-normal leading-[24px] text-[#2a2724] text-[18px] m-0">Salmón</h3>
+              <span class="font-['K_Labil_Grotesk:70_Bold'] text-[13px] leading-[18px] text-[#2a2724] whitespace-nowrap">120.384 <span class="font-['K_Labil_Grotesk:50_Regular'] text-[#767066]">vendidos/mes</span></span>
+            </div>
+            <ul class="list-none m-0 p-0 flex flex-col gap-[2px] font-['K_Labil_Grotesk:50_Regular'] text-[14px] leading-[21px] text-[#767066]">
+              <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/heart.svg">Mantiene los músculos fuertes.</li>
+              <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/sparkles.svg">Favorece un pelaje sano y brillante.</li>
+              <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/ham.svg">Contiene una sola fuente de proteína.</li>
+            </ul>
+            <div class="flex justify-end pt-[4px] mt-auto">
+              <a href="https://dogfydiet.com/nuestras-recetas/menu-salmon" class="rc-toggle mrc-toggle no-underline inline-flex items-center gap-[4px] h-[36px] pl-[16px] pr-[12px] rounded-[999px] bg-[#f4f1ec] text-[#2a2724] transition-colors duration-200 hover:bg-[#ebe5dc]" aria-label="Ver la receta de Salmón">
+                <span class="font-['Youth:Medium'] leading-[18px] text-[14px] whitespace-nowrap" style="font-feature-settings:'liga' 0,'calt' 0">Ver receta</span>
+                <svg class="mrc-chev shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+              </a>
+            </div>
+          </div>
+          <!-- Panel de detalle (superpuesto sobre el cuerpo de la tarjeta; igual que escritorio, solo se cierra) -->
+          <div id="m-receta-salmon-detalle" class="mrc-detail absolute inset-0 bg-[#fef6fd] px-[20px] pt-[16px] pb-[16px] flex flex-col gap-[10px] overflow-y-auto" aria-hidden="true">
+            <div class="flex items-start justify-between gap-[16px]">
+              <h3 class="font-['Youth:Bold'] font-normal leading-[24px] text-[#2a2724] text-[18px] m-0">Salmón</h3>
+              <button type="button" class="mrc-close shrink-0 size-[36px] rounded-full bg-white text-[#2a2724] text-[18px] leading-none border-0 shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1)] hover:opacity-80" aria-label="Cerrar detalle">&times;</button>
+            </div>
+            <div>
+              <p class="font-['Youth:Medium'] text-[16px] leading-[24px] text-[#2a2724] m-0 mb-[4px]">Composición</p>
+              <div class="flex h-[12px] rounded-full overflow-hidden bg-white">
+                <div class="bg-[#fa592d] w-[60%]"></div><div class="bg-[#f7b199] w-[40%]"></div>
+              </div>
+              <div class="flex justify-between gap-[12px] mt-[6px] text-[13px] leading-[18px] text-[#565049]">
+                <span class="shrink-0"><span class="font-['K_Labil_Grotesk:70_Bold']">60%</span> salmón</span>
+                <span class="text-right"><span class="font-['K_Labil_Grotesk:70_Bold']">40%</span> zanahoria, calabaza y otras verduras</span>
+              </div>
+            </div>
+            <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[15px] leading-[22px] text-[#565049]">
+              <li class="flex gap-[10px]"><span class="text-[#fa592d]">&#10003;</span>Una sola fuente de proteína: salmón.</li>
+              <li class="flex gap-[10px]"><span class="text-[#fa592d]">&#10003;</span>Receta completa, con vitaminas y minerales.</li>
+              <li class="flex gap-[10px]"><span class="text-[#fa592d]">&#10003;</span>Cocinada a baja temperatura.</li>
+              <li class="flex gap-[10px]"><span class="text-[#fa592d]">&#10003;</span>Formulada por veterinarios nutricionistas.</li>
+            </ul>
+            <a href="https://dogfydiet.com/nuevo-plan?step=1" class="mt-auto self-center bg-[#f96237] flex items-center justify-center px-[24px] h-[48px] rounded-[999px] no-underline hover:brightness-110 transition">
+              <span class="font-['Youth:Medium'] leading-[24px] text-[16px] text-white" style="font-feature-settings:'liga' 0,'calt' 0">Crear su plan</span>
+            </a>
+          </div>
+        </article>
+        <article id="m-receta-buey" data-receta="buey" class="mrc-card snap-center md:snap-align-none bg-white flex flex-col overflow-clip relative rounded-[24px] md:rounded-[28px] shadow-[0px_1px_2px_0px_rgba(41,38,36,0.06),0px_16px_32px_-16px_rgba(41,38,36,0.22)] shrink-0 w-[280px] min-[400px]:w-[300px] md:w-auto md:min-w-0">
+          <div class="p-[8px] pb-0 w-full">
+            <div class="aspect-[4/3] relative overflow-hidden rounded-[18px] md:rounded-[22px] w-full">
+              <img alt="Receta de Buey Dogfy" loading="lazy" class="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="assets/recetas/buey.png">
+              <img alt="Envase Dogfy Diet Buey" loading="lazy" class="mrc-pack absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="assets/recetas/pack-beef.jpg">
+            </div>
+          </div>
+          <div class="flex flex-col gap-[10px] px-[18px] pt-[16px] pb-[18px] w-full flex-1">
+            <div class="flex items-baseline justify-between gap-[8px]">
+              <h3 class="font-['Youth:Bold'] font-normal leading-[24px] text-[#2a2724] text-[18px] m-0">Buey</h3>
+              <span class="font-['K_Labil_Grotesk:70_Bold'] text-[13px] leading-[18px] text-[#2a2724] whitespace-nowrap">120.384 <span class="font-['K_Labil_Grotesk:50_Regular'] text-[#767066]">vendidos/mes</span></span>
+            </div>
+            <ul class="list-none m-0 p-0 flex flex-col gap-[2px] font-['K_Labil_Grotesk:50_Regular'] text-[14px] leading-[21px] text-[#767066]">
+              <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/heart.svg">Mantiene los músculos fuertes.</li>
+              <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/sparkles.svg">Favorece un pelaje sano y brillante.</li>
+              <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/ham.svg">Contiene una sola fuente de proteína.</li>
+            </ul>
+            <div class="flex justify-end pt-[4px] mt-auto">
+              <a href="https://dogfydiet.com/nuestras-recetas/menu-buey" class="rc-toggle mrc-toggle no-underline inline-flex items-center gap-[4px] h-[36px] pl-[16px] pr-[12px] rounded-[999px] bg-[#f4f1ec] text-[#2a2724] transition-colors duration-200 hover:bg-[#ebe5dc]" aria-label="Ver la receta de Buey">
+                <span class="font-['Youth:Medium'] leading-[18px] text-[14px] whitespace-nowrap" style="font-feature-settings:'liga' 0,'calt' 0">Ver receta</span>
+                <svg class="mrc-chev shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+              </a>
+            </div>
+          </div>
+          <!-- Panel de detalle (superpuesto sobre el cuerpo de la tarjeta; igual que escritorio, solo se cierra) -->
+          <div id="m-receta-buey-detalle" class="mrc-detail absolute inset-0 bg-[#fff5f4] px-[20px] pt-[16px] pb-[16px] flex flex-col gap-[10px] overflow-y-auto" aria-hidden="true">
+            <div class="flex items-start justify-between gap-[16px]">
+              <h3 class="font-['Youth:Bold'] font-normal leading-[24px] text-[#2a2724] text-[18px] m-0">Buey</h3>
+              <button type="button" class="mrc-close shrink-0 size-[36px] rounded-full bg-white text-[#2a2724] text-[18px] leading-none border-0 shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1)] hover:opacity-80" aria-label="Cerrar detalle">&times;</button>
+            </div>
+            <div>
+              <p class="font-['Youth:Medium'] text-[16px] leading-[24px] text-[#2a2724] m-0 mb-[4px]">Composición</p>
+              <div class="flex h-[12px] rounded-full overflow-hidden bg-white">
+                <div class="bg-[#fa592d] w-[60%]"></div><div class="bg-[#f7b199] w-[40%]"></div>
+              </div>
+              <div class="flex justify-between gap-[12px] mt-[6px] text-[13px] leading-[18px] text-[#565049]">
+                <span class="shrink-0"><span class="font-['K_Labil_Grotesk:70_Bold']">60%</span> buey</span>
+                <span class="text-right"><span class="font-['K_Labil_Grotesk:70_Bold']">40%</span> zanahoria, calabaza y otras verduras</span>
+              </div>
+            </div>
+            <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[15px] leading-[22px] text-[#565049]">
+              <li class="flex gap-[10px]"><span class="text-[#fa592d]">&#10003;</span>Una sola fuente de proteína: buey.</li>
+              <li class="flex gap-[10px]"><span class="text-[#fa592d]">&#10003;</span>Receta completa, con vitaminas y minerales.</li>
+              <li class="flex gap-[10px]"><span class="text-[#fa592d]">&#10003;</span>Cocinada a baja temperatura.</li>
+              <li class="flex gap-[10px]"><span class="text-[#fa592d]">&#10003;</span>Formulada por veterinarios nutricionistas.</li>
+            </ul>
+            <a href="https://dogfydiet.com/nuevo-plan?step=1" class="mt-auto self-center bg-[#f96237] flex items-center justify-center px-[24px] h-[48px] rounded-[999px] no-underline hover:brightness-110 transition">
+              <span class="font-['Youth:Medium'] leading-[24px] text-[16px] text-white" style="font-feature-settings:'liga' 0,'calt' 0">Crear su plan</span>
+            </a>
+          </div>
+        </article>
+        <article id="m-receta-pavo" data-receta="pavo" class="mrc-card snap-center md:snap-align-none bg-white flex flex-col overflow-clip relative rounded-[24px] md:rounded-[28px] shadow-[0px_1px_2px_0px_rgba(41,38,36,0.06),0px_16px_32px_-16px_rgba(41,38,36,0.22)] shrink-0 w-[280px] min-[400px]:w-[300px] md:w-auto md:min-w-0">
+          <div class="p-[8px] pb-0 w-full">
+            <div class="aspect-[4/3] relative overflow-hidden rounded-[18px] md:rounded-[22px] w-full">
+              <img alt="Receta de Pavo Dogfy" loading="lazy" class="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="assets/recetas/pavo.png">
+              <img alt="Envase Dogfy Diet Pavo" loading="lazy" class="mrc-pack absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="assets/recetas/pack-turkey.jpg">
+            </div>
+          </div>
+          <div class="flex flex-col gap-[10px] px-[18px] pt-[16px] pb-[18px] w-full flex-1">
+            <div class="flex items-baseline justify-between gap-[8px]">
+              <h3 class="font-['Youth:Bold'] font-normal leading-[24px] text-[#2a2724] text-[18px] m-0">Pavo</h3>
+              <span class="font-['K_Labil_Grotesk:70_Bold'] text-[13px] leading-[18px] text-[#2a2724] whitespace-nowrap">120.384 <span class="font-['K_Labil_Grotesk:50_Regular'] text-[#767066]">vendidos/mes</span></span>
+            </div>
+            <ul class="list-none m-0 p-0 flex flex-col gap-[2px] font-['K_Labil_Grotesk:50_Regular'] text-[14px] leading-[21px] text-[#767066]">
+              <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/heart.svg">Mantiene los músculos fuertes.</li>
+              <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/sparkles.svg">Favorece un pelaje sano y brillante.</li>
+              <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/ham.svg">Contiene una sola fuente de proteína.</li>
+            </ul>
+            <div class="flex justify-end pt-[4px] mt-auto">
+              <a href="https://dogfydiet.com/nuestras-recetas/menu-pavo" class="rc-toggle mrc-toggle no-underline inline-flex items-center gap-[4px] h-[36px] pl-[16px] pr-[12px] rounded-[999px] bg-[#f4f1ec] text-[#2a2724] transition-colors duration-200 hover:bg-[#ebe5dc]" aria-label="Ver la receta de Pavo">
+                <span class="font-['Youth:Medium'] leading-[18px] text-[14px] whitespace-nowrap" style="font-feature-settings:'liga' 0,'calt' 0">Ver receta</span>
+                <svg class="mrc-chev shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+              </a>
+            </div>
+          </div>
+          <!-- Panel de detalle (superpuesto sobre el cuerpo de la tarjeta; igual que escritorio, solo se cierra) -->
+          <div id="m-receta-pavo-detalle" class="mrc-detail absolute inset-0 bg-[#f7f3fe] px-[20px] pt-[16px] pb-[16px] flex flex-col gap-[10px] overflow-y-auto" aria-hidden="true">
+            <div class="flex items-start justify-between gap-[16px]">
+              <h3 class="font-['Youth:Bold'] font-normal leading-[24px] text-[#2a2724] text-[18px] m-0">Pavo</h3>
+              <button type="button" class="mrc-close shrink-0 size-[36px] rounded-full bg-white text-[#2a2724] text-[18px] leading-none border-0 shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1)] hover:opacity-80" aria-label="Cerrar detalle">&times;</button>
+            </div>
+            <div>
+              <p class="font-['Youth:Medium'] text-[16px] leading-[24px] text-[#2a2724] m-0 mb-[4px]">Composición</p>
+              <div class="flex h-[12px] rounded-full overflow-hidden bg-white">
+                <div class="bg-[#fa592d] w-[60%]"></div><div class="bg-[#f7b199] w-[40%]"></div>
+              </div>
+              <div class="flex justify-between gap-[12px] mt-[6px] text-[13px] leading-[18px] text-[#565049]">
+                <span class="shrink-0"><span class="font-['K_Labil_Grotesk:70_Bold']">60%</span> pavo</span>
+                <span class="text-right"><span class="font-['K_Labil_Grotesk:70_Bold']">40%</span> zanahoria, calabaza y otras verduras</span>
+              </div>
+            </div>
+            <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[15px] leading-[22px] text-[#565049]">
+              <li class="flex gap-[10px]"><span class="text-[#fa592d]">&#10003;</span>Una sola fuente de proteína: pavo.</li>
+              <li class="flex gap-[10px]"><span class="text-[#fa592d]">&#10003;</span>Receta completa, con vitaminas y minerales.</li>
+              <li class="flex gap-[10px]"><span class="text-[#fa592d]">&#10003;</span>Cocinada a baja temperatura.</li>
+              <li class="flex gap-[10px]"><span class="text-[#fa592d]">&#10003;</span>Formulada por veterinarios nutricionistas.</li>
+            </ul>
+            <a href="https://dogfydiet.com/nuevo-plan?step=1" class="mt-auto self-center bg-[#f96237] flex items-center justify-center px-[24px] h-[48px] rounded-[999px] no-underline hover:brightness-110 transition">
+              <span class="font-['Youth:Medium'] leading-[24px] text-[16px] text-white" style="font-feature-settings:'liga' 0,'calt' 0">Crear su plan</span>
+            </a>
+          </div>
+        </article>
+        <span class="shrink-0 w-[8px] md:hidden" aria-hidden="true"></span>
+      </div>
+    </div>
+    <div class="px-[24px] w-full flex justify-center">
+      <a href="https://dogfydiet.com/nuevo-plan?step=1" class="bg-[#f96237] flex items-center justify-center px-[24px] h-[48px] rounded-[999px] w-full max-w-[342px] md:w-auto md:max-w-none no-underline hover:brightness-110 transition">
+        <span class="font-['Youth:Medium'] leading-[24px] text-[16px] text-center text-white whitespace-nowrap" style="font-feature-settings:'liga' 0,'calt' 0">Crear su plan</span>
+      </a>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var root = document.getElementById('m-recetas');
+    if (!root) return;
+    var chips = root.querySelectorAll('.mrc-chip');
+    var cards = root.querySelectorAll('.mrc-card');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var hlTimer;
+    // Selectores: llevan a su tarjeta (scroll vertical + carrusel horizontal) y la resaltan 3 s
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var card = root.querySelector('#m-receta-' + chip.getAttribute('data-chip'));
+        chips.forEach(function (c) { var on = c === chip; c.classList.toggle('is-active', on); c.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+        cards.forEach(function (c) { c.classList.toggle('is-highlight', c === card); });
+        if (card) card.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center', inline: 'center' });
+        clearTimeout(hlTimer);
+        hlTimer = setTimeout(function () {
+          cards.forEach(function (c) { c.classList.remove('is-highlight'); });
+          chips.forEach(function (c) { c.classList.remove('is-active'); c.setAttribute('aria-pressed', 'false'); });
+        }, 3000);
+      });
+    });
+    // Toda la tarjeta lleva a su receta, igual que su enlace "Ver receta"
+    cards.forEach(function (card) {
+      var link = card.querySelector('.mrc-toggle');
+      if (!link) return;
+      // Táctil: al pulsar se muestra el estado hover (envase + elevación) mientras dura el toque
+      card.addEventListener('touchstart', function () { card.classList.add('is-press'); }, { passive: true });
+      ['touchend', 'touchcancel', 'touchmove'].forEach(function (ev) {
+        card.addEventListener(ev, function () { setTimeout(function () { card.classList.remove('is-press'); }, ev === 'touchend' ? 350 : 0); }, { passive: true });
+      });
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('a, button') || String(window.getSelection())) return;
+        if (e.metaKey || e.ctrlKey) window.open(link.href, '_blank');
+        else window.location.href = link.href;
+      });
+    });
+    function setOpen(card, open) {
+      card.classList.toggle('is-open', open);
+      card.querySelector('.mrc-detail').setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+    cards.forEach(function (card) {
+      card.querySelector('.mrc-close').addEventListener('click', function () { setOpen(card, false); });
+    });
+    root.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') cards.forEach(function (c) { setOpen(c, false); });
+    });
+  })();
+  </script>
+</section>
