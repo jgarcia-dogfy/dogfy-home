@@ -7,23 +7,23 @@
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 <style>
   /* Las clases que genera Figma usan los nombres de estilo como familia ('Youth:Bold', ...) */
-  @font-face { font-family: "Youth:Bold"; src: url(fonts/Youth-Bold.otf); font-display: swap; }
-  @font-face { font-family: "Youth:Medium"; src: url(fonts/Youth-Medium.otf); font-display: swap; }
-  @font-face { font-family: "Youth:Black"; src: url(fonts/Youth-Black.otf); font-display: swap; }
-  @font-face { font-family: "K_Labil_Grotesk:50_Regular"; src: url(fonts/KLabilGrotesk-50Regular.otf); font-display: swap; }
-  @font-face { font-family: "K_Labil_Grotesk:70_Bold"; src: url(fonts/KLabilGrotesk-70Bold.otf); font-display: swap; }
-  @font-face { font-family: "Labil_Grotesk:Regular"; src: url(fonts/KLabilGrotesk-50Regular.otf); font-display: swap; }
-  @font-face { font-family: "Labil_Grotesk:Bold"; src: url(fonts/KLabilGrotesk-70Bold.otf); font-display: swap; }
-  @font-face { font-family: "Youth"; src: url(fonts/Youth-Medium.otf); font-weight: 500; }
-  @font-face { font-family: "Youth"; src: url(fonts/Youth-Bold.otf); font-weight: 700; }
-  @font-face { font-family: "Youth"; src: url(fonts/Youth-Black.otf); font-weight: 900; }
-  @font-face { font-family: "K Labil Grotesk"; src: url(fonts/KLabilGrotesk-50Regular.otf); font-weight: 400; }
-  @font-face { font-family: "K Labil Grotesk"; src: url(fonts/KLabilGrotesk-70Bold.otf); font-weight: 700; }
+  @font-face { font-family: "Youth:Bold"; src: url(fonts/Youth-Bold.otf) format('opentype'), url(https://fonts.gstatic.com/s/outfit/v15/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyO4a0FQItq6fNIg.woff) format('woff'); font-display: swap; }
+  @font-face { font-family: "Youth:Medium"; src: url(fonts/Youth-Medium.otf) format('opentype'), url(https://fonts.gstatic.com/s/outfit/v15/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1O4a0FQItq6fNIg.woff) format('woff'); font-display: swap; }
+  @font-face { font-family: "Youth:Black"; src: url(fonts/Youth-Black.otf) format('opentype'), url(https://fonts.gstatic.com/s/outfit/v15/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyO4a0FQItq6fNIg.woff) format('woff'); font-display: swap; }
+  @font-face { font-family: "K_Labil_Grotesk:50_Regular"; src: url(fonts/KLabilGrotesk-50Regular.otf) format('opentype'), url(https://fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAopxRSW3wRmYJp8I5.woff) format('woff'); font-display: swap; }
+  @font-face { font-family: "K_Labil_Grotesk:70_Bold"; src: url(fonts/KLabilGrotesk-70Bold.otf) format('opentype'), url(https://fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwARZtRSW3wRmYJp8I5.woff) format('woff'); font-display: swap; }
+  @font-face { font-family: "Labil_Grotesk:Regular"; src: url(fonts/KLabilGrotesk-50Regular.otf) format('opentype'), url(https://fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAopxRSW3wRmYJp8I5.woff) format('woff'); font-display: swap; }
+  @font-face { font-family: "Labil_Grotesk:Bold"; src: url(fonts/KLabilGrotesk-70Bold.otf) format('opentype'), url(https://fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwARZtRSW3wRmYJp8I5.woff) format('woff'); font-display: swap; }
+  @font-face { font-family: "Youth"; src: url(fonts/Youth-Medium.otf) format('opentype'), url(https://fonts.gstatic.com/s/outfit/v15/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1O4a0FQItq6fNIg.woff) format('woff'); font-weight: 500; }
+  @font-face { font-family: "Youth"; src: url(fonts/Youth-Bold.otf) format('opentype'), url(https://fonts.gstatic.com/s/outfit/v15/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyO4a0FQItq6fNIg.woff) format('woff'); font-weight: 700; }
+  @font-face { font-family: "Youth"; src: url(fonts/Youth-Black.otf) format('opentype'), url(https://fonts.gstatic.com/s/outfit/v15/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyO4a0FQItq6fNIg.woff) format('woff'); font-weight: 900; }
+  @font-face { font-family: "K Labil Grotesk"; src: url(fonts/KLabilGrotesk-50Regular.otf) format('opentype'), url(https://fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAopxRSW3wRmYJp8I5.woff) format('woff'); font-weight: 400; }
+  @font-face { font-family: "K Labil Grotesk"; src: url(fonts/KLabilGrotesk-70Bold.otf) format('opentype'), url(https://fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwARZtRSW3wRmYJp8I5.woff) format('woff'); font-weight: 700; }
   /* Tailwind convierte "_" en espacios dentro de valores arbitrarios */
-  @font-face { font-family: "K Labil Grotesk:50 Regular"; src: url(fonts/KLabilGrotesk-50Regular.otf); font-display: swap; }
-  @font-face { font-family: "K Labil Grotesk:70 Bold"; src: url(fonts/KLabilGrotesk-70Bold.otf); font-display: swap; }
-  @font-face { font-family: "Labil Grotesk:Regular"; src: url(fonts/KLabilGrotesk-50Regular.otf); font-display: swap; }
-  @font-face { font-family: "Labil Grotesk:Bold"; src: url(fonts/KLabilGrotesk-70Bold.otf); font-display: swap; }
+  @font-face { font-family: "K Labil Grotesk:50 Regular"; src: url(fonts/KLabilGrotesk-50Regular.otf) format('opentype'), url(https://fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAopxRSW3wRmYJp8I5.woff) format('woff'); font-display: swap; }
+  @font-face { font-family: "K Labil Grotesk:70 Bold"; src: url(fonts/KLabilGrotesk-70Bold.otf) format('opentype'), url(https://fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwARZtRSW3wRmYJp8I5.woff) format('woff'); font-display: swap; }
+  @font-face { font-family: "Labil Grotesk:Regular"; src: url(fonts/KLabilGrotesk-50Regular.otf) format('opentype'), url(https://fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAopxRSW3wRmYJp8I5.woff) format('woff'); font-display: swap; }
+  @font-face { font-family: "Labil Grotesk:Bold"; src: url(fonts/KLabilGrotesk-70Bold.otf) format('opentype'), url(https://fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwARZtRSW3wRmYJp8I5.woff) format('woff'); font-display: swap; }
   html { scroll-behavior: smooth; }
   body { margin: 0; background: #fff; color: #2a2724; font-family: "K_Labil_Grotesk:50_Regular", "K Labil Grotesk", system-ui, sans-serif; overflow-x: hidden; }
   /* Lienzo de diseño: 1428px de ancho; se escala para caber en ventanas más estrechas */
