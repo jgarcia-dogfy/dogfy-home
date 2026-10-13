@@ -1,0 +1,78 @@
+<section id="empecemos" class="relative w-[1428px] bg-[#dbeafe]" style="height:515px; overflow-x:clip; overflow-y:visible; z-index:2">
+  <style>
+    #empecemos .emp-field { transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease; }
+    #empecemos .emp-field:hover { background-color: #faf7f3; border-color: #e4ddd5; }
+    #empecemos .emp-field:focus-within, #empecemos .emp-field[data-state=open] { border-color: #ff6d45; box-shadow: 0 0 0 3px rgba(255,109,69,.35); }
+    #empecemos .emp-field:hover:not([data-state=open]) [data-nui-chevron] { transform: translateY(2px); }
+  </style>
+  <!-- Tarjeta con foto (360px de alto, como la franja "Sí, es real.") -->
+  <div class="absolute h-[515px] left-[-2px] top-0 w-[1432.169px] rounded-[30px] overflow-hidden">
+    <img alt="Dos setters irlandeses junto a una caja de Dogfy Diet" class="absolute inset-0 block size-full max-w-none object-cover" src="assets/empecemos/setters.jpg">
+    <!-- Degradado para que el texto blanco se lea sobre la foto -->
+    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.3) 40%, rgba(0,0,0,0) 65%)"></div>
+  </div>
+  <div class="absolute flex flex-col gap-[32px] items-start left-[66.17px] top-1/2 -translate-y-1/2 w-[538px]">
+    <div class="flex flex-col gap-[24px] items-start not-italic relative shrink-0 text-white w-full [word-break:break-word]">
+      <h2 class="m-0 font-['Youth:Bold'] font-normal leading-[34px] text-[30px] whitespace-nowrap">Empecemos por tu perro.</h2>
+      <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] leading-[28px] text-[18px]">Cuéntanos cómo es. Calculamos su ración<br>y te mostramos el precio. Tú eliges las recetas.</p>
+    </div>
+    <form class="emp-form flex gap-[16px] items-center relative shrink-0" novalidate>
+      <div class="flex flex-col gap-[8px] items-start justify-center relative shrink-0 w-[300px]">
+        <div data-nui-anchor class="emp-field relative w-full h-[48px] rounded-[12px] border-[1.5px] border-solid border-transparent bg-white transition-[border-color,box-shadow] duration-200">
+          <label for="emp-raza" class="sr-only">¿Cuál es la raza de tu perro?</label>
+          <select data-nui-select id="emp-raza" name="raza" required class="emp-select block w-full appearance-none bg-transparent border-0 outline-none cursor-pointer rounded-[12px] h-full pl-[14px] pr-[42px] py-0 font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[24px] text-[#767066]">
+            <option value="" selected disabled>¿Cuál es la raza de tu perro?</option>
+            <option>Mestizo</option>
+            <option>Labrador</option>
+            <option>Golden Retriever</option>
+            <option>Bulldog francés</option>
+            <option>Chihuahua</option>
+            <option>Border Collie</option>
+            <option>Teckel</option>
+            <option>Pastor alemán</option>
+            <option>Caniche</option>
+            <option>Yorkshire Terrier</option>
+            <option>Beagle</option>
+            <option>Otra raza</option>
+          </select>
+          <div data-nui-chevron class="pointer-events-none absolute right-[14px] top-1/2 -translate-y-1/2 size-[20px]">
+            <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/empecemos/chevron-down.svg">
+          </div>
+        </div>
+      </div>
+      <a href="https://dogfydiet.com/nuevo-plan?step=1" class="emp-cta bg-[#f96237] flex items-center justify-center px-[24px] h-[48px] relative rounded-[999px] no-underline transition-[filter,transform] duration-200 hover:brightness-110 active:scale-[0.98]">
+        <span class="emp-cta-label [word-break:break-word] font-['Youth:Medium'] leading-[24px] not-italic text-[16px] text-center text-white whitespace-nowrap" style="font-feature-settings: 'liga' 0, 'calt' 0">Crear su Menú</span>
+      </a>
+      <p class="emp-msg absolute left-0 top-full mt-[8px] whitespace-nowrap m-0 font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[24px] text-white opacity-0 transition-opacity duration-200" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+<script>
+(function () {
+  var root = document.getElementById('empecemos');
+  if (!root) return;
+  var sel = root.querySelector('.emp-select');
+  var field = root.querySelector('.emp-field');
+  var cta = root.querySelector('.emp-cta');
+  var label = root.querySelector('.emp-cta-label');
+  var msg = root.querySelector('.emp-msg');
+  function setError(on) {
+    field.style.borderColor = on ? '#e5484d' : '';
+    field.style.boxShadow = on ? '0 0 0 3px rgba(229,72,77,.35)' : '';
+    msg.textContent = on ? 'Elige la raza de tu perro para continuar.' : '';
+    msg.style.opacity = on ? '1' : '0';
+  }
+  sel.addEventListener('change', function () {
+    sel.style.color = sel.value ? '#2a2724' : '';
+    setError(false);
+    label.textContent = 'Crear su Menú';
+  });
+  cta.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (!sel.value) { setError(true); sel.focus(); return; }
+    setError(false);
+    label.textContent = '¡Vamos con tu ' + sel.value + '!';
+    window.location.href = cta.href;
+  });
+})();
+</script>

@@ -1,0 +1,157 @@
+<header id="site-header" class="sticky top-0 z-50 w-[1428px]" style="height:96px; margin-bottom:-96px">
+  <style>
+    #site-header .hdr-bg { position:absolute; inset:0; background:#fff; opacity:0; box-shadow:0 2px 16px rgba(42,39,36,.08); transition:opacity .25s; }
+    #site-header .hdr-txt { transition:color .25s; }
+    #site-header .hdr-ico { transition:filter .25s; }
+    #site-header.is-scrolled .hdr-bg { opacity:1; }
+    /* Al hacer scroll fuera del hero el header se compacta: 96px → 72px, contenido centrado */
+    #site-header { transition: height .25s ease, margin-bottom .25s ease; }
+    #site-header .hdr-item { transition: transform .25s ease; }
+    #site-header.is-scrolled { height:72px !important; margin-bottom:-72px !important; }
+    #site-header.is-scrolled .hdr-item { transform: translateY(-19px); }
+    /* Mientras se hace scroll sobre el hero: degradado oscuro sutil para que el menú blanco tenga contraste */
+    #site-header .hdr-shade { position:absolute; left:0; right:0; top:0; height:150px; pointer-events:none; opacity:0; transition:opacity .3s ease;
+      background:linear-gradient(180deg, rgba(24,20,16,.55) 0%, rgba(24,20,16,.32) 45%, rgba(24,20,16,0) 100%); }
+    #site-header.is-over-hero .hdr-shade { opacity:1; }
+    #site-header.is-scrolled .hdr-shade { opacity:0; }
+    #site-header.is-scrolled .hdr-txt { color:#2a2724; }
+    #site-header.is-scrolled .hdr-ico { filter:brightness(0) opacity(.85); }
+  </style>
+  <div class="hdr-shade"></div>
+  <div class="hdr-bg"></div>
+  <!-- Logo -->
+  <a href="#" aria-label="Dogfy Diet · Volver al inicio" class="hdr-logo hdr-item absolute block hover:opacity-85" style="left:81px; top:33px; width:77.753px; height:43.785px">
+    <img alt="Dogfy Diet" class="absolute block inset-0 max-w-none size-full" src="assets/hero/dogfy-logo.svg">
+  </a>
+
+  <!-- Nav links -->
+  <nav class="hdr-nav hdr-item absolute flex font-['K_Labil_Grotesk:50_Regular'] gap-[24px] items-center leading-[1.14] text-[14px] text-white whitespace-nowrap" style="left:188px; top:46.77px; width:556px; height:16px">
+    <a href="#como-empezar" class="hdr-txt text-white no-underline hover:opacity-75">Cómo funciona</a>
+    <a href="#recetas" class="hdr-txt text-white no-underline hover:opacity-75">Nuestras recetas</a>
+    <a href="#conoce" class="hdr-txt text-white no-underline hover:opacity-75">Nutricionistas</a>
+    <a href="#testimonios" class="hdr-txt text-white no-underline hover:opacity-75">Opiniones</a>
+    <a href="#faq" class="hdr-txt text-white no-underline hover:opacity-75">Ayuda</a>
+    <a href="#footer" class="hdr-txt text-white no-underline hover:opacity-75">Blog</a>
+  </nav>
+
+  <!-- Top-right actions (Group 273) -->
+  <div class="hdr-item absolute flex gap-[19px] items-center" style="left:1000.76px; top:33.01px">
+    <!-- Selector de idioma (estilo UDropdownMenu de Nuxt UI) -->
+    <div class="lang relative shrink-0 flex items-center" style="height:18px">
+      <button type="button" class="lang-trigger flex items-center gap-[6px] h-full p-0 m-0 border-0 bg-transparent hover:opacity-75" aria-haspopup="menu" aria-expanded="false" aria-controls="lang-menu" aria-label="Idioma: Castellano">
+        <span class="lang-code block font-['K_Labil_Grotesk:50_Regular'] leading-[1.14] text-[15.879px] hdr-txt text-white whitespace-nowrap">ES</span>
+        <span class="lang-chevron relative block shrink-0" style="width:12px; height:6.55px"><img alt="" src="assets/hero/lang-chevron.svg" class="hdr-ico absolute block inset-0 max-w-none size-full"></span>
+      </button>
+      <div id="lang-menu" class="lang-menu" role="menu" aria-label="Idioma" hidden>
+        <button type="button" role="menuitemradio" class="lang-item" data-code="CA" data-lang="ca" data-name="Català"><span class="lang-flag"><svg viewBox="0 0 9 6" aria-hidden="true"><rect width="9" height="6" fill="#FCDD09"/><path d="M0 .667h9M0 2h9M0 3.333h9M0 4.667h9" stroke="#DA121A" stroke-width=".667"/></svg></span><span class="lang-label">Català</span><svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+        <button type="button" role="menuitemradio" class="lang-item" data-code="EN" data-lang="en" data-name="English"><span class="lang-flag">🇬🇧</span><span class="lang-label">English</span><svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+        <button type="button" role="menuitemradio" class="lang-item" data-code="ES" data-lang="es" data-name="Castellano" aria-checked="true"><span class="lang-flag">🇪🇸</span><span class="lang-label">Castellano</span><svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+        <button type="button" role="menuitemradio" class="lang-item" data-code="FR" data-lang="fr" data-name="Français"><span class="lang-flag">🇫🇷</span><span class="lang-label">Français</span><svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+        <button type="button" role="menuitemradio" class="lang-item" data-code="IT" data-lang="it" data-name="Italiano"><span class="lang-flag">🇮🇹</span><span class="lang-label">Italiano</span><svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+        <button type="button" role="menuitemradio" class="lang-item" data-code="DE" data-lang="de" data-name="Deutsch"><span class="lang-flag">🇩🇪</span><span class="lang-label">Deutsch</span><svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+      </div>
+    </div>
+    <a href="#hero" class="flex gap-[7px] items-center relative shrink-0 no-underline hover:opacity-75">
+      <span class="relative block shrink-0 size-[22.356px]"><img alt="" class="hdr-ico absolute block inset-0 max-w-none size-full" src="assets/hero/user.svg"></span>
+      <span class="font-['K_Labil_Grotesk:50_Regular'] leading-[1.14] text-[15.879px] hdr-txt text-white whitespace-nowrap">Mi Cuenta</span>
+    </a>
+    <a href="https://dogfydiet.com/nuevo-plan?step=1" class="bg-[#f96237] flex items-center justify-center px-[24px] h-[48px] relative rounded-[999px] shrink-0 no-underline transition hover:brightness-110">
+      <span class="font-['Youth:Medium'] leading-[24px] text-[16px] text-white whitespace-nowrap">Calcular mi precio</span>
+    </a>
+  </div>
+
+  <style>
+    /* Menú de idioma: mismos tokens que el SelectMenu (Nuxt UI → paleta Dogfy) */
+    #site-header .lang-chevron { transition: transform .2s; }
+    #site-header .lang[data-state=open] .lang-chevron { transform: rotate(180deg); }
+    #site-header .lang-menu { position:absolute; top:calc(100% + 14px); right:-12px; z-index:60; width:220px; padding:4px; background:#fff; border-radius:6px; box-shadow:0 0 0 1px #ebe4da, 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.1); transform-origin:top right; font-family:'K Labil Grotesk',system-ui,sans-serif; isolation:isolate; }
+    #site-header .lang-menu[data-state=open] { animation: nui-scale-in .1s ease-out; }
+    #site-header .lang-menu[data-state=closed] { animation: nui-scale-out .1s ease-in forwards; }
+    #site-header .lang-item { position:relative; display:flex; align-items:center; gap:10px; width:100%; padding:8px 10px; border:0; background:transparent; font:inherit; font-size:18px; line-height:28px; font-weight:400; color:#565049; text-align:left; cursor:pointer; outline:0; }
+    #site-header .lang-item::before { content:""; position:absolute; inset:1px; z-index:-1; border-radius:6px; transition:background-color .15s; }
+    #site-header .lang-item:hover, #site-header .lang-item:focus-visible { color:#2a2724; }
+    #site-header .lang-item:hover::before, #site-header .lang-item:focus-visible::before { background:#f6f1ec; }
+    #site-header .lang-item[aria-checked=true] { color:#2a2724; }
+    #site-header .lang-flag { flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; width:24px; font-size:20px; line-height:1; font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif; }
+    #site-header .lang-flag svg { width:22px; height:auto; border-radius:2px; }
+    #site-header .lang-label { flex:1; }
+    #site-header .lang-check { flex-shrink:0; width:24px; height:24px; color:#ff6d45; opacity:0; }
+    #site-header .lang-item[aria-checked=true] .lang-check { opacity:1; }
+    @keyframes nui-scale-in { from { opacity:0; transform:scale(.95) } to { opacity:1; transform:scale(1) } }
+    @keyframes nui-scale-out { from { opacity:1; transform:scale(1) } to { opacity:0; transform:scale(.95) } }
+  </style>
+  <script>
+    (function () {
+      var root = document.querySelector('#site-header .lang');
+      var trigger = root.querySelector('.lang-trigger');
+      var menu = root.querySelector('.lang-menu');
+      var code = root.querySelector('.lang-code');
+      var items = Array.prototype.slice.call(menu.querySelectorAll('.lang-item'));
+      function isOpen() { return root.dataset.state === 'open'; }
+      function open(focusIdx) {
+        menu.hidden = false;
+        menu.dataset.state = 'open';
+        root.dataset.state = 'open';
+        trigger.setAttribute('aria-expanded', 'true');
+        var i = focusIdx != null ? focusIdx : Math.max(0, items.findIndex(function (it) { return it.getAttribute('aria-checked') === 'true'; }));
+        items[i].focus({ preventScroll: true });
+      }
+      function close(refocus) {
+        if (!isOpen()) return;
+        menu.dataset.state = 'closed';
+        root.dataset.state = 'closed';
+        trigger.setAttribute('aria-expanded', 'false');
+        setTimeout(function () { if (menu.dataset.state === 'closed') menu.hidden = true; }, 100);
+        if (refocus) trigger.focus({ preventScroll: true });
+      }
+      function choose(it) {
+        items.forEach(function (x) { x.setAttribute('aria-checked', x === it ? 'true' : 'false'); });
+        code.textContent = it.dataset.code;
+        trigger.setAttribute('aria-label', 'Idioma: ' + it.dataset.name);
+        document.documentElement.lang = it.dataset.lang;
+        close(true);
+      }
+      items.forEach(function (it) { if (!it.hasAttribute('aria-checked')) it.setAttribute('aria-checked', 'false'); it.tabIndex = -1; it.addEventListener('click', function () { choose(it); }); });
+      trigger.addEventListener('click', function () { isOpen() ? close(true) : open(); });
+      trigger.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); open(e.key === 'ArrowUp' ? items.length - 1 : 0); }
+      });
+      menu.addEventListener('keydown', function (e) {
+        var i = items.indexOf(document.activeElement);
+        if (e.key === 'ArrowDown') { e.preventDefault(); items[(i + 1) % items.length].focus(); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
+        else if (e.key === 'Home') { e.preventDefault(); items[0].focus(); }
+        else if (e.key === 'End') { e.preventDefault(); items[items.length - 1].focus(); }
+        else if (e.key === 'Escape') { e.preventDefault(); close(true); }
+        else if (e.key === 'Tab') { close(false); }
+      });
+      items.forEach(function (it) { it.addEventListener('mousemove', function () { it.focus({ preventScroll: true }); }); });
+      document.addEventListener('mousedown', function (e) { if (isOpen() && !root.contains(e.target)) close(false); });
+    })();
+  </script>
+  <script>
+    (function () {
+      var h = document.getElementById('site-header');
+      // El header pasa a blanco solo cuando el hero ya ha quedado por detrás de él
+      var hero = null; // el hero va después del header en el DOM: se busca al hacer scroll
+      function onScroll() {
+        hero = hero || document.getElementById('hero');
+        if (!hero) return;
+        // Umbral fijo (alto del header sin compactar) para que no parpadee al cambiar de 96 a 72px
+        var zoom = parseFloat(document.getElementById('canvas').style.zoom) || 1;
+        var past = hero.getBoundingClientRect().bottom <= 96 * zoom;
+        h.classList.toggle('is-scrolled', past);
+        h.classList.toggle('is-over-hero', !past && window.scrollY > 8);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      document.addEventListener('DOMContentLoaded', onScroll);
+      // Logo: vuelve al principio de la landing y limpia el hash de la URL
+      h.querySelector('.hdr-logo').addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        history.replaceState(null, '', location.pathname + location.search);
+      });
+    })();
+  </script>
+</header>

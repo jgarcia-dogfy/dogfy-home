@@ -1,0 +1,19 @@
+<script src="assets/js/nui-select-menu.js?v=3"></script>
+<script src="assets/js/btn-hover.js?v=3"></script>
+<script>
+  // Escala el lienzo de 1428px cuando la ventana es más estrecha y expone el alto de la
+  // ventana en px del lienzo (--vh-canvas) para que el hero ocupe la pantalla completa
+  (function () {
+    const c = document.getElementById('canvas');
+    function fit() {
+      const s = Math.min(1, window.innerWidth / 1428);
+      c.style.zoom = s < 1 ? s : '';
+      c.style.setProperty('--vh-canvas', (window.innerHeight / s).toFixed(1) + 'px');
+      // Alto del hero: pantalla menos 24px reales, para que asome el bloque siguiente
+      c.style.setProperty('--hero-h', ((window.innerHeight - 24) / s).toFixed(1) + 'px');
+    }
+    window.addEventListener('resize', fit); fit();
+  })();
+</script>
+</body>
+</html>

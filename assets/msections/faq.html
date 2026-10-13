@@ -1,0 +1,110 @@
+<section id="m-faq" class="relative w-full bg-[#dbeafe]">
+  <style>
+    /* Igual que la FAQ de escritorio: solo dos colores, líneas finas, + / − sin fondo a la izquierda */
+    #m-faq { --mfaq-ink: #2a2724; }
+    #m-faq .mfaq-list { border-top: 1px solid rgba(42,39,36,.18); }
+    #m-faq .mfaq-item { border-bottom: 1px solid rgba(42,39,36,.18); cursor: pointer; }
+    #m-faq .mfaq-icon { position: relative; flex-shrink: 0; width: 28px; height: 28px; }
+    #m-faq .mfaq-icon::before, #m-faq .mfaq-icon::after { content: ""; position: absolute; left: 50%; top: 50%; width: 14px; height: 2px;
+      border-radius: 2px; background: var(--mfaq-ink); transform: translate(-50%,-50%); transition: transform .35s cubic-bezier(.65,0,.35,1); }
+    #m-faq .mfaq-icon::after { transform: translate(-50%,-50%) rotate(90deg); }
+    #m-faq .mfaq-item.is-open .mfaq-icon::after { transform: translate(-50%,-50%) rotate(180deg); }
+    #m-faq .mfaq-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s cubic-bezier(.65,0,.35,1); }
+    #m-faq .mfaq-item.is-open .mfaq-panel { grid-template-rows: 1fr; }
+    #m-faq .mfaq-panel > div { overflow: hidden; min-height: 0; }
+    #m-faq .mfaq-panel p { opacity: 0; transition: opacity .2s ease; }
+    #m-faq .mfaq-item.is-open .mfaq-panel p { opacity: 1; transition: opacity .35s ease .15s; }
+    #m-faq .mfaq-head { outline: none; -webkit-tap-highlight-color: transparent; }
+    #m-faq .mfaq-head:focus-visible .mfaq-q { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
+    @media (prefers-reduced-motion: reduce) { #m-faq * { transition-duration: 0s !important; transition-delay: 0s !important; } }
+  </style>
+  <div class="mx-auto w-full max-w-[720px] px-[24px] md:px-0 py-[56px] md:py-[72px] flex flex-col gap-[32px] md:gap-[40px]">
+    <h2 class="m-0 [word-break:break-word] font-['Youth:Bold'] font-normal not-italic text-[#2a2724] text-[28px] leading-[32px] md:text-[32px] md:leading-[36px] w-full">Preguntas frecuentes sobre comida natural para perros.</h2>
+    <div class="mfaq-list flex flex-col w-full">
+      <div class="mfaq-item is-open w-full">
+        <button type="button" class="mfaq-head flex gap-[16px] md:gap-[20px] items-center w-full text-left bg-transparent border-0 px-0 py-[20px] md:py-[24px] cursor-pointer" aria-expanded="true">
+          <span class="mfaq-icon" aria-hidden="true"></span>
+          <span class="mfaq-q [word-break:break-word] flex-1 min-w-0 font-['Youth:Medium'] not-italic text-[#2a2724] text-[18px] leading-[24px] md:text-[20px] md:leading-[28px]">¿Qué es Dogfy Diet?</span>
+        </button>
+        <div class="mfaq-panel w-full"><div>
+          <p class="[word-break:break-word] m-0 font-['K_Labil_Grotesk:50_Regular'] font-normal not-italic text-[#2a2724] text-[16px] leading-[24px] md:text-[18px] md:leading-[28px] pt-0 pb-[24px] md:pb-[28px] pl-[44px] md:pl-[48px] pr-[8px] md:pr-[16px] w-full">Dogfy Diet es comida natural para perros, cocinada con ingredientes frescos y adaptada a las necesidades de tu perro. Te la enviamos a casa congelada, en raciones listas para servir.</p>
+        </div></div>
+      </div>
+      <div class="mfaq-item w-full">
+        <button type="button" class="mfaq-head flex gap-[16px] md:gap-[20px] items-center w-full text-left bg-transparent border-0 px-0 py-[20px] md:py-[24px] cursor-pointer" aria-expanded="false">
+          <span class="mfaq-icon" aria-hidden="true"></span>
+          <span class="mfaq-q [word-break:break-word] flex-1 min-w-0 font-['Youth:Medium'] not-italic text-[#2a2724] text-[18px] leading-[24px] md:text-[20px] md:leading-[28px]">¿Qué cambia respecto al pienso seco?</span>
+        </button>
+        <div class="mfaq-panel w-full"><div>
+          <p class="[word-break:break-word] m-0 font-['K_Labil_Grotesk:50_Regular'] font-normal not-italic text-[#2a2724] text-[16px] leading-[24px] md:text-[18px] md:leading-[28px] pt-0 pb-[24px] md:pb-[28px] pl-[44px] md:pl-[48px] pr-[8px] md:pr-[16px] w-full">Cambian la elaboración, la textura y la conservación. Dogfy es comida cocinada que necesita frío: la congelamos después de cocinarla y debes descongelarla antes de servirla.</p>
+        </div></div>
+      </div>
+      <div class="mfaq-item w-full">
+        <button type="button" class="mfaq-head flex gap-[16px] md:gap-[20px] items-center w-full text-left bg-transparent border-0 px-0 py-[20px] md:py-[24px] cursor-pointer" aria-expanded="false">
+          <span class="mfaq-icon" aria-hidden="true"></span>
+          <span class="mfaq-q [word-break:break-word] flex-1 min-w-0 font-['Youth:Medium'] not-italic text-[#2a2724] text-[18px] leading-[24px] md:text-[20px] md:leading-[28px]">¿Cómo creamos el menú de mi perro?</span>
+        </button>
+        <div class="mfaq-panel w-full"><div>
+          <p class="[word-break:break-word] m-0 font-['K_Labil_Grotesk:50_Regular'] font-normal not-italic text-[#2a2724] text-[16px] leading-[24px] md:text-[18px] md:leading-[28px] pt-0 pb-[24px] md:pb-[28px] pl-[44px] md:pl-[48px] pr-[8px] md:pr-[16px] w-full">Nos cuentas su raza, edad, peso, nivel de actividad y si tiene alguna sensibilidad. Con esos datos calculamos su ración diaria y te recomendamos las recetas que mejor le van.</p>
+        </div></div>
+      </div>
+      <div class="mfaq-item w-full">
+        <button type="button" class="mfaq-head flex gap-[16px] md:gap-[20px] items-center w-full text-left bg-transparent border-0 px-0 py-[20px] md:py-[24px] cursor-pointer" aria-expanded="false">
+          <span class="mfaq-icon" aria-hidden="true"></span>
+          <span class="mfaq-q [word-break:break-word] flex-1 min-w-0 font-['Youth:Medium'] not-italic text-[#2a2724] text-[18px] leading-[24px] md:text-[20px] md:leading-[28px]">¿Las recetas Dogfy son completas y equilibradas?</span>
+        </button>
+        <div class="mfaq-panel w-full"><div>
+          <p class="[word-break:break-word] m-0 font-['K_Labil_Grotesk:50_Regular'] font-normal not-italic text-[#2a2724] text-[16px] leading-[24px] md:text-[18px] md:leading-[28px] pt-0 pb-[24px] md:pb-[28px] pl-[44px] md:pl-[48px] pr-[8px] md:pr-[16px] w-full">Sí. Nuestro equipo de veterinarios y nutricionistas formula cada receta para que aporte todo lo que tu perro necesita en el día a día, sin colorantes ni conservantes artificiales.</p>
+        </div></div>
+      </div>
+      <div class="mfaq-item w-full">
+        <button type="button" class="mfaq-head flex gap-[16px] md:gap-[20px] items-center w-full text-left bg-transparent border-0 px-0 py-[20px] md:py-[24px] cursor-pointer" aria-expanded="false">
+          <span class="mfaq-icon" aria-hidden="true"></span>
+          <span class="mfaq-q [word-break:break-word] flex-1 min-w-0 font-['Youth:Medium'] not-italic text-[#2a2724] text-[18px] leading-[24px] md:text-[20px] md:leading-[28px]">¿Cómo hago la transición a su nueva comida?</span>
+        </button>
+        <div class="mfaq-panel w-full"><div>
+          <p class="[word-break:break-word] m-0 font-['K_Labil_Grotesk:50_Regular'] font-normal not-italic text-[#2a2724] text-[16px] leading-[24px] md:text-[18px] md:leading-[28px] pt-0 pb-[24px] md:pb-[28px] pl-[44px] md:pl-[48px] pr-[8px] md:pr-[16px] w-full">Poco a poco. Durante unos 7 días mezcla Dogfy con su comida anterior, aumentando la proporción cada día. Con tu primer pedido te enviamos una guía paso a paso.</p>
+        </div></div>
+      </div>
+      <div class="mfaq-item w-full">
+        <button type="button" class="mfaq-head flex gap-[16px] md:gap-[20px] items-center w-full text-left bg-transparent border-0 px-0 py-[20px] md:py-[24px] cursor-pointer" aria-expanded="false">
+          <span class="mfaq-icon" aria-hidden="true"></span>
+          <span class="mfaq-q [word-break:break-word] flex-1 min-w-0 font-['Youth:Medium'] not-italic text-[#2a2724] text-[18px] leading-[24px] md:text-[20px] md:leading-[28px]">¿Puedo pausar o cancelar el plan cuando quiera?</span>
+        </button>
+        <div class="mfaq-panel w-full"><div>
+          <p class="[word-break:break-word] m-0 font-['K_Labil_Grotesk:50_Regular'] font-normal not-italic text-[#2a2724] text-[16px] leading-[24px] md:text-[18px] md:leading-[28px] pt-0 pb-[24px] md:pb-[28px] pl-[44px] md:pl-[48px] pr-[8px] md:pr-[16px] w-full">Sí, sin permanencia. Puedes pausar, cambiar la fecha de entrega o cancelar tu plan cuando quieras desde tu área de cliente.</p>
+        </div></div>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-[24px] w-full">
+      <p class="m-0 [word-break:break-word] font-['K_Labil_Grotesk:50_Regular'] not-italic text-[#2a2724] text-[16px] leading-[24px] w-full md:max-w-[440px]">Nuestro equipo de atención al cliente y de nutrición está aquí para resolver cualquier duda sobre la alimentación de tu perro.</p>
+      <a href="https://dogfydiet.com/nuevo-plan?step=9" class="bg-[#f96237] flex gap-[8px] items-center justify-center h-[48px] px-[24px] w-full md:w-auto rounded-[999px] shrink-0 no-underline transition-[filter] duration-200 hover:brightness-110 active:brightness-110">
+        <span class="font-['Youth:Medium'] not-italic text-white text-[16px] leading-[24px] whitespace-nowrap">Habla con nosotros</span>
+      </a>
+    </div>
+  </div>
+</section>
+<script>
+(function () {
+  var root = document.getElementById('m-faq');
+  if (!root) return;
+  var items = root.querySelectorAll('.mfaq-item');
+  function setOpen(item, open) {
+    item.classList.toggle('is-open', open);
+    item.querySelector('.mfaq-head').setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  items.forEach(function (item) {
+    var head = item.querySelector('.mfaq-head');
+    head.addEventListener('click', function () {
+      var willOpen = !item.classList.contains('is-open');
+      items.forEach(function (other) { setOpen(other, other === item ? willOpen : false); });
+    });
+    // Toda la fila abre y cierra, se pulse donde se pulse
+    item.addEventListener('click', function (e) {
+      if (e.target.closest('.mfaq-head')) return;
+      if (String(window.getSelection()).length) return;
+      head.click();
+    });
+  });
+})();
+</script>
