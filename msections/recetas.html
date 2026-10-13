@@ -7,11 +7,11 @@
     #m-recetas .mrc-chip.is-active img { filter: brightness(0) invert(1); }
     #m-recetas .mrc-scroller { scrollbar-width: none; -webkit-overflow-scrolling: touch; }
     #m-recetas .mrc-scroller::-webkit-scrollbar { display: none; }
-    #m-recetas .mrc-arrow { transition: opacity .2s ease, transform .2s ease; -webkit-tap-highlight-color: transparent; }
-    #m-recetas .mrc-arrow:not(:disabled):hover, #m-recetas .mrc-arrow:not(:disabled):active { transform: translateX(var(--nudge)); }
-    #m-recetas .mrc-arrow:disabled { opacity: .3; cursor: default; }
-    #m-recetas .mrc-thumb { transition: transform .25s ease, width .25s ease; }
-    @media (prefers-reduced-motion: reduce) { #m-recetas .mrc-arrow, #m-recetas .mrc-thumb { transition: none; } }
+    #m-recetas .mrc-arrow { -webkit-tap-highlight-color: transparent; }
+    #m-recetas .mrc-arrow svg { transition: transform .35s cubic-bezier(.2,.8,.2,1); animation: mrc-nudge 1.8s ease-in-out infinite; }
+    #m-recetas .mrc-arrow.is-end svg { transform: rotate(180deg); animation: none; }
+    @keyframes mrc-nudge { 0%, 100% { translate: 0 0; } 50% { translate: 6px 0; } }
+    @media (prefers-reduced-motion: reduce) { #m-recetas .mrc-arrow svg { animation: none; transition: none; } }
     #m-recetas .mrc-card { cursor: pointer; transition: box-shadow .3s ease, transform .3s ease; -webkit-tap-highlight-color: transparent; }
     #m-recetas .mrc-pack { opacity: 0; transition: opacity .35s ease; }
     #m-recetas .mrc-chev { transition: transform .25s cubic-bezier(.2,.8,.2,1); }
@@ -40,24 +40,24 @@
   </style>
   <div class="flex flex-col gap-[16px] items-center px-[24px] w-full max-w-[720px] mx-auto">
     <p class="font-['K_Labil_Grotesk:50_Regular'] leading-[22px] text-[16px] md:text-[18px] md:leading-[26px] text-[#767066] text-center w-full m-0 -mb-[8px]">¡Tu perro ya está moviendo la cola!</p>
-    <h2 class="font-['Youth:Bold'] font-normal text-[#2a2724] text-[28px] leading-[32px] md:text-[34px] md:leading-[38px] text-center w-full m-0">
+    <h2 class="font-['Youth:Bold'] font-normal text-[#2a2724] text-[22px] leading-[27px] md:text-[34px] md:leading-[38px] text-center w-full m-0">
       Descubre nuestras<br><span class="text-[#fa592d]">recetas cocinadas</span> para perros
     </h2>
     <div class="flex flex-nowrap md:flex-wrap gap-[6px] md:gap-[16px] items-start justify-center pt-[8px] md:pt-[16px] w-full md:max-w-none" role="group" aria-label="Filtrar recetas">
         <button type="button" data-chip="pollo" aria-pressed="false" aria-controls="m-receta-pollo" class="mrc-chip bg-[#f4f1ec] flex gap-[5px] md:gap-[8px] items-center justify-center px-[10px] md:px-[14px] py-[6px] relative rounded-[999px] shrink-0 border-0 cursor-pointer transition-colors duration-200">
-          <span class="relative shrink-0 size-[18px] md:size-[24px]"><img alt="" class="absolute inset-0 block size-full object-contain" src="assets/recetas/chip-pollo.svg"></span>
+          <span class="relative shrink-0 size-[16px] md:size-[24px]"><img alt="" class="absolute inset-0 block size-full object-contain" src="assets/recetas/chip-pollo.svg"></span>
           <span class="font-['K_Labil_Grotesk:50_Regular'] leading-[20px] md:leading-[22px] text-[#2a2724] text-[15px] md:text-[16px] text-center whitespace-nowrap">Pollo</span>
         </button>
         <button type="button" data-chip="salmon" aria-pressed="false" aria-controls="m-receta-salmon" class="mrc-chip bg-[#f4f1ec] flex gap-[5px] md:gap-[8px] items-center justify-center px-[10px] md:px-[14px] py-[6px] relative rounded-[999px] shrink-0 border-0 cursor-pointer transition-colors duration-200">
-          <span class="relative shrink-0 size-[18px] md:size-[24px]"><img alt="" class="absolute inset-0 block size-full object-contain" src="assets/recetas/chip-salmon.svg"></span>
+          <span class="relative shrink-0 size-[16px] md:size-[24px]"><img alt="" class="absolute inset-0 block size-full object-contain" src="assets/recetas/chip-salmon.svg"></span>
           <span class="font-['K_Labil_Grotesk:50_Regular'] leading-[20px] md:leading-[22px] text-[#2a2724] text-[15px] md:text-[16px] text-center whitespace-nowrap">Salmón</span>
         </button>
         <button type="button" data-chip="buey" aria-pressed="false" aria-controls="m-receta-buey" class="mrc-chip bg-[#f4f1ec] flex gap-[5px] md:gap-[8px] items-center justify-center px-[10px] md:px-[14px] py-[6px] relative rounded-[999px] shrink-0 border-0 cursor-pointer transition-colors duration-200">
-          <span class="relative shrink-0 size-[18px] md:size-[24px]"><img alt="" class="absolute inset-0 block size-full object-contain" src="assets/recetas/chip-buey.svg"></span>
+          <span class="relative shrink-0 size-[16px] md:size-[24px]"><img alt="" class="absolute inset-0 block size-full object-contain" src="assets/recetas/chip-buey.svg"></span>
           <span class="font-['K_Labil_Grotesk:50_Regular'] leading-[20px] md:leading-[22px] text-[#2a2724] text-[15px] md:text-[16px] text-center whitespace-nowrap">Buey</span>
         </button>
         <button type="button" data-chip="pavo" aria-pressed="false" aria-controls="m-receta-pavo" class="mrc-chip bg-[#f4f1ec] flex gap-[5px] md:gap-[8px] items-center justify-center px-[10px] md:px-[14px] py-[6px] relative rounded-[999px] shrink-0 border-0 cursor-pointer transition-colors duration-200">
-          <span class="relative shrink-0 size-[18px] md:size-[24px]"><img alt="" class="absolute inset-0 block size-full object-contain" src="assets/recetas/chip-pavo.svg"></span>
+          <span class="relative shrink-0 size-[16px] md:size-[24px]"><img alt="" class="absolute inset-0 block size-full object-contain" src="assets/recetas/chip-pavo.svg"></span>
           <span class="font-['K_Labil_Grotesk:50_Regular'] leading-[20px] md:leading-[22px] text-[#2a2724] text-[15px] md:text-[16px] text-center whitespace-nowrap">Pavo</span>
         </button>
     </div>
@@ -65,7 +65,7 @@
   <div class="flex flex-col gap-[24px] md:gap-[32px] items-center pt-[20px] md:pt-[32px] w-full">
     <div class="w-full md:max-w-[720px] md:mx-auto md:px-[24px]">
       <div class="mrc-scroller flex md:grid md:grid-cols-2 gap-[16px] md:gap-[20px] items-stretch overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none px-[24px] md:px-0 pt-[12px] pb-[24px]" aria-label="Recetas">
-        <article id="m-receta-pollo" data-receta="pollo" class="mrc-card snap-center md:snap-align-none bg-white flex flex-col overflow-clip relative rounded-[24px] md:rounded-[28px] shadow-[0px_1px_2px_0px_rgba(41,38,36,0.06),0px_16px_32px_-16px_rgba(41,38,36,0.22)] shrink-0 w-[256px] min-[400px]:w-[272px] md:w-auto md:min-w-0">
+        <article id="m-receta-pollo" data-receta="pollo" class="mrc-card snap-center md:snap-align-none bg-white flex flex-col overflow-clip relative rounded-[24px] md:rounded-[28px] shadow-[0px_1px_2px_0px_rgba(41,38,36,0.06),0px_16px_32px_-16px_rgba(41,38,36,0.22)] shrink-0 w-[max(262px,calc((100vw_-_40px)/1.3))] md:w-auto md:min-w-0">
           <div class="p-[8px] pb-0 w-full">
             <div class="aspect-[4/3] relative overflow-hidden rounded-[18px] md:rounded-[22px] w-full">
               <img alt="Receta de Pollo Dogfy" loading="lazy" class="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="assets/recetas/pollo.png">
@@ -77,7 +77,7 @@
               <h3 class="font-['Youth:Bold'] font-normal leading-[24px] text-[#2a2724] text-[18px] m-0">Pollo</h3>
               <span class="font-['K_Labil_Grotesk:70_Bold'] text-[13px] leading-[18px] text-[#2a2724] whitespace-nowrap">120.384 <span class="font-['K_Labil_Grotesk:50_Regular'] text-[#767066]">vendidos/mes</span></span>
             </div>
-            <ul class="list-none m-0 p-0 flex flex-col gap-[2px] font-['K_Labil_Grotesk:50_Regular'] text-[14px] leading-[21px] text-[#767066]">
+            <ul class="list-none m-0 p-0 flex flex-col gap-[2px] font-['K_Labil_Grotesk:50_Regular'] text-[12px] leading-[18px] md:text-[14px] md:leading-[20px] text-[#767066]">
               <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/heart.svg">Mantiene los músculos fuertes.</li>
               <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/sparkles.svg">Favorece un pelaje sano y brillante.</li>
               <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/ham.svg">Contiene una sola fuente de proteína.</li>
@@ -116,7 +116,7 @@
             </a>
           </div>
         </article>
-        <article id="m-receta-salmon" data-receta="salmon" class="mrc-card snap-center md:snap-align-none bg-white flex flex-col overflow-clip relative rounded-[24px] md:rounded-[28px] shadow-[0px_1px_2px_0px_rgba(41,38,36,0.06),0px_16px_32px_-16px_rgba(41,38,36,0.22)] shrink-0 w-[256px] min-[400px]:w-[272px] md:w-auto md:min-w-0">
+        <article id="m-receta-salmon" data-receta="salmon" class="mrc-card snap-center md:snap-align-none bg-white flex flex-col overflow-clip relative rounded-[24px] md:rounded-[28px] shadow-[0px_1px_2px_0px_rgba(41,38,36,0.06),0px_16px_32px_-16px_rgba(41,38,36,0.22)] shrink-0 w-[max(262px,calc((100vw_-_40px)/1.3))] md:w-auto md:min-w-0">
           <div class="p-[8px] pb-0 w-full">
             <div class="aspect-[4/3] relative overflow-hidden rounded-[18px] md:rounded-[22px] w-full">
               <img alt="Receta de Salmón Dogfy" loading="lazy" class="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="assets/recetas/salmon.png">
@@ -128,7 +128,7 @@
               <h3 class="font-['Youth:Bold'] font-normal leading-[24px] text-[#2a2724] text-[18px] m-0">Salmón</h3>
               <span class="font-['K_Labil_Grotesk:70_Bold'] text-[13px] leading-[18px] text-[#2a2724] whitespace-nowrap">120.384 <span class="font-['K_Labil_Grotesk:50_Regular'] text-[#767066]">vendidos/mes</span></span>
             </div>
-            <ul class="list-none m-0 p-0 flex flex-col gap-[2px] font-['K_Labil_Grotesk:50_Regular'] text-[14px] leading-[21px] text-[#767066]">
+            <ul class="list-none m-0 p-0 flex flex-col gap-[2px] font-['K_Labil_Grotesk:50_Regular'] text-[12px] leading-[18px] md:text-[14px] md:leading-[20px] text-[#767066]">
               <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/heart.svg">Mantiene los músculos fuertes.</li>
               <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/sparkles.svg">Favorece un pelaje sano y brillante.</li>
               <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/ham.svg">Contiene una sola fuente de proteína.</li>
@@ -167,7 +167,7 @@
             </a>
           </div>
         </article>
-        <article id="m-receta-buey" data-receta="buey" class="mrc-card snap-center md:snap-align-none bg-white flex flex-col overflow-clip relative rounded-[24px] md:rounded-[28px] shadow-[0px_1px_2px_0px_rgba(41,38,36,0.06),0px_16px_32px_-16px_rgba(41,38,36,0.22)] shrink-0 w-[256px] min-[400px]:w-[272px] md:w-auto md:min-w-0">
+        <article id="m-receta-buey" data-receta="buey" class="mrc-card snap-center md:snap-align-none bg-white flex flex-col overflow-clip relative rounded-[24px] md:rounded-[28px] shadow-[0px_1px_2px_0px_rgba(41,38,36,0.06),0px_16px_32px_-16px_rgba(41,38,36,0.22)] shrink-0 w-[max(262px,calc((100vw_-_40px)/1.3))] md:w-auto md:min-w-0">
           <div class="p-[8px] pb-0 w-full">
             <div class="aspect-[4/3] relative overflow-hidden rounded-[18px] md:rounded-[22px] w-full">
               <img alt="Receta de Buey Dogfy" loading="lazy" class="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="assets/recetas/buey.png">
@@ -179,7 +179,7 @@
               <h3 class="font-['Youth:Bold'] font-normal leading-[24px] text-[#2a2724] text-[18px] m-0">Buey</h3>
               <span class="font-['K_Labil_Grotesk:70_Bold'] text-[13px] leading-[18px] text-[#2a2724] whitespace-nowrap">120.384 <span class="font-['K_Labil_Grotesk:50_Regular'] text-[#767066]">vendidos/mes</span></span>
             </div>
-            <ul class="list-none m-0 p-0 flex flex-col gap-[2px] font-['K_Labil_Grotesk:50_Regular'] text-[14px] leading-[21px] text-[#767066]">
+            <ul class="list-none m-0 p-0 flex flex-col gap-[2px] font-['K_Labil_Grotesk:50_Regular'] text-[12px] leading-[18px] md:text-[14px] md:leading-[20px] text-[#767066]">
               <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/heart.svg">Mantiene los músculos fuertes.</li>
               <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/sparkles.svg">Favorece un pelaje sano y brillante.</li>
               <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/ham.svg">Contiene una sola fuente de proteína.</li>
@@ -218,7 +218,7 @@
             </a>
           </div>
         </article>
-        <article id="m-receta-pavo" data-receta="pavo" class="mrc-card snap-center md:snap-align-none bg-white flex flex-col overflow-clip relative rounded-[24px] md:rounded-[28px] shadow-[0px_1px_2px_0px_rgba(41,38,36,0.06),0px_16px_32px_-16px_rgba(41,38,36,0.22)] shrink-0 w-[256px] min-[400px]:w-[272px] md:w-auto md:min-w-0">
+        <article id="m-receta-pavo" data-receta="pavo" class="mrc-card snap-center md:snap-align-none bg-white flex flex-col overflow-clip relative rounded-[24px] md:rounded-[28px] shadow-[0px_1px_2px_0px_rgba(41,38,36,0.06),0px_16px_32px_-16px_rgba(41,38,36,0.22)] shrink-0 w-[max(262px,calc((100vw_-_40px)/1.3))] md:w-auto md:min-w-0">
           <div class="p-[8px] pb-0 w-full">
             <div class="aspect-[4/3] relative overflow-hidden rounded-[18px] md:rounded-[22px] w-full">
               <img alt="Receta de Pavo Dogfy" loading="lazy" class="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="assets/recetas/pavo.png">
@@ -230,7 +230,7 @@
               <h3 class="font-['Youth:Bold'] font-normal leading-[24px] text-[#2a2724] text-[18px] m-0">Pavo</h3>
               <span class="font-['K_Labil_Grotesk:70_Bold'] text-[13px] leading-[18px] text-[#2a2724] whitespace-nowrap">120.384 <span class="font-['K_Labil_Grotesk:50_Regular'] text-[#767066]">vendidos/mes</span></span>
             </div>
-            <ul class="list-none m-0 p-0 flex flex-col gap-[2px] font-['K_Labil_Grotesk:50_Regular'] text-[14px] leading-[21px] text-[#767066]">
+            <ul class="list-none m-0 p-0 flex flex-col gap-[2px] font-['K_Labil_Grotesk:50_Regular'] text-[12px] leading-[18px] md:text-[14px] md:leading-[20px] text-[#767066]">
               <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/heart.svg">Mantiene los músculos fuertes.</li>
               <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/sparkles.svg">Favorece un pelaje sano y brillante.</li>
               <li class="flex items-center gap-[8px]"><img alt="" class="size-[16px] shrink-0 opacity-70" src="assets/recetas/ham.svg">Contiene una sola fuente de proteína.</li>
@@ -272,15 +272,9 @@
         <span class="shrink-0 w-[8px] md:hidden" aria-hidden="true"></span>
       </div>
     </div>
-    <!-- Navegación del carrusel (igual que testimonios; solo móvil, en tablet las recetas van en rejilla) -->
-    <div class="mrc-nav md:hidden w-full px-[24px] -mt-[8px] flex items-center justify-center gap-[16px]">
-      <button type="button" class="mrc-arrow mrc-prev bg-transparent border-0 p-[10px] cursor-pointer text-[#2a2724]" style="--nudge:-3px" aria-label="Receta anterior">
-        <svg width="28" height="16" viewBox="0 0 28 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M27 8H1M8 1L1 8l7 7"/></svg>
-      </button>
-      <div class="relative w-[160px] h-[2px] bg-[rgba(42,39,36,0.15)] rounded-full overflow-hidden" aria-hidden="true">
-        <div class="mrc-thumb absolute left-0 top-0 h-full bg-[#fa592d] rounded-full"></div>
-      </div>
-      <button type="button" class="mrc-arrow mrc-next bg-transparent border-0 p-[10px] cursor-pointer text-[#2a2724]" style="--nudge:3px" aria-label="Siguiente receta">
+    <!-- Indicador del carrusel (solo móvil): una flecha que avisa de que hay más recetas; en la última vuelve al inicio -->
+    <div class="mrc-nav md:hidden w-full max-w-[390px] mx-auto px-[24px] -mt-[8px] flex items-center justify-end">
+      <button type="button" class="mrc-arrow mrc-next bg-transparent border-0 p-[10px] -mr-[10px] cursor-pointer text-[#2a2724]" aria-label="Siguiente receta">
         <svg width="28" height="16" viewBox="0 0 28 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 8h26M20 1l7 7-7 7"/></svg>
       </button>
     </div>
@@ -344,24 +338,21 @@
     var root = document.getElementById('m-recetas');
     if (!root) return;
     var sc = root.querySelector('.mrc-scroller');
-    var prev = root.querySelector('.mrc-prev'), next = root.querySelector('.mrc-next');
-    var thumb = root.querySelector('.mrc-thumb'), bar = thumb.parentElement;
+    var next = root.querySelector('.mrc-next');
     function step() { var c = sc.querySelector('.mrc-card'); return c.offsetWidth + (parseFloat(getComputedStyle(sc).columnGap) || 16); }
+    function atEnd() { return sc.scrollLeft > sc.scrollWidth - sc.clientWidth - 4; }
     function update() {
-      if (!sc.clientWidth || !bar.clientWidth) return; // oculto (escritorio) o en rejilla (tablet)
-      var max = sc.scrollWidth - sc.clientWidth;
-      prev.disabled = sc.scrollLeft < 4;
-      next.disabled = sc.scrollLeft > max - 4;
-      var w = Math.max(24, bar.clientWidth * sc.clientWidth / sc.scrollWidth);
-      thumb.style.width = w + 'px';
-      thumb.style.transform = 'translateX(' + (max > 0 ? (bar.clientWidth - w) * sc.scrollLeft / max : 0) + 'px)';
+      if (!sc.clientWidth) return;
+      var end = atEnd();
+      next.classList.toggle('is-end', end);
+      next.setAttribute('aria-label', end ? 'Volver a la primera receta' : 'Siguiente receta');
     }
-    function go(d) { var i = Math.round(sc.scrollLeft / step()) + d; sc.scrollTo({ left: Math.max(0, i * step()), behavior: 'smooth' }); setTimeout(update, 500); }
-    prev.addEventListener('click', function () { go(-1); });
-    next.addEventListener('click', function () { go(1); });
+    next.addEventListener('click', function () {
+      var left = atEnd() ? 0 : (Math.round(sc.scrollLeft / step()) + 1) * step();
+      sc.scrollTo({ left: left, behavior: 'smooth' });
+    });
     sc.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
-    window.addEventListener('load', update);
     update();
   })();
   </script>

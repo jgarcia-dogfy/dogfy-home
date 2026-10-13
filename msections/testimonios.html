@@ -11,9 +11,15 @@
     #m-testimonios .m-tm-arrow:not(:disabled):hover, #m-testimonios .m-tm-arrow:not(:disabled):active { transform: translateX(var(--nudge)); }
     #m-testimonios .m-tm-arrow:disabled { opacity: .3; cursor: default; }
     #m-testimonios .m-tm-thumb { transition: transform .25s ease, width .25s ease; }
+    @media (max-width: 767px) {
+      #m-testimonios .m-tm-next svg { transition: transform .35s cubic-bezier(.2,.8,.2,1); animation: m-tm-nudge 1.8s ease-in-out infinite; }
+      #m-testimonios .m-tm-next.is-end svg { transform: rotate(180deg); animation: none; }
+    }
+    @keyframes m-tm-nudge { 0%, 100% { translate: 0 0; } 50% { translate: 6px 0; } }
     @media (prefers-reduced-motion: reduce) {
       #m-testimonios .m-tm-scroller { scroll-behavior: auto; }
       #m-testimonios .m-tm-arrow, #m-testimonios .m-tm-thumb { transition: none; }
+      #m-testimonios .m-tm-next svg { animation: none; }
     }
   </style>
   <!-- Ola celeste sobre el amarillo de la sección anterior -->
@@ -23,31 +29,31 @@
 
   <!-- Título + valoración -->
   <div class="px-[24px] pt-[32px] md:pt-[48px] flex flex-col items-center gap-[12px] md:gap-[16px]">
-    <h2 class="m-0 mx-auto max-w-[720px] [word-break:break-word] font-['Youth:Bold'] font-normal text-[28px] leading-[32px] md:text-[32px] md:leading-[36px] text-[#2a2724] text-center">
+    <h2 class="m-0 mx-auto max-w-[720px] [word-break:break-word] font-['Youth:Bold'] font-normal text-[22px] leading-[27px] md:text-[32px] md:leading-[36px] text-[#2a2724] text-center">
       <span class="text-[#fa592d]">Ladridos de felicidad:</span> testimonios de clientes
     </h2>
-    <div class="flex flex-wrap justify-center items-center gap-[8px] md:gap-[10px] font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[24px] text-[#565049]">
+    <div class="flex flex-wrap justify-center items-center gap-[6px] md:gap-[10px] font-['K_Labil_Grotesk:50_Regular'] text-[14px] leading-[20px] md:text-[16px] md:leading-[24px] text-[#565049]">
       <span class="font-['Youth:Medium'] text-[#2a2724]">Excelente</span>
-      <span class="flex gap-[2px]" role="img" aria-label="Valoración excelente en Trustpilot"><img alt="" class="h-[20px] w-[20px] md:h-[22px] md:w-[22px]" src="assets/hero/star1.svg"><img alt="" class="h-[20px] w-[20px] md:h-[22px] md:w-[22px]" src="assets/hero/star2.svg"><img alt="" class="h-[20px] w-[20px] md:h-[22px] md:w-[22px]" src="assets/hero/star3.svg"><img alt="" class="h-[20px] w-[20px] md:h-[22px] md:w-[22px]" src="assets/hero/star4.svg"><img alt="" class="h-[20px] w-[20px] md:h-[22px] md:w-[22px]" src="assets/hero/star5.svg"></span>
-      <span class="flex items-center gap-[4px] font-['Youth:Medium'] text-[#2a2724]"><img alt="" class="size-[18px]" src="assets/testimonios/source-icon.svg">Trustpilot</span>
+      <span class="flex gap-[2px]" role="img" aria-label="Valoración excelente en Trustpilot"><img alt="" class="h-[16px] w-[16px] md:h-[22px] md:w-[22px]" src="assets/hero/star1.svg"><img alt="" class="h-[16px] w-[16px] md:h-[22px] md:w-[22px]" src="assets/hero/star2.svg"><img alt="" class="h-[16px] w-[16px] md:h-[22px] md:w-[22px]" src="assets/hero/star3.svg"><img alt="" class="h-[16px] w-[16px] md:h-[22px] md:w-[22px]" src="assets/hero/star4.svg"><img alt="" class="h-[16px] w-[16px] md:h-[22px] md:w-[22px]" src="assets/hero/star5.svg"></span>
+      <span class="flex items-center gap-[4px] font-['Youth:Medium'] text-[#2a2724]"><img alt="" class="size-[14px] md:size-[18px]" src="assets/testimonios/source-icon.svg">Trustpilot</span>
     </div>
   </div>
 
   <!-- Comillas + frase (columna izquierda en escritorio) -->
-  <div class="mx-auto w-full max-w-[720px] px-[24px] md:px-0 mt-[32px] md:mt-[48px] flex flex-col items-start">
+  <div class="hidden md:flex mx-auto w-full max-w-[720px] px-[24px] md:px-0 mt-[32px] md:mt-[48px] flex-col items-start">
     <span aria-hidden="true" class="font-['Youth:Bold'] text-[#fa592d] text-[96px] leading-[64px] h-[48px] md:text-[120px] md:leading-[80px] md:h-[64px] select-none">&ldquo;</span>
     <p class="m-0 mt-[8px] md:mt-[16px] font-['Youth:Medium'] text-[#2a2724] text-[24px] leading-[30px] md:text-[28px] md:leading-[34px]">Lo que dicen<br>nuestros clientes</p>
   </div>
 
   <!-- Carrusel (sin movimiento automático; desliza con el dedo o con las flechas) -->
-  <div class="m-tm-scroller flex gap-[16px] md:gap-[24px] overflow-x-auto snap-x snap-mandatory select-none cursor-grab pt-[16px] md:pt-[24px] pb-[8px]" aria-roledescription="carrusel" aria-label="Testimonios de clientes">
+  <div class="m-tm-scroller flex gap-[16px] md:gap-[24px] overflow-x-auto snap-x snap-mandatory select-none cursor-grab pt-[24px] pb-[8px]" aria-roledescription="carrusel" aria-label="Testimonios de clientes">
         <article class="m-tm-card snap-start shrink-0 w-[min(300px,calc(100vw-72px))] md:w-[340px] flex flex-col">
-          <div class="m-tm-bubble flex-1 relative bg-white rounded-[20px] md:rounded-[24px] rounded-bl-none p-[24px] md:p-[28px] min-h-[232px] md:min-h-[256px] flex flex-col justify-between gap-[20px] md:gap-[24px]">
-            <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[16px] leading-[26px]">Mi perro estaba siempre con el estómago revuelto y desde que come Dogfy <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">está como nuevo</b>. Se nota muchísimo en su energía y en su pelo.</p>
+          <div class="m-tm-bubble flex-1 relative bg-white rounded-[20px] md:rounded-[24px] rounded-bl-none p-[20px] md:p-[28px] min-h-[168px] md:min-h-[256px] flex flex-col justify-between gap-[16px] md:gap-[24px]">
+            <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[14px] leading-[20px] md:text-[16px] md:leading-[26px] line-clamp-5 md:line-clamp-none">Mi perro estaba siempre con el estómago revuelto y desde que come Dogfy <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">está como nuevo</b>. Se nota muchísimo en su energía y en su pelo.</p>
             <div class="flex gap-[2px]" role="img" aria-label="5 de 5 estrellas"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"></div>
           </div>
-          <div class="flex items-center gap-[12px] pl-[24px] md:pl-[28px] pt-[32px] md:pt-[36px]">
-            <img alt="" draggable="false" class="size-[44px] md:size-[48px] rounded-full object-cover" src="assets/testimonios/avatar0.jpg">
+          <div class="flex items-center gap-[12px] pl-[24px] md:pl-[28px] pt-[12px] md:pt-[36px]">
+            <img alt="" draggable="false" class="size-[32px] md:size-[48px] rounded-full object-cover" src="assets/testimonios/avatar0.jpg">
             <div class="flex flex-col">
               <p class="m-0 font-['Youth:Medium'] text-[#2a2724] text-[16px] leading-[22px]">Olivia Wilde</p>
               <p class="m-0 flex items-center gap-[6px] font-['K_Labil_Grotesk:50_Regular'] text-[#767066] text-[14px] leading-[20px]"><img alt="" draggable="false" class="size-[14px]" src="assets/testimonios/google.svg">Reseña en Google</p>
@@ -55,12 +61,12 @@
           </div>
         </article>
         <article class="m-tm-card snap-start shrink-0 w-[min(300px,calc(100vw-72px))] md:w-[340px] flex flex-col">
-          <div class="m-tm-bubble flex-1 relative bg-white rounded-[20px] md:rounded-[24px] rounded-bl-none p-[24px] md:p-[28px] min-h-[232px] md:min-h-[256px] flex flex-col justify-between gap-[20px] md:gap-[24px]">
-            <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[16px] leading-[26px]">Le ha mejorado y mucho la calidad de vida a mi perrita Nube, <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">ya no volveremos al pienso nunca!</b></p>
+          <div class="m-tm-bubble flex-1 relative bg-white rounded-[20px] md:rounded-[24px] rounded-bl-none p-[20px] md:p-[28px] min-h-[168px] md:min-h-[256px] flex flex-col justify-between gap-[16px] md:gap-[24px]">
+            <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[14px] leading-[20px] md:text-[16px] md:leading-[26px] line-clamp-5 md:line-clamp-none">Le ha mejorado y mucho la calidad de vida a mi perrita Nube, <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">ya no volveremos al pienso nunca!</b></p>
             <div class="flex gap-[2px]" role="img" aria-label="5 de 5 estrellas"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"></div>
           </div>
-          <div class="flex items-center gap-[12px] pl-[24px] md:pl-[28px] pt-[32px] md:pt-[36px]">
-            <img alt="" draggable="false" class="size-[44px] md:size-[48px] rounded-full object-cover" src="assets/testimonios/avatar1.jpg">
+          <div class="flex items-center gap-[12px] pl-[24px] md:pl-[28px] pt-[12px] md:pt-[36px]">
+            <img alt="" draggable="false" class="size-[32px] md:size-[48px] rounded-full object-cover" src="assets/testimonios/avatar1.jpg">
             <div class="flex flex-col">
               <p class="m-0 font-['Youth:Medium'] text-[#2a2724] text-[16px] leading-[22px]">Paola Romero</p>
               <p class="m-0 flex items-center gap-[6px] font-['K_Labil_Grotesk:50_Regular'] text-[#767066] text-[14px] leading-[20px]"><img alt="" draggable="false" class="size-[14px]" src="assets/testimonios/google.svg">Reseña en Google</p>
@@ -68,12 +74,12 @@
           </div>
         </article>
         <article class="m-tm-card snap-start shrink-0 w-[min(300px,calc(100vw-72px))] md:w-[340px] flex flex-col">
-          <div class="m-tm-bubble flex-1 relative bg-white rounded-[20px] md:rounded-[24px] rounded-bl-none p-[24px] md:p-[28px] min-h-[232px] md:min-h-[256px] flex flex-col justify-between gap-[20px] md:gap-[24px]">
-            <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[16px] leading-[26px]">Para mis perros en su momento favorito del día, saben cuando es la hora y me lo hacen saber, van a la cocina a por su ración puntuales. <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">Es una maravilla verlos disfrutar así de su comida</b>, sobre todo de uno que siempre ha tenido problemas digestivos y desde que estamos con esta comida le va fenomenal y no se ha vuelto a poner malo.</p>
+          <div class="m-tm-bubble flex-1 relative bg-white rounded-[20px] md:rounded-[24px] rounded-bl-none p-[20px] md:p-[28px] min-h-[168px] md:min-h-[256px] flex flex-col justify-between gap-[16px] md:gap-[24px]">
+            <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[14px] leading-[20px] md:text-[16px] md:leading-[26px] line-clamp-5 md:line-clamp-none">Para mis perros en su momento favorito del día, saben cuando es la hora y me lo hacen saber, van a la cocina a por su ración puntuales. <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">Es una maravilla verlos disfrutar así de su comida</b>, sobre todo de uno que siempre ha tenido problemas digestivos y desde que estamos con esta comida le va fenomenal y no se ha vuelto a poner malo.</p>
             <div class="flex gap-[2px]" role="img" aria-label="5 de 5 estrellas"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"></div>
           </div>
-          <div class="flex items-center gap-[12px] pl-[24px] md:pl-[28px] pt-[32px] md:pt-[36px]">
-            <img alt="" draggable="false" class="size-[44px] md:size-[48px] rounded-full object-cover" src="assets/testimonios/avatar2.jpg">
+          <div class="flex items-center gap-[12px] pl-[24px] md:pl-[28px] pt-[12px] md:pt-[36px]">
+            <img alt="" draggable="false" class="size-[32px] md:size-[48px] rounded-full object-cover" src="assets/testimonios/avatar2.jpg">
             <div class="flex flex-col">
               <p class="m-0 font-['Youth:Medium'] text-[#2a2724] text-[16px] leading-[22px]">Marc Reus</p>
               <p class="m-0 flex items-center gap-[6px] font-['K_Labil_Grotesk:50_Regular'] text-[#767066] text-[14px] leading-[20px]"><img alt="" draggable="false" class="size-[14px]" src="assets/testimonios/google.svg">Reseña en Google</p>
@@ -81,12 +87,12 @@
           </div>
         </article>
         <article class="m-tm-card snap-start shrink-0 w-[min(300px,calc(100vw-72px))] md:w-[340px] flex flex-col">
-          <div class="m-tm-bubble flex-1 relative bg-white rounded-[20px] md:rounded-[24px] rounded-bl-none p-[24px] md:p-[28px] min-h-[232px] md:min-h-[256px] flex flex-col justify-between gap-[20px] md:gap-[24px]">
-            <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[16px] leading-[26px]">Estoy muy satisfecha <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">a mi perrita Suri le encanta se lo come en un pis pas</b> cualquier duda enseguida te lo solucionan</p>
+          <div class="m-tm-bubble flex-1 relative bg-white rounded-[20px] md:rounded-[24px] rounded-bl-none p-[20px] md:p-[28px] min-h-[168px] md:min-h-[256px] flex flex-col justify-between gap-[16px] md:gap-[24px]">
+            <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[14px] leading-[20px] md:text-[16px] md:leading-[26px] line-clamp-5 md:line-clamp-none">Estoy muy satisfecha <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">a mi perrita Suri le encanta se lo come en un pis pas</b> cualquier duda enseguida te lo solucionan</p>
             <div class="flex gap-[2px]" role="img" aria-label="5 de 5 estrellas"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"></div>
           </div>
-          <div class="flex items-center gap-[12px] pl-[24px] md:pl-[28px] pt-[32px] md:pt-[36px]">
-            <img alt="" draggable="false" class="size-[44px] md:size-[48px] rounded-full object-cover" src="assets/testimonios/avatar3.jpg">
+          <div class="flex items-center gap-[12px] pl-[24px] md:pl-[28px] pt-[12px] md:pt-[36px]">
+            <img alt="" draggable="false" class="size-[32px] md:size-[48px] rounded-full object-cover" src="assets/testimonios/avatar3.jpg">
             <div class="flex flex-col">
               <p class="m-0 font-['Youth:Medium'] text-[#2a2724] text-[16px] leading-[22px]">Maribel Sanchez</p>
               <p class="m-0 flex items-center gap-[6px] font-['K_Labil_Grotesk:50_Regular'] text-[#767066] text-[14px] leading-[20px]"><img alt="" draggable="false" class="size-[14px]" src="assets/testimonios/source-icon.svg">Reseña en Trustpilot</p>
@@ -94,12 +100,12 @@
           </div>
         </article>
         <article class="m-tm-card snap-start shrink-0 w-[min(300px,calc(100vw-72px))] md:w-[340px] flex flex-col">
-          <div class="m-tm-bubble flex-1 relative bg-white rounded-[20px] md:rounded-[24px] rounded-bl-none p-[24px] md:p-[28px] min-h-[232px] md:min-h-[256px] flex flex-col justify-between gap-[20px] md:gap-[24px]">
-            <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[16px] leading-[26px]">Lo mejor es la comodidad: llega a casa, lo guardas en el congelador y listo. Y <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">a mi perra le encanta</b>, deja el plato limpio.</p>
+          <div class="m-tm-bubble flex-1 relative bg-white rounded-[20px] md:rounded-[24px] rounded-bl-none p-[20px] md:p-[28px] min-h-[168px] md:min-h-[256px] flex flex-col justify-between gap-[16px] md:gap-[24px]">
+            <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[14px] leading-[20px] md:text-[16px] md:leading-[26px] line-clamp-5 md:line-clamp-none">Lo mejor es la comodidad: llega a casa, lo guardas en el congelador y listo. Y <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">a mi perra le encanta</b>, deja el plato limpio.</p>
             <div class="flex gap-[2px]" role="img" aria-label="5 de 5 estrellas"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"></div>
           </div>
-          <div class="flex items-center gap-[12px] pl-[24px] md:pl-[28px] pt-[32px] md:pt-[36px]">
-            <img alt="" draggable="false" class="size-[44px] md:size-[48px] rounded-full object-cover" src="assets/testimonios/avatar4.jpg">
+          <div class="flex items-center gap-[12px] pl-[24px] md:pl-[28px] pt-[12px] md:pt-[36px]">
+            <img alt="" draggable="false" class="size-[32px] md:size-[48px] rounded-full object-cover" src="assets/testimonios/avatar4.jpg">
             <div class="flex flex-col">
               <p class="m-0 font-['Youth:Medium'] text-[#2a2724] text-[16px] leading-[22px]">Pablo Motos</p>
               <p class="m-0 flex items-center gap-[6px] font-['K_Labil_Grotesk:50_Regular'] text-[#767066] text-[14px] leading-[20px]"><img alt="" draggable="false" class="size-[14px]" src="assets/testimonios/google.svg">Reseña en Google</p>
@@ -109,14 +115,14 @@
   </div>
 
   <!-- Navegación: flechas + barra de progreso -->
-  <div class="mx-auto w-full max-w-[720px] px-[24px] md:px-0 mt-[24px] md:mt-[32px] flex items-center gap-[16px]">
-    <button type="button" class="m-tm-arrow m-tm-prev bg-transparent border-0 p-[10px] -ml-[10px] cursor-pointer text-[#2a2724]" style="--nudge:-3px" aria-label="Testimonios anteriores">
+  <div class="ml-[24px] md:mx-auto w-[min(300px,calc(100vw-72px))] md:w-full md:max-w-[720px] mt-[16px] md:mt-[32px] flex items-center justify-end md:justify-start gap-[16px]">
+    <button type="button" class="hidden md:block m-tm-arrow m-tm-prev bg-transparent border-0 p-[10px] -ml-[10px] cursor-pointer text-[#2a2724]" style="--nudge:-3px" aria-label="Testimonios anteriores">
       <svg width="28" height="16" viewBox="0 0 28 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M27 8H1M8 1L1 8l7 7"/></svg>
     </button>
-    <div class="relative w-[160px] h-[2px] bg-[rgba(42,39,36,0.15)] rounded-full overflow-hidden" aria-hidden="true">
+    <div class="hidden md:block relative w-[160px] h-[2px] bg-[rgba(42,39,36,0.15)] rounded-full overflow-hidden" aria-hidden="true">
       <div class="m-tm-thumb absolute left-0 top-0 h-full bg-[#2a2724] rounded-full" style="width:40px"></div>
     </div>
-    <button type="button" class="m-tm-arrow m-tm-next bg-transparent border-0 p-[10px] cursor-pointer text-[#2a2724]" style="--nudge:3px" aria-label="Más testimonios">
+    <button type="button" class="m-tm-arrow m-tm-next bg-transparent border-0 p-[10px] -mr-[10px] md:mr-0 cursor-pointer text-[#2a2724]" style="--nudge:3px" aria-label="Más testimonios">
       <svg width="28" height="16" viewBox="0 0 28 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 8h26M20 1l7 7-7 7"/></svg>
     </button>
   </div>
@@ -132,15 +138,22 @@
     function update() {
       if (!sc.clientWidth) return; // oculto (escritorio)
       var max = sc.scrollWidth - sc.clientWidth;
+      var single = !prev.offsetWidth; // móvil: solo la flecha derecha
+      var end = sc.scrollLeft > max - 4;
       prev.disabled = sc.scrollLeft < 4;
-      next.disabled = sc.scrollLeft > max - 4;
+      next.disabled = !single && end;
+      next.classList.toggle('is-end', single && end);
+      next.setAttribute('aria-label', single && end ? 'Volver al primer testimonio' : 'Más testimonios');
+      if (!bar.clientWidth) return;
       var w = Math.max(24, bar.clientWidth * sc.clientWidth / sc.scrollWidth);
       thumb.style.width = w + 'px';
       thumb.style.transform = 'translateX(' + (max > 0 ? (bar.clientWidth - w) * sc.scrollLeft / max : 0) + 'px)';
     }
     function go(d) { var i = Math.round(sc.scrollLeft / step()) + d; sc.scrollTo({ left: Math.max(0, i * step()) }); setTimeout(update, 500); }
     prev.addEventListener('click', function () { go(-1); });
-    next.addEventListener('click', function () { go(1); });
+    next.addEventListener('click', function () {
+      if (next.classList.contains('is-end')) { sc.scrollTo({ left: 0 }); setTimeout(update, 500); } else go(1);
+    });
     sc.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
     window.addEventListener('load', update);
