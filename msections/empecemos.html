@@ -1,0 +1,84 @@
+<section id="m-empecemos" class="relative w-full bg-[#dbeafe]">
+  <style>
+    #m-empecemos .memp-field { transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease; }
+    @media (hover: hover) { #m-empecemos .memp-field:hover { background-color: #faf7f3; border-color: #e4ddd5; } }
+    #m-empecemos .memp-field:active { background-color: #faf7f3; }
+    #m-empecemos .memp-field:focus-within, #m-empecemos .memp-field:focus-visible, #m-empecemos .memp-field[data-state=open] { border-color: #ff6d45; box-shadow: 0 0 0 3px rgba(255,109,69,.35); outline: none; }
+    @media (hover: hover) { #m-empecemos .memp-field:hover:not([data-state=open]) [data-nui-chevron] { transform: translateY(2px); } }
+    @media (prefers-reduced-motion: reduce) { #m-empecemos .memp-field, #m-empecemos .memp-cta { transition: none; } }
+  </style>
+  <!-- Tarjeta con foto (los setters y la caja Dogfy), degradado para que el texto blanco se lea -->
+  <div class="relative w-full overflow-hidden rounded-[30px] bg-[#2a2724]">
+    <!-- En vertical la foto ocupa la parte baja; el texto queda sobre la zona oscura que funde con ella -->
+    <div class="absolute inset-x-0 bottom-0 h-[300px] md:h-[400px]">
+      <img alt="Dos setters irlandeses junto a una caja de Dogfy Diet" class="absolute inset-0 block size-full max-w-none object-cover object-[60%_40%] md:object-[66%_40%]" src="assets/empecemos/setters.jpg">
+      <div class="absolute inset-x-0 -top-[2px] bottom-0 pointer-events-none" style="background:linear-gradient(180deg, #2a2724 0%, #2a2724 8%, rgba(42,39,36,.6) 22%, rgba(42,39,36,.15) 42%, rgba(42,39,36,0) 55%)"></div>
+    </div>
+    <div class="relative mx-auto w-full max-w-[720px] px-[24px] pt-[48px] pb-[284px] md:px-0 md:pt-[72px] md:pb-[360px]">
+      <div class="flex flex-col gap-[24px] md:gap-[32px] items-start w-full">
+        <div class="flex flex-col gap-[16px] md:gap-[24px] items-start not-italic text-white w-full [word-break:break-word]">
+          <h2 class="m-0 font-['Youth:Bold'] font-normal text-[28px] leading-[32px] md:text-[34px] md:leading-[38px]">Empecemos por tu perro.</h2>
+          <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[24px] md:text-[18px] md:leading-[28px]">Cuéntanos cómo es. Calculamos su ración<br>y te mostramos el precio. Tú eliges las recetas.</p>
+        </div>
+        <form class="memp-form flex flex-col md:flex-row md:items-start gap-[12px] md:gap-[16px] w-full md:w-auto" novalidate>
+          <div class="flex flex-col gap-[8px] w-full md:w-[300px]">
+            <div data-nui-anchor class="memp-field relative w-full h-[48px] rounded-[12px] border-[1.5px] border-solid border-transparent bg-white">
+              <label for="m-emp-raza" class="sr-only">¿Cuál es la raza de tu perro?</label>
+              <select data-nui-select id="m-emp-raza" name="raza" required class="memp-select block w-full h-full appearance-none bg-transparent border-0 outline-none cursor-pointer rounded-[12px] pl-[14px] pr-[42px] py-0 font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[24px] text-[#767066]">
+                <option value="" selected disabled>¿Cuál es la raza de tu perro?</option>
+                <option>Mestizo</option>
+                <option>Labrador</option>
+                <option>Golden Retriever</option>
+                <option>Bulldog francés</option>
+                <option>Chihuahua</option>
+                <option>Border Collie</option>
+                <option>Teckel</option>
+                <option>Pastor alemán</option>
+                <option>Caniche</option>
+                <option>Yorkshire Terrier</option>
+                <option>Beagle</option>
+                <option>Otra raza</option>
+              </select>
+              <div data-nui-chevron class="pointer-events-none absolute right-[14px] top-1/2 -translate-y-1/2 size-[20px]">
+                <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/empecemos/chevron-down.svg">
+              </div>
+            </div>
+            <p class="memp-msg m-0 hidden font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[24px] text-white" aria-live="polite"></p>
+          </div>
+          <a href="https://dogfydiet.com/nuevo-plan?step=1" class="memp-cta bg-[#f96237] flex items-center justify-center px-[24px] h-[48px] w-full md:w-auto rounded-[999px] no-underline shrink-0 transition-[filter,transform] duration-200 hover:brightness-110 active:scale-[0.98]">
+            <span class="memp-cta-label [word-break:break-word] font-['Youth:Medium'] not-italic text-[16px] leading-[24px] text-center text-white whitespace-nowrap" style="font-feature-settings: 'liga' 0, 'calt' 0">Crear su Menú</span>
+          </a>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+(function () {
+  var root = document.getElementById('m-empecemos');
+  if (!root) return;
+  var sel = root.querySelector('.memp-select');
+  var field = root.querySelector('.memp-field');
+  var cta = root.querySelector('.memp-cta');
+  var label = root.querySelector('.memp-cta-label');
+  var msg = root.querySelector('.memp-msg');
+  function setError(on) {
+    field.style.borderColor = on ? '#e5484d' : '';
+    field.style.boxShadow = on ? '0 0 0 3px rgba(229,72,77,.35)' : '';
+    msg.textContent = on ? 'Elige la raza de tu perro para continuar.' : '';
+    msg.classList.toggle('hidden', !on);
+  }
+  sel.addEventListener('change', function () {
+    sel.style.color = sel.value ? '#2a2724' : '';
+    setError(false);
+    label.textContent = 'Crear su Menú';
+  });
+  cta.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (!sel.value) { setError(true); (field.tabIndex >= 0 ? field : sel).focus(); return; }
+    setError(false);
+    label.textContent = '¡Vamos con tu ' + sel.value + '!';
+    window.location.href = cta.href;
+  });
+})();
+</script>
