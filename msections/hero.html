@@ -1,4 +1,4 @@
-<section id="m-hero" class="snap relative w-full overflow-hidden bg-white flex flex-col" style="min-height:max(560px, calc(100svh - 24px))">
+<section id="m-hero" class="snap relative w-full overflow-hidden bg-white flex flex-col md:min-h-[max(560px,calc(100svh_-_24px))]">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400&display=swap">
   <style>
     #m-hero .hero-select { appearance:none; -webkit-appearance:none; background:transparent; border:0; outline:none; }
@@ -14,20 +14,27 @@
   </style>
 
   <!-- Fondo: tarjeta con foto + degradados y esquinas inferiores redondeadas (como escritorio) -->
-  <div aria-hidden="true" class="absolute inset-0 pointer-events-none rounded-b-[24px] md:rounded-b-[30px] overflow-hidden bg-[#ffefea]">
+    <!-- Móvil: fondo oscuro; la foto va en una franja entre el texto y el formulario -->
+  <div aria-hidden="true" class="md:hidden absolute inset-0 pointer-events-none rounded-b-[24px] bg-[#2a2724]"></div>
+  <div aria-hidden="true" class="absolute inset-0 pointer-events-none rounded-b-[24px] md:rounded-b-[30px] overflow-hidden bg-[#ffefea] hidden md:block">
     <img alt="" class="absolute inset-0 max-w-none size-full object-cover" src="assets/hero/hero-bg.png">
     <div class="absolute inset-0" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.4) 100%), linear-gradient(90deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 100%), linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(102,102,102,0) 52.496%)"></div>
   </div>
 
-  <div class="relative flex-1 flex flex-col w-full max-w-[720px] mx-auto px-[24px] md:px-[32px] pt-[104px] md:pt-[136px] pb-[56px] md:pb-[64px]">
+  <div class="relative flex-1 flex flex-col w-full max-w-[720px] mx-auto px-[24px] md:px-[32px] pt-[88px] md:pt-[136px] pb-[48px] md:pb-[64px]">
     <!-- Texto + formulario -->
     <div class="flex flex-col gap-[20px] md:gap-[28px] items-start w-full">
-      <h1 class="m-0 [word-break:break-word] font-['Youth:Bold'] font-normal text-[34px] leading-[38px] md:text-[48px] md:leading-[53px] text-white md:max-w-[610px]">
+      <h1 class="m-0 [word-break:break-word] font-['Youth:Bold'] font-normal text-[28px] leading-[32px] md:text-[48px] md:leading-[53px] text-white md:max-w-[610px]">
         La mejor comida natural directa al bol de tu perro
       </h1>
-      <p class="m-0 [word-break:break-word] font-['K_Labil_Grotesk:50_Regular'] font-normal text-[17px] leading-[24px] md:text-[20px] md:leading-[28px] text-white md:max-w-[460px]">
+      <p class="m-0 [word-break:break-word] font-['K_Labil_Grotesk:50_Regular'] font-normal text-[16px] leading-[22px] md:text-[20px] md:leading-[28px] text-white/90 md:text-white md:max-w-[460px]">
         Alimentación cocinada y saludable para perros, elaborada por nutricionistas caninos.
       </p>
+      <!-- Móvil: foto entre el texto y el formulario, encuadrada en la cara del perro y el envase -->
+      <div aria-hidden="true" class="md:hidden relative -mx-[24px] w-[calc(100%+48px)] h-[clamp(280px,84vw,400px)] overflow-hidden">
+        <img alt="" class="absolute inset-0 size-full max-w-none object-cover" style="object-position:100% 62%" src="assets/hero/hero-bg.png">
+        <div class="absolute inset-0" style="background-image: linear-gradient(180deg, #2a2724 0%, rgba(42,39,36,0) 22%, rgba(42,39,36,0) 78%, #2a2724 100%)"></div>
+      </div>
       <form class="flex flex-col gap-[12px] items-start w-full md:max-w-[340px] pt-[4px] md:pt-[12px]" action="https://dogfydiet.com/nuevo-plan?step=1" onsubmit="location.href=this.action; return false;">
         <div class="flex flex-col items-start justify-center relative shrink-0 w-full">
           <label data-nui-anchor data-nui-side="bottom" class="hero-field bg-white border-[1.5px] border-transparent border-solid flex gap-[8px] items-center px-[14px] py-[12px] h-[48px] relative rounded-[12px] w-full cursor-pointer">
@@ -58,7 +65,7 @@
         <a href="https://dogfydiet.com/nuevo-plan?step=1" class="bg-[#f96237] flex items-center justify-center gap-[8px] mt-[4px] px-[14px] py-[12px] h-[48px] relative rounded-[999px] w-full no-underline transition hover:brightness-110 hover:shadow-lg">
           <span class="font-['Youth:Medium'] leading-[24px] not-italic text-[16px] text-center text-white whitespace-nowrap" style="font-feature-settings: 'liga' 0, 'calt' 0">Crear su Menú</span>
         </a>
-        <a href="#m-testimonios" class="flex gap-[9.6px] items-center relative shrink-0 no-underline hover:opacity-85">
+        <a href="#m-testimonios" class="flex gap-[9.6px] items-center relative shrink-0 self-center md:self-start no-underline hover:opacity-85">
           <span class="font-['Manrope',sans-serif] h-[21.6px] leading-[1.45] text-[16.8px] text-white w-[76.8px]">Excelente</span>
           <span class="h-[21.12px] relative shrink-0 w-[184.8px] block">
             <span class="absolute inset-[0_45.11%_3.86%_0] overflow-clip block">
@@ -75,20 +82,20 @@
     </div>
 
     <!-- Métricas -->
-    <div class="mt-auto pt-[40px] flex gap-[12px] md:gap-[32px] items-center w-full md:w-auto md:self-end">
+    <div class="mt-auto pt-[32px] md:pt-[40px] flex gap-[12px] md:gap-[32px] items-center w-full md:w-auto md:self-end">
       <div class="flex flex-1 min-w-0 flex-col gap-[4px] items-center text-white text-center">
         <p class="m-hero-count m-0 font-['K_Labil_Grotesk:50_Regular'] text-[28px] leading-[32px] md:text-[40px] md:leading-[44px] whitespace-nowrap" data-count="87.4" data-decimals="1">87,4%</p>
-        <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[13px] leading-[16px] md:text-[15px] md:leading-[20px] md:whitespace-nowrap">Mejores digestiones</p>
+        <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[14px] leading-[20px] md:whitespace-nowrap">Mejores digestiones</p>
       </div>
       <div class="bg-[rgba(255,255,255,0.4)] h-[40px] md:h-[52px] shrink-0 w-px"></div>
       <div class="flex flex-1 min-w-0 flex-col gap-[4px] items-center text-white text-center">
         <p class="m-hero-count m-0 font-['K_Labil_Grotesk:50_Regular'] text-[28px] leading-[32px] md:text-[40px] md:leading-[44px] whitespace-nowrap" data-count="74" data-decimals="0">74%</p>
-        <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[13px] leading-[16px] md:text-[15px] md:leading-[20px] md:whitespace-nowrap">Pelaje sano y brillante</p>
+        <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[14px] leading-[20px] md:whitespace-nowrap">Pelaje sano y brillante</p>
       </div>
       <div class="bg-[rgba(255,255,255,0.4)] h-[40px] md:h-[52px] shrink-0 w-px"></div>
       <div class="flex flex-1 min-w-0 flex-col gap-[4px] items-center text-white text-center">
         <p class="m-hero-count m-0 font-['K_Labil_Grotesk:50_Regular'] text-[28px] leading-[32px] md:text-[40px] md:leading-[44px] whitespace-nowrap" data-count="92.1" data-decimals="1">92,1%</p>
-        <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[13px] leading-[16px] md:text-[15px] md:leading-[20px] md:whitespace-nowrap">Mejoran con su nueva dieta</p>
+        <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[14px] leading-[20px] md:whitespace-nowrap">Mejoran con su nueva dieta</p>
       </div>
     </div>
   </div>
