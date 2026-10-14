@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Contraste de botones · Dogfy</title>
+<style>
+  @font-face { font-family: "Youth"; src: url(../../fonts/Youth-Medium.otf) format('opentype'), url(https://fonts.gstatic.com/s/outfit/v15/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1O4a0FQItq6fNIg.woff) format('woff'); font-weight: 500; }
+  @font-face { font-family: "Youth"; src: url(../../fonts/Youth-Bold.otf) format('opentype'), url(https://fonts.gstatic.com/s/outfit/v15/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyO4a0FQItq6fNIg.woff) format('woff'); font-weight: 700; }
+  @font-face { font-family: "K Labil Grotesk"; src: url(../../fonts/KLabilGrotesk-50Regular.otf) format('opentype'), url(https://fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAopxRSW3wRmYJp8I5.woff) format('woff'); }
+  body { margin: 0; background: #fff; color: #2a2724; font-family: "K Labil Grotesk", system-ui, sans-serif; }
+  .board { width: 1200px; box-sizing: border-box; padding: 56px 64px 48px; }
+  h1 { font-family: "Youth"; font-weight: 700; font-size: 34px; margin: 0 0 8px; }
+  .sub { font-size: 18px; color: #6b655c; margin: 0 0 40px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .card { border: 1px solid #e6e1d9; border-radius: 16px; padding: 28px 22px 22px; display: flex; flex-direction: column; gap: 14px; }
+  .card.pick { border: 2px solid #2a2724; }
+  .btn { align-self: flex-start; font-family: "Youth"; font-weight: 500; font-size: 18px; padding: 14px 26px; border-radius: 999px; }
+  .hex { font-size: 16px; }
+  .ratio { font-family: "Youth"; font-weight: 700; font-size: 26px; }
+  .tag { align-self: flex-start; font-size: 14px; font-weight: 700; padding: 4px 10px; border-radius: 6px; }
+  .fail { background: #fde8e6; color: #9b1c12; }
+  .aa { background: #fff2d6; color: #6b4a00; }
+  .aaa { background: #dff3e6; color: #11593a; }
+  .note { font-size: 15px; color: #6b655c; line-height: 1.45; }
+  .foot { margin-top: 36px; padding-top: 24px; border-top: 1px solid #e6e1d9; font-size: 16px; line-height: 1.55; }
+  .foot b { font-family: "Youth"; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="board">
+  <h1>¿Texto blanco o negro en los botones naranjas?</h1>
+  <p class="sub">Contraste WCAG 2.1 del botón principal con el naranja de marca Dogfy (#F96237) y sus variantes de tono.</p>
+  <div class="grid">
+    <div class="card">
+      <span class="btn" style="background:#F96237;color:#fff">Crear su menú</span>
+      <span class="hex">Logo #F96237 + blanco</span>
+      <span class="ratio">3,07&nbsp;:&nbsp;1</span>
+      <span class="tag fail">No cumple AA</span>
+      <span class="note">El naranja de marca no da contraste suficiente con texto blanco.</span>
+    </div>
+    <div class="card">
+      <span class="btn" style="background:#DA3507;color:#fff">Crear su menú</span>
+      <span class="hex">#DA3507 + blanco</span>
+      <span class="ratio">4,67&nbsp;:&nbsp;1</span>
+      <span class="tag aa">AA</span>
+      <span class="note">Mismo tono del logo, algo más oscuro. Es el máximo con blanco sin dejar de ser naranja.</span>
+    </div>
+    <div class="card">
+      <span class="btn" style="background:#A82905;color:#fff">Crear su menú</span>
+      <span class="hex">#A82905 + blanco</span>
+      <span class="ratio">7,04&nbsp;:&nbsp;1</span>
+      <span class="tag aaa">AAA</span>
+      <span class="note">AAA con blanco obliga a un rojo teja: deja de ser el naranja de marca.</span>
+    </div>
+    <div class="card pick">
+      <span class="btn" style="background:#FA6A3F;color:#000">Crear su menú</span>
+      <span class="hex">#FA6A3F + negro</span>
+      <span class="ratio">7,20&nbsp;:&nbsp;1</span>
+      <span class="tag aaa">AAA · elegida</span>
+      <span class="note">Conserva el naranja del logo y alcanza AAA. Al pasar el ratón el fondo se aclara y sube a 8,3&nbsp;:&nbsp;1.</span>
+    </div>
+  </div>
+  <div class="foot">
+    <b>Decisión:</b> texto negro sobre naranja. Es la única combinación que mantiene el color de marca y cumple AAA (7&nbsp;:&nbsp;1).
+    Con texto blanco, un naranja reconocible solo llega a AA (4,5&nbsp;:&nbsp;1), y AAA exige oscurecerlo hasta un rojo teja.<br>
+    Umbrales WCAG para texto normal: AA ≥ 4,5&nbsp;:&nbsp;1 · AAA ≥ 7&nbsp;:&nbsp;1 (texto grande: AA ≥ 3&nbsp;:&nbsp;1 · AAA ≥ 4,5&nbsp;:&nbsp;1).
+  </div>
+</div>
+</body>
+</html>
