@@ -10,6 +10,8 @@
     '.btn-play:hover{filter:none!important;box-shadow:none!important}',
     '.btn-play.bp-solid:hover{background-color:color-mix(in srgb,var(--bp-bg) 86%,#000)!important}',
     '.btn-play.bp-light:hover{background-color:color-mix(in srgb,var(--bp-bg) 92%,#000)!important}',
+    /* Botón de color con texto oscuro: se aclara el fondo para no perder contraste (WCAG 4,5:1) */
+    '.btn-play.bp-lift:hover{background-color:color-mix(in srgb,var(--bp-bg) 85%,#fff)!important}',
     '.btn-play .bp-l{display:inline-block;white-space:pre;will-change:transform}',
     '.btn-play:hover .bp-l{animation:bp-wave .5s cubic-bezier(.34,1.56,.64,1) both;animation-delay:calc(var(--i) * 28ms)}',
     '@keyframes bp-wave{0%{transform:none}40%{transform:translateY(-5px) rotate(-6deg)}70%{transform:translateY(1px) rotate(2deg)}100%{transform:none}}',
@@ -50,7 +52,8 @@
     if (bg && bg !== 'transparent' && !/rgba\(.*,\s*0\)$/.test(bg)) {
       btn.style.setProperty('--bp-bg', bg);
       var rgb = bg.match(/\d+/g).map(Number), lum = (0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]) / 255;
-      btn.classList.add(lum > 0.75 ? 'bp-light' : 'bp-solid');
+      var fg = getComputedStyle(leaves[0]).color.match(/\d+/g).map(Number), fgLum = (0.299 * fg[0] + 0.587 * fg[1] + 0.114 * fg[2]) / 255;
+      btn.classList.add(lum > 0.75 ? 'bp-light' : fgLum < 0.3 ? 'bp-lift' : 'bp-solid');
     }
     // Chips de filtro de recetas: solo se oscurece el fondo, sin ola en las letras
     if (btn.hasAttribute('data-chip')) return;

@@ -15,7 +15,7 @@
 
   var css = [
     /* tokens: Nuxt UI (--ui-*) mapeados a la paleta Dogfy */
-    '.nui-sm{--ui-primary:#ff6d45;--ui-bg:#fff;--ui-bg-elevated:#f6f1ec;--ui-border:#ebe4da;--ui-text:#565049;--ui-text-highlighted:#2a2724;--ui-text-muted:#767066;--ui-text-dimmed:#a39d94;',
+    '.nui-sm{--ui-primary:#ff6d45;--ui-bg:#fff;--ui-bg-elevated:#f6f1ec;--ui-border:#ebe4da;--ui-text:#4f4a43;--ui-text-highlighted:#2a2724;--ui-text-muted:#4f4a43;--ui-text-dimmed:#5c564f;',
     'position:absolute;z-index:60;display:flex;flex-direction:column;max-height:380px;background:var(--ui-bg);border-radius:6px;',
     'box-shadow:0 0 0 1px var(--ui-border),0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);overflow:hidden;',
     "font-family:'K Labil Grotesk',system-ui,sans-serif;transform-origin:top center}",
@@ -72,6 +72,7 @@
     var uid = 'nui-sm-' + Math.random().toString(36).slice(2, 8);
 
     select.tabIndex = -1;
+    select.setAttribute('aria-hidden', 'true'); // el combobox del anchor lo sustituye para lectores de pantalla
     select.style.pointerEvents = 'none';
     anchor.tabIndex = 0;
     anchor.setAttribute('role', 'combobox');
