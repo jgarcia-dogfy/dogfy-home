@@ -6,6 +6,7 @@ Landing estática maquetada a partir del diseño de Figma "TEST NUXT - Rebrand (
 - `sections/*.html` — versión **escritorio** (≥1024 px, lienzo de 1428 px). Es la versión de referencia.
 - `msections/*.html` — versión **móvil / tablet** (<1024 px).
 - `head.html`, `foot.html` — cabecera y cierre de la página.
+- `whatsapp.html` — botón flotante de WhatsApp (común a escritorio y móvil).
 - `assets/` — imágenes, iconos y scripts (`assets/js`).
 - `build.sh` — une todo en `index.html`.
 

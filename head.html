@@ -30,13 +30,15 @@
   body { margin: 0; background: #fff; color: #2a2724; font-family: "K_Labil_Grotesk:50_Regular", "K Labil Grotesk", system-ui, sans-serif; overflow-x: hidden; }
   /* Lienzo de diseño: 1428px de ancho; se escala para caber en ventanas más estrechas */
   .canvas { width: 1428px; margin: 0 auto; position: relative; }
-  .canvas > section { position: relative; width: 1428px; }
+  .canvas > section, .canvas > main > section, .canvas > footer { position: relative; width: 1428px; }
   /* Scroll con imán suave: se ajusta al inicio de cada bloque (header compacto = 72px) */
   html { scroll-snap-type: y proximity; scroll-padding-top: 72px; }
   .snap { scroll-snap-align: start; }
   .snap-end { scroll-snap-align: end; }
   @media (prefers-reduced-motion: reduce) { html { scroll-snap-type: none; scroll-behavior: auto; } }
   a, button { cursor: pointer; }
+  /* Foco de teclado visible sobre cualquier fondo (anillo doble blanco + negro, WCAG 2.4.7 / 2.4.13) */
+  :focus-visible { outline: 3px solid #000 !important; outline-offset: 2px !important; box-shadow: 0 0 0 5px #fff !important; }
 </style>
 </head>
 <body>

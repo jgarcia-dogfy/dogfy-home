@@ -1,0 +1,66 @@
+<!-- ===================== WHATSAPP (botón flotante, fuera de los lienzos para que no le afecte el zoom) ===================== -->
+<style>
+  .wa { position: fixed; right: 20px; bottom: var(--wa-bottom, 20px); transition: bottom .35s ease; z-index: 79; font-family: "K_Labil_Grotesk:50_Regular", "K Labil Grotesk", system-ui, sans-serif; }
+  .wa__bubble { width: 64px; height: 64px; border: 0; padding: 0; border-radius: 100%; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,.4); display: flex; align-items: center; justify-content: center; transition: transform .2s ease; }
+  .wa__bubble:hover { transform: scale(1.06); }
+  .wa__dialog { position: absolute; right: 0; bottom: 80px; width: 398px; max-width: calc(100vw - 40px); padding: 16px; box-sizing: border-box; background: #eae6df; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,.4); transform-origin: bottom right; transition: opacity .2s ease, transform .2s ease; }
+  .wa:not(.is-open) .wa__dialog { opacity: 0; transform: translateY(8px) scale(.96); pointer-events: none; visibility: hidden; }
+  .wa__header { height: 48px; padding: 0 16px; display: flex; align-items: center; justify-content: space-between; background: #075e54; color: #fff; border-radius: 16px 16px 0 0; margin: -16px -16px 0; }
+  .wa__close { border: 0; background: none; color: #fff; padding: 0; margin-right: -10px; min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 100%; transition: opacity .2s; } /* área táctil de 44 × 44 px */
+  .wa__close:hover { opacity: .75; }
+  .wa__body { padding-top: 16px; display: flex; flex-direction: column; align-items: flex-end; gap: 16px; }
+  .wa__message { align-self: stretch; margin-right: 32px; padding: 16px; background: #fff; border-radius: 16px; color: #4f4a43; font-size: 17px; line-height: 1.4; font-family: "K_Labil_Grotesk:70_Bold", "K Labil Grotesk", system-ui, sans-serif; font-weight: 700; }
+  .wa__button { display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 4px 20px; box-sizing: border-box; border-radius: 100px; background: #075e54; color: #fff; font-size: 17px; text-decoration: none; transition: background .2s; }
+  .wa__button:hover { background: #054a42; }
+  .wa__button svg { animation: wa-plane 3s ease-in-out infinite; }
+  @keyframes wa-plane { 0%, 70%, 100% { transform: none; } 80% { transform: translateX(3px) rotate(-8deg); } 90% { transform: translateX(-1px); } }
+  @media (prefers-reduced-motion: reduce) { .wa__button svg { animation: none; } .wa, .wa__dialog, .wa__bubble { transition: none; } }
+</style>
+<aside class="wa" id="wa" aria-label="Contacto por WhatsApp">
+  <div class="wa__dialog" id="wa-dialog" role="dialog" aria-label="Habla con nosotros por WhatsApp">
+    <div class="wa__header">
+      <img src="assets/whatsapp/logo.svg" width="110" height="24" alt="WhatsApp">
+      <button class="wa__close" type="button" aria-label="Cerrar">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="24" height="24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18 18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="wa__body">
+      <p class="wa__message" style="margin-top:0;margin-bottom:0">🐶 Escríbenos con la raza, edad y peso de tu perro para personalizar su dieta 100% natural y casera. ¡Mejoraremos la vida de tu perro!</p>
+      <a class="wa__button" href="https://wa.me/34604561052" target="_blank" rel="nofollow noopener">Ir a WhatsApp
+        <svg viewBox="0 0 400 400" height="24" width="24" fill="transparent" stroke="white" stroke-linecap="round" stroke-width="33"><path d="M168.83 200.504H79.218L33.04 44.284a1 1 0 0 1 1.386-1.188L365.083 199.04a1 1 0 0 1 .003 1.808L34.432 357.903a1 1 0 0 1-1.388-1.187l29.42-99.427"/></svg>
+      </a>
+    </div>
+  </div>
+  <button class="wa__bubble" type="button" aria-label="Abrir chat de WhatsApp" aria-expanded="false" aria-controls="wa-dialog">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 25 24" width="48" height="48"><path fill="#00b67a" fill-rule="evenodd" clip-rule="evenodd" d="M12.498 1.5h.005C18.293 1.5 23 6.21 23 12s-4.708 10.5-10.497 10.5a10.4 10.4 0 0 1-5.777-1.735l-4.035 1.29 1.308-3.9A10.42 10.42 0 0 1 2 12C2 6.21 6.708 1.5 12.497 1.5m3.8 16.428c.773-.18 1.743-.795 1.988-1.537s.244-1.375.173-1.51c-.057-.107-.192-.177-.395-.281l-.171-.09c-.298-.16-1.745-.928-2.019-1.03-.268-.109-.524-.07-.727.237l-.115.174c-.245.369-.48.725-.677.952-.178.204-.47.23-.714.121l-.091-.04c-.387-.168-1.246-.54-2.285-1.534-.876-.838-1.472-1.881-1.644-2.194-.17-.314-.023-.498.112-.668l.007-.01c.087-.115.171-.212.256-.308q.091-.103.185-.217l.027-.033c.133-.164.212-.262.3-.466.102-.211.03-.429-.042-.59-.05-.112-.357-.911-.62-1.598l-.29-.756c-.197-.505-.347-.524-.644-.538l-.028-.001A6 6 0 0 0 8.572 6c-.387 0-.791.122-1.036.39l-.026.03C7.197 6.76 6.5 7.522 6.5 9.04c0 1.52 1.004 2.99 1.19 3.263l.013.02q.018.024.063.095c.38.59 2.227 3.464 4.982 4.69 2.328 1.037 3.02.94 3.55.82"/></svg>
+  </button>
+</aside>
+<script>
+  // Abre/cierra el diálogo de WhatsApp (burbuja, aspa, Esc o clic fuera)
+  (function () {
+    const wa = document.getElementById('wa'), bubble = wa.querySelector('.wa__bubble');
+    function set(open) { wa.classList.toggle('is-open', open); bubble.setAttribute('aria-expanded', open); }
+    bubble.addEventListener('click', () => set(!wa.classList.contains('is-open')));
+    wa.querySelector('.wa__close').addEventListener('click', () => set(false));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') set(false); });
+    document.addEventListener('click', e => { if (!wa.contains(e.target)) set(false); });
+
+    // Móvil: mientras se ve el formulario del hero, la burbuja sube y se queda justo encima del selector de raza
+    // para no tapar el botón «Crear su Menú» ni la valoración de Trustpilot; después vuelve a su sitio
+    let field = null;
+    function place() {
+      field = field || document.querySelector('#m-hero [data-nui-anchor]');
+      let bottom = 20;
+      if (field && innerWidth < 1024) {
+        const r = field.getBoundingClientRect();
+        // solo si la burbuja (64px + 12px de aire) cabe entre el header (~80px) y el selector
+        if (r.top > 80 + 76 && r.bottom < innerHeight) bottom = Math.max(20, innerHeight - r.top + 12);
+      }
+      wa.style.setProperty('--wa-bottom', bottom + 'px');
+    }
+    addEventListener('scroll', place, { passive: true });
+    addEventListener('resize', place);
+    addEventListener('load', place);
+    place();
+  })();
+</script>
