@@ -14,6 +14,11 @@
     #m-header.is-scrolled .mh-bar .mh-logo { transform:scale(.9); }
     #m-header .mh-burger span { background:#fff; transition:background-color .25s; }
     #m-header.is-scrolled .mh-burger span { background:#2a2724; }
+    /* Botón del header: oculto sobre el hero (ya está su botón grande); aparece cuando el header es blanco y el del hero ha salido */
+    #m-header .mh-cta { max-width:0; padding-left:0; padding-right:0; margin-left:-8px; opacity:0; overflow:hidden;
+      transition:max-width .3s ease, padding .3s ease, margin .3s ease, opacity .2s ease; }
+    #m-header.show-cta .mh-cta { max-width:180px; padding-left:14px; padding-right:14px; margin-left:0; opacity:1; }
+    @media (min-width:768px) { #m-header .mh-cta { margin-left:-14px; } #m-header.show-cta .mh-cta { padding-left:18px; padding-right:18px; } }
 
     /* Menú a pantalla completa */
     #m-header .mh-menu { position:fixed; inset:0; z-index:70; display:flex; flex-direction:column; background:#fff; overflow-y:auto; overscroll-behavior:contain;
@@ -35,7 +40,7 @@
     #m-header .mh-lang-trigger[aria-expanded=true] .mh-lang-chev { transform:rotate(180deg); }
     #m-header .mh-lang-list { margin-top:8px; padding:4px; border-radius:6px; box-shadow:0 0 0 1px #ebe4da; isolation:isolate; }
     #m-header .mh-lang-list:not([hidden]) { animation:mh-scale-in .12s ease-out; transform-origin:top center; }
-    #m-header .lang-item { position:relative; display:flex; align-items:center; gap:10px; width:100%; padding:10px 12px; border:0; background:transparent; font-family:'K_Labil_Grotesk:50_Regular','K Labil Grotesk',system-ui,sans-serif; font-size:16px; line-height:24px; color:#565049; text-align:left; cursor:pointer; outline:0; }
+    #m-header .lang-item { position:relative; display:flex; align-items:center; gap:10px; width:100%; padding:10px 12px; border:0; background:transparent; font-family:'K_Labil_Grotesk:50_Regular','K Labil Grotesk',system-ui,sans-serif; font-size:16px; line-height:24px; color:#4f4a43; text-align:left; cursor:pointer; outline:0; }
     #m-header .lang-item::before { content:""; position:absolute; inset:1px; z-index:-1; border-radius:6px; transition:background-color .15s; }
     #m-header .lang-item:hover, #m-header .lang-item:focus-visible, #m-header .lang-item[aria-checked=true] { color:#2a2724; }
     #m-header .lang-item:hover::before, #m-header .lang-item:focus-visible::before { background:#f6f1ec; }
@@ -58,13 +63,13 @@
       <img alt="Dogfy Diet" class="absolute block inset-0 max-w-none size-full" src="assets/hero/dogfy-logo.svg">
     </a>
     <div class="flex items-center gap-[8px] md:gap-[14px]">
-      <a href="https://dogfydiet.com/nuevo-plan?step=1" class="order-2 bg-[#f96237] flex items-center justify-center h-[36px] md:h-[40px] px-[14px] md:px-[18px] rounded-[999px] no-underline transition hover:brightness-110">
-        <span class="font-['Youth:Medium'] leading-[1] text-[14px] md:text-[15px] text-white whitespace-nowrap" style="font-feature-settings:'liga' 0,'calt' 0">Crear menú</span>
+      <a href="https://dogfydiet.com/nuevo-plan?step=1" inert class="mh-cta order-2 bg-[#fa6a3f] flex items-center justify-center h-[44px] px-[14px] md:px-[18px] rounded-[999px] no-underline transition hover:brightness-110">
+        <span class="font-['Youth:Medium'] leading-[1] text-[14px] md:text-[15px] text-black whitespace-nowrap" style="font-feature-settings:'liga' 0,'calt' 0">Crear menú</span>
       </a>
-      <button type="button" class="mh-burger order-1 relative flex flex-col items-end justify-center gap-[5px] size-[40px] p-[9px] m-0 border-0 bg-transparent" aria-label="Abrir menú" aria-expanded="false" aria-controls="m-menu">
+      <button type="button" class="mh-burger order-1 relative flex flex-col items-end justify-center gap-[5px] size-[44px] p-[11px] m-0 border-0 bg-transparent" aria-label="Abrir menú" aria-expanded="false" aria-controls="m-menu">
         <span class="block h-[2px] w-[22px] rounded-[1px]"></span>
         <span class="block h-[2px] w-[22px] rounded-[1px]"></span>
-        <span class="block h-[2px] w-[14px] rounded-[1px]"></span>
+        <span class="block h-[2px] w-[22px] rounded-[1px]"></span>
       </button>
     </div>
   </div>
@@ -100,7 +105,7 @@
           <button type="button" class="mh-lang-trigger flex items-center gap-[10px] w-full py-[10px] p-0 m-0 border-0 bg-transparent text-left text-[#2a2724] hover:opacity-75" aria-expanded="false" aria-controls="m-lang-list">
             <span class="mh-lang-flag lang-flag">🇪🇸</span>
             <span class="flex-1 font-['K_Labil_Grotesk:50_Regular'] text-[17px] leading-[24px]"><span class="sr-only">Idioma: </span><span class="mh-lang-name">Castellano</span></span>
-            <svg class="mh-lang-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#767066" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="mh-lang-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4f4a43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div id="m-lang-list" class="mh-lang-list" role="radiogroup" aria-label="Idioma" hidden>
             <button type="button" role="menuitemradio" class="lang-item" data-code="CA" data-lang="ca" data-name="Català"><span class="lang-flag"><svg viewBox="0 0 9 6" aria-hidden="true"><rect width="9" height="6" fill="#FCDD09"/><path d="M0 .667h9M0 2h9M0 3.333h9M0 4.667h9" stroke="#DA121A" stroke-width=".667"/></svg></span><span class="lang-label">Català</span><svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
@@ -114,8 +119,8 @@
       </div>
 
       <div class="mt-auto pt-[32px] flex justify-center">
-      <a href="https://dogfydiet.com/nuevo-plan?step=1" class="bg-[#f96237] flex items-center justify-center w-full md:w-[320px] h-[48px] px-[14px] py-[12px] rounded-[999px] no-underline transition hover:brightness-110">
-        <span class="font-['Youth:Medium'] leading-[24px] text-[16px] text-white whitespace-nowrap" style="font-feature-settings:'liga' 0,'calt' 0">Calcular mi precio</span>
+      <a href="https://dogfydiet.com/nuevo-plan?step=1" class="bg-[#fa6a3f] flex items-center justify-center w-full md:w-[320px] h-[48px] px-[14px] py-[12px] rounded-[999px] no-underline transition hover:brightness-110">
+        <span class="font-['Youth:Medium'] leading-[24px] text-[16px] text-black whitespace-nowrap" style="font-feature-settings:'liga' 0,'calt' 0">Calcular mi precio</span>
       </a>
       </div>
     </div>
@@ -127,7 +132,8 @@
       var menu = document.getElementById('m-menu');
       var burger = h.querySelector('.mh-burger');
       var closeBtn = h.querySelector('.mh-close');
-      var hero = null;
+      var hero = null, heroCta = null;
+      var cta = h.querySelector('.mh-cta');
 
       // Estado del header: transparente sobre el hero, blanco cuando el hero ya ha pasado por detrás
       function onScroll() {
@@ -138,6 +144,11 @@
         var past = hero.getBoundingClientRect().bottom <= 80;
         h.classList.toggle('is-scrolled', past);
         h.classList.toggle('is-over-hero', !past && window.scrollY > 8);
+        // El botón del header solo aparece con el header blanco y cuando el botón grande del hero ya quedó por encima
+        heroCta = heroCta || hero.querySelector('a[href*="nuevo-plan"]');
+        var show = past && (!heroCta || heroCta.getBoundingClientRect().bottom <= h.offsetHeight);
+        h.classList.toggle('show-cta', show);
+        cta.inert = !show;
       }
       window.addEventListener('scroll', onScroll, { passive: true });
       window.addEventListener('resize', onScroll);
