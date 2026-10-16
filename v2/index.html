@@ -136,7 +136,7 @@
     #site-header .lang-menu { position:absolute; top:calc(100% + 14px); right:-12px; z-index:60; width:220px; padding:4px; background:#fff; border-radius:6px; box-shadow:0 0 0 1px #ebe4da, 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.1); transform-origin:top right; font-family:'K Labil Grotesk',system-ui,sans-serif; isolation:isolate; }
     #site-header .lang-menu[data-state=open] { animation: nui-scale-in .1s ease-out; }
     #site-header .lang-menu[data-state=closed] { animation: nui-scale-out .1s ease-in forwards; }
-    #site-header .lang-item { position:relative; display:flex; align-items:center; gap:10px; width:100%; padding:8px 10px; border:0; background:transparent; font:inherit; font-size:18px; line-height:28px; font-weight:400; color:#4f4a43; text-align:left; cursor:pointer; outline:0; }
+    #site-header .lang-item { position:relative; display:flex; align-items:center; gap:10px; width:100%; padding:8px 10px; border:0; background:transparent; font:inherit; font-size:18px; line-height:28px; font-weight:400; color:#565049; text-align:left; cursor:pointer; outline:0; }
     #site-header .lang-item::before { content:""; position:absolute; inset:1px; z-index:-1; border-radius:6px; transition:background-color .15s; }
     #site-header .lang-item:hover, #site-header .lang-item:focus-visible { color:#2a2724; }
     #site-header .lang-item:hover::before, #site-header .lang-item:focus-visible::before { background:#f6f1ec; }
@@ -265,7 +265,7 @@
         <div class="flex flex-col items-start justify-center relative shrink-0 w-full">
           <div data-nui-anchor data-nui-side="bottom" class="hero-field bg-white border-[1.5px] border-transparent border-solid flex gap-[8px] items-center px-[14px] py-[12px] h-[48px] relative rounded-[12px] shrink-0 w-full cursor-pointer">
             <span class="sr-only">¿Cuál es la raza de tu perro?</span>
-            <select data-nui-select name="raza" class="hero-select flex-1 min-w-0 cursor-pointer font-['K_Labil_Grotesk:50_Regular'] leading-[24px] text-[#4f4a43] text-[16px] p-0 m-0">
+            <select data-nui-select name="raza" class="hero-select flex-1 min-w-0 cursor-pointer font-['K_Labil_Grotesk:50_Regular'] leading-[24px] text-[#6b655c] text-[16px] p-0 m-0">
               <option value="" selected disabled hidden>Raza de tu perro</option>
               <option>Mestizo</option>
               <option>Beagle</option>
@@ -392,19 +392,19 @@
   </style>
   <div class="relative mx-auto flex flex-col gap-[32px] items-center justify-center" style="width:1185.717px">
     <div class="[word-break:break-word] flex flex-col gap-[8px] items-center not-italic relative shrink-0 text-center">
-      <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] leading-[26px] min-w-full relative shrink-0 text-[#4f4a43] text-[18px] w-[min-content]">
+      <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] leading-[26px] min-w-full relative shrink-0 text-[#6b655c] text-[18px] w-[min-content]">
         ¡Darle lo mejor nunca ha sido tan fácil!
       </p>
       <h2 class="m-0 font-['Youth'] font-bold leading-[34px] relative shrink-0 text-[#2a2724] text-[30px] w-[525px]">
-        ¿Cómo empezar a darle una <span class="text-[#cf4803]">buena alimentación</span> a tu perro?
+        ¿Cómo empezar a darle una <span class="text-[#f33b07]">buena alimentación</span> a tu perro?
       </h2>
     </div>
 
     <div class="flex gap-[56px] items-stretch justify-center relative shrink-0 w-full">
-      <div class="relative rounded-[16px] shrink-0 w-[580px] h-[360px]"> <!-- foto apaisada, a la altura de la tarjeta de pasos -->
+      <div class="group relative rounded-[16px] shrink-0 w-[580px] h-[360px] cursor-pointer"> <!-- foto apaisada, a la altura de la tarjeta de pasos; hover: al pasar por la foto, la imagen se acerca un poco y el botón de play se oscurece y crece (mismo tiempo, un solo gesto) -->
         <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-[16px]">
-          <img alt="Mujer abriendo una caja de Dogfy Diet junto a su perro" class="absolute inset-0 size-full max-w-none object-cover" src="assets/como-empezar/photo.png">
-          <span class="vid-play pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center size-[52px] rounded-full border-[1.5px] border-solid border-white/90 bg-black/15 backdrop-blur-[2px] shadow-[0_4px_16px_rgba(0,0,0,.18)]" aria-hidden="true"><svg viewBox="0 0 24 24" class="block size-[18px] ml-[3px]" fill="#fff"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.86l11.6-7.2a1 1 0 0 0 0-1.72L8.5 3.94A1 1 0 0 0 7 4.8z"/></svg></span>
+          <img alt="Mujer abriendo una caja de Dogfy Diet junto a su perro" class="absolute inset-0 size-full max-w-none object-cover transition-[scale] duration-300 ease-out group-hover:scale-[1.04]" src="assets/como-empezar/photo.png">
+          <span class="vid-play pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center size-[64px] rounded-full bg-black/55 backdrop-blur-[4px] transition-[scale,background-color] duration-300 ease-out group-hover:scale-[1.08] group-hover:bg-black/75" aria-hidden="true"><svg viewBox="0 0 24 24" class="block size-[24px]" fill="#fff"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.86l11.6-7.2a1 1 0 0 0 0-1.72L8.5 3.94A1 1 0 0 0 7 4.8z"/></svg></span>
         </div>
       </div>
       <div class="stp-card emp-steps flex flex-col items-start relative shrink-0 w-[360px] self-stretch">
@@ -607,15 +607,15 @@
       <h2 class="-translate-x-1/2 absolute font-['Youth'] font-bold leading-[52px] left-[720.5px] not-italic text-[48px] text-[#2a2724] text-center top-[90px] whitespace-nowrap m-0">Conoce nuestra</h2>
       <!-- Trazos decorativos + etiqueta "natural" -->
       <div class="absolute flex h-[56.422px] items-center justify-center left-[619.97px] top-[158.64px] w-[86.051px]">
-        <div class="flex-none rotate-[153.4deg]"><div class="h-[19.908px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse108.svg?v=3"></div></div>
+        <div class="flex-none rotate-[153.4deg]"><div class="h-[19.908px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse108.svg?v=4"></div></div>
       </div>
       <div class="absolute flex h-[69.706px] items-center justify-center left-[652.72px] top-[149.27px] w-[93.152px]">
-        <div class="flex-none rotate-[154.1deg]"><div class="h-[35.601px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse107.svg?v=3"></div></div>
+        <div class="flex-none rotate-[154.1deg]"><div class="h-[35.601px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse107.svg?v=4"></div></div>
       </div>
       <div class="absolute flex h-[77.544px] items-center justify-center left-[574.43px] top-[145.1px] w-[91.501px]">
-        <div class="flex-none rotate-[146.23deg]"><div class="h-[35.601px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse109.svg?v=3"></div></div>
+        <div class="flex-none rotate-[146.23deg]"><div class="h-[35.601px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse109.svg?v=4"></div></div>
       </div>
-      <div class="-translate-x-1/2 -translate-y-1/2 absolute bg-[#cf4803] flex h-[49.946px] items-center justify-center left-[calc(50%-57.64px)] px-[11.118px] py-[2.172px] rounded-[7.783px] top-[169.6px] w-[188.724px]">
+      <div class="-translate-x-1/2 -translate-y-1/2 absolute bg-[#fa592d] flex h-[49.946px] items-center justify-center left-[calc(50%-57.64px)] px-[11.118px] py-[2.172px] rounded-[7.783px] top-[169.6px] w-[188.724px]">
         <div class="flex flex-col font-['Youth:Bold'] justify-center leading-[0] not-italic relative shrink-0 text-[48px] text-white whitespace-nowrap">
           <p class="leading-[48px] m-0">natural</p>
         </div>
@@ -628,19 +628,17 @@
   <!-- Group 274: elemento decorativo lateral -->
 </section>
 <!-- ===== sellos ===== -->
-<!-- Sellos de calidad (escritorio): logos en fila con el mismo peso óptico + una sola frase que explica los tres avales -->
-<section id="sellos" class="relative w-[1428px] bg-[#fff7c9]" style="padding:80px 0">
-  <div class="mx-auto w-[760px] flex flex-col items-center gap-[40px] text-center">
-    <div class="flex flex-col gap-[8px] items-center">
-      <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[18px] leading-[26px] text-[#4f4a43]">Puedes estar tranquilo</p>
-      <h2 class="m-0 font-['Youth'] font-bold text-[32px] leading-[40px] text-[#2a2724]">Respaldados por quienes más saben</h2>
-    </div>
-    <ul class="m-0 p-0 list-none flex items-center justify-center gap-[56px]" role="list">
-      <li><img alt="FEDIAF" class="block h-[76px] w-auto" src="assets/primer-pedido/fediaf.png"></li>
-      <li><img alt="Generalitat de Catalunya" class="block h-[52px] w-auto" src="assets/primer-pedido/generalitat.png"></li>
-      <li><img alt="Università di Bologna" class="block h-[76px] w-auto" src="assets/primer-pedido/unibo.png"></li>
+<!-- Sellos de calidad (escritorio): banda horizontal — frase a la izquierda y logos repartidos a la derecha.
+     Logos igualados por peso óptico (tinta × tamaño, no por medida: el sello de Bolonia es de línea fina y va más grande; Generalitat, el más denso, más pequeño) -->
+<section id="sellos" class="relative w-[1428px] bg-[#fff7c9]" style="padding:56px 0">
+  <h2 class="sr-only">Respaldados por quienes más saben</h2>
+  <div class="mx-auto w-[1216px] flex items-center gap-[80px]">
+    <p class="m-0 w-[400px] shrink-0 font-['K_Labil_Grotesk:50_Regular'] text-[20px] leading-[30px] text-[#4f4a43]">Recetas según estándares FEDIAF, con calidad certificada y digestibilidad testada por la Universidad de Bolonia.</p>
+    <ul class="m-0 p-0 list-none flex-1 flex items-center justify-between" role="list">
+      <li><img alt="FEDIAF" class="block h-[132px] w-auto" src="assets/primer-pedido/fediaf.png"></li>
+      <li><img alt="Università di Bologna" class="block h-[172px] w-auto" src="assets/primer-pedido/unibo.png"></li>
+      <li><img alt="Generalitat de Catalunya" class="block h-[80px] w-auto" src="assets/primer-pedido/generalitat.png"></li>
     </ul>
-    <p class="m-0 max-w-[560px] font-['K_Labil_Grotesk:50_Regular'] text-[18px] leading-[28px] text-[#4f4a43]">Recetas según <strong class="font-['K_Labil_Grotesk:70_Bold'] font-bold text-[#2a2724]">estándares FEDIAF</strong>, con <strong class="font-['K_Labil_Grotesk:70_Bold'] font-bold text-[#2a2724]">calidad certificada</strong> y <strong class="font-['K_Labil_Grotesk:70_Bold'] font-bold text-[#2a2724]">digestibilidad testada</strong> por la Universidad de Bolonia.</p>
   </div>
 </section>
 <!-- ===== recetas ===== -->
@@ -680,7 +678,7 @@
   <div class="absolute left-[-6px] top-0 w-[1440px] h-[770px] flex flex-col items-center">
     <div class="flex flex-col gap-[16px] items-center relative shrink-0 w-[929px]">
       <h2 class="font-['Youth'] font-bold text-[#2a2724] text-[30px] leading-[34px] text-center w-full m-0 mt-[64px]">
-        Descubre nuestras<br><span class="text-[#cf4803]">recetas cocinadas</span> para perros
+        Descubre nuestras<br><span class="text-[#f33b07]">recetas cocinadas</span> para perros
       </h2>
       <!-- Escritorio: las cuatro recetas ya están a la vista, así que los chips de filtro se sustituyen por una frase (en móvil/tablet siguen) -->
       <p class="m-0 -mt-[6px] font-['K_Labil_Grotesk:50_Regular'] text-[18px] leading-[26px] text-[#4f4a43] text-center">Cuatro recetas según su proteína principal: pollo, salmón, buey o pavo.</p>
@@ -712,12 +710,12 @@
                 <div class="flex h-[12px] rounded-full overflow-hidden bg-white">
                   <div class="bg-[#fa592d] w-[60%]"></div><div class="bg-[#f7b199] w-[40%]"></div>
                 </div>
-                <div class="flex justify-between mt-[6px] text-[14px] leading-[20px] text-[#4f4a43]">
+                <div class="flex justify-between mt-[6px] text-[14px] leading-[20px] text-[#565049]">
                   <span><span class="font-['K_Labil_Grotesk:70_Bold']">60%</span> pollo</span>
                   <span><span class="font-['K_Labil_Grotesk:70_Bold']">40%</span> zanahoria, calabaza y otras verduras</span>
                 </div>
               </div>
-              <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[16px] leading-[24px] text-[#4f4a43]">
+              <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[16px] leading-[24px] text-[#565049]">
                 <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Una sola fuente de proteína: pollo.</li>
                 <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Receta completa, con vitaminas y minerales.</li>
                 <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Cocinada a baja temperatura.</li>
@@ -752,12 +750,12 @@
                 <div class="flex h-[12px] rounded-full overflow-hidden bg-white">
                   <div class="bg-[#fa592d] w-[60%]"></div><div class="bg-[#f7b199] w-[40%]"></div>
                 </div>
-                <div class="flex justify-between mt-[6px] text-[14px] leading-[20px] text-[#4f4a43]">
+                <div class="flex justify-between mt-[6px] text-[14px] leading-[20px] text-[#565049]">
                   <span><span class="font-['K_Labil_Grotesk:70_Bold']">60%</span> salmón</span>
                   <span><span class="font-['K_Labil_Grotesk:70_Bold']">40%</span> zanahoria, calabaza y otras verduras</span>
                 </div>
               </div>
-              <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[16px] leading-[24px] text-[#4f4a43]">
+              <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[16px] leading-[24px] text-[#565049]">
                 <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Una sola fuente de proteína: salmón.</li>
                 <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Receta completa, con vitaminas y minerales.</li>
                 <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Cocinada a baja temperatura.</li>
@@ -792,12 +790,12 @@
                 <div class="flex h-[12px] rounded-full overflow-hidden bg-white">
                   <div class="bg-[#fa592d] w-[60%]"></div><div class="bg-[#f7b199] w-[40%]"></div>
                 </div>
-                <div class="flex justify-between mt-[6px] text-[14px] leading-[20px] text-[#4f4a43]">
+                <div class="flex justify-between mt-[6px] text-[14px] leading-[20px] text-[#565049]">
                   <span><span class="font-['K_Labil_Grotesk:70_Bold']">60%</span> buey</span>
                   <span><span class="font-['K_Labil_Grotesk:70_Bold']">40%</span> zanahoria, calabaza y otras verduras</span>
                 </div>
               </div>
-              <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[16px] leading-[24px] text-[#4f4a43]">
+              <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[16px] leading-[24px] text-[#565049]">
                 <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Una sola fuente de proteína: buey.</li>
                 <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Receta completa, con vitaminas y minerales.</li>
                 <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Cocinada a baja temperatura.</li>
@@ -832,12 +830,12 @@
                 <div class="flex h-[12px] rounded-full overflow-hidden bg-white">
                   <div class="bg-[#fa592d] w-[60%]"></div><div class="bg-[#f7b199] w-[40%]"></div>
                 </div>
-                <div class="flex justify-between mt-[6px] text-[14px] leading-[20px] text-[#4f4a43]">
+                <div class="flex justify-between mt-[6px] text-[14px] leading-[20px] text-[#565049]">
                   <span><span class="font-['K_Labil_Grotesk:70_Bold']">60%</span> pavo</span>
                   <span><span class="font-['K_Labil_Grotesk:70_Bold']">40%</span> zanahoria, calabaza y otras verduras</span>
                 </div>
               </div>
-              <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[16px] leading-[24px] text-[#4f4a43]">
+              <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[16px] leading-[24px] text-[#565049]">
                 <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Una sola fuente de proteína: pavo.</li>
                 <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Receta completa, con vitaminas y minerales.</li>
                 <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Cocinada a baja temperatura.</li>
@@ -934,7 +932,7 @@
     </div>
     <div class="flex flex-col items-center justify-center relative shrink-0 w-full">
       <h2 class="m-0 font-normal [word-break:break-word] font-['Youth:Bold'] leading-[0] not-italic relative shrink-0 text-[#2a2724] text-[30px] text-center w-full whitespace-pre-wrap">
-        <span class="block leading-[34px]">Menús <span class="text-[#c34302]">hechos a su medida</span> </span>
+        <span class="block leading-[34px]">Menús <span class="text-[#f33b07]">hechos a su medida</span> </span>
         <span class="block leading-[34px]">y el precio hecho a la tuya</span>
       </h2>
     </div>
@@ -1087,15 +1085,15 @@
         <div class="flex gap-[32px] items-start relative shrink-0">
           <div class="flex flex-col gap-[12px] items-center relative shrink-0">
             <div class="relative shrink-0 size-[32px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/primer-pedido/check.svg" /></div>
-            <p class="font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[16px] leading-[24px] text-center whitespace-nowrap m-0">Bolsitas de<br>comida natural</p>
+            <p class="font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[16px] leading-[24px] text-center whitespace-nowrap m-0">Bolsitas de<br>comida natural</p>
           </div>
           <div class="flex flex-col gap-[12px] items-center relative shrink-0">
             <div class="relative shrink-0 size-[32px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/primer-pedido/check.svg" /></div>
-            <p class="font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[16px] leading-[24px] text-center whitespace-nowrap m-0">Manual de<br>bienvenida</p>
+            <p class="font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[16px] leading-[24px] text-center whitespace-nowrap m-0">Manual de<br>bienvenida</p>
           </div>
           <div class="flex flex-col gap-[12px] items-center relative shrink-0">
             <div class="relative shrink-0 size-[32px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/primer-pedido/check.svg" /></div>
-            <p class="font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[16px] leading-[24px] text-center whitespace-nowrap m-0">Pack de<br>stickers perrunos</p>
+            <p class="font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[16px] leading-[24px] text-center whitespace-nowrap m-0">Pack de<br>stickers perrunos</p>
           </div>
         </div>
       </div>
@@ -1175,9 +1173,9 @@
   <!-- Título + valoración -->
   <div class="absolute left-0 w-full flex flex-col items-center gap-[16px]" style="top:147px">
     <h2 class="[word-break:break-word] font-['Youth'] font-bold text-[30px] leading-[34px] text-[#2a2724] text-center m-0">
-      <span class="text-[#b83f03]">Ladridos de felicidad:</span> testimonios de clientes
+      <span class="text-[#f33b07]">Ladridos de felicidad:</span> testimonios de clientes
     </h2>
-    <div class="flex items-center gap-[10px] font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[24px] text-[#4f4a43]">
+    <div class="flex items-center gap-[10px] font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[24px] text-[#565049]">
       <span class="font-['Youth:Medium'] text-[#2a2724]">Excelente</span>
       <span class="flex gap-[2px]" role="img" aria-label="Valoración excelente en Trustpilot"><img alt="" class="h-[22px] w-[22px]" src="assets/hero/star1.svg"><img alt="" class="h-[22px] w-[22px]" src="assets/hero/star2.svg"><img alt="" class="h-[22px] w-[22px]" src="assets/hero/star3.svg"><img alt="" class="h-[22px] w-[22px]" src="assets/hero/star4.svg"><img alt="" class="h-[22px] w-[22px]" src="assets/hero/star5.svg"></span>
       <span class="flex items-center gap-[4px] font-['Youth:Medium'] text-[#2a2724]"><img alt="" class="size-[18px]" src="assets/testimonios/source-icon.svg">Trustpilot</span>
@@ -1205,65 +1203,65 @@
   <div class="tm-scroller absolute flex gap-[24px] overflow-x-auto snap-x snap-mandatory select-none cursor-grab" style="left:440px;top:253px;right:0;padding:24px 112px 32px 0" role="region" tabindex="0" aria-roledescription="carrusel" aria-label="Testimonios de clientes · desplázate con las flechas">
         <article class="tm-card snap-start shrink-0 w-[360px] flex flex-col">
           <div class="tm-bubble flex-1 relative bg-white rounded-[24px] p-[28px] flex flex-col gap-[20px]">
-            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[16px] leading-[26px]">Mi perro estaba siempre con el estómago revuelto y desde que come Dogfy <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">está como nuevo</b>. Se nota muchísimo en su energía y en su pelo.</p>
+            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[16px] leading-[26px]">Mi perro estaba siempre con el estómago revuelto y desde que come Dogfy <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">está como nuevo</b>. Se nota muchísimo en su energía y en su pelo.</p>
             <div class="mt-auto flex gap-[2px]" role="img" aria-label="5 de 5 estrellas"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"></div>
             <div class="tm-author flex items-center gap-[10px] pt-[16px] md:pt-[20px] border-t border-solid border-[rgba(42,39,36,.1)]">
               <img alt="" draggable="false" class="size-[36px] rounded-full object-cover" src="assets/testimonios/avatar0.jpg">
               <div class="flex flex-col">
                 <p class="m-0 font-['Youth:Medium'] text-[#2a2724] text-[14px] leading-[19px]">Olivia Wilde</p>
-                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/google.svg">Reseña en Google</p>
+                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#6b655c] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/google.svg">Reseña en Google</p>
               </div>
             </div>
           </div>
         </article>
         <article class="tm-card snap-start shrink-0 w-[360px] flex flex-col">
           <div class="tm-bubble flex-1 relative bg-white rounded-[24px] p-[28px] flex flex-col gap-[20px]">
-            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[16px] leading-[26px]">Le ha mejorado y mucho la calidad de vida a mi perrita Nube, <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">ya no volveremos al pienso nunca!</b></p>
+            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[16px] leading-[26px]">Le ha mejorado y mucho la calidad de vida a mi perrita Nube, <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">ya no volveremos al pienso nunca!</b></p>
             <div class="mt-auto flex gap-[2px]" role="img" aria-label="5 de 5 estrellas"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"></div>
             <div class="tm-author flex items-center gap-[10px] pt-[16px] md:pt-[20px] border-t border-solid border-[rgba(42,39,36,.1)]">
               <img alt="" draggable="false" class="size-[36px] rounded-full object-cover" src="assets/testimonios/avatar1.jpg">
               <div class="flex flex-col">
                 <p class="m-0 font-['Youth:Medium'] text-[#2a2724] text-[14px] leading-[19px]">Paola Romero</p>
-                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/google.svg">Reseña en Google</p>
+                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#6b655c] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/google.svg">Reseña en Google</p>
               </div>
             </div>
           </div>
         </article>
         <article class="tm-card snap-start shrink-0 w-[360px] flex flex-col">
           <div class="tm-bubble flex-1 relative bg-white rounded-[24px] p-[28px] flex flex-col gap-[20px]">
-            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[16px] leading-[26px]">Para mis perros en su momento favorito del día, saben cuando es la hora y me lo hacen saber, van a la cocina a por su ración puntuales. <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">Es una maravilla verlos disfrutar así de su comida</b>, sobre todo de uno que siempre ha tenido problemas digestivos y desde que estamos con esta comida le va fenomenal y no se ha vuelto a poner malo.</p>
+            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[16px] leading-[26px]">Para mis perros en su momento favorito del día, saben cuando es la hora y me lo hacen saber, van a la cocina a por su ración puntuales. <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">Es una maravilla verlos disfrutar así de su comida</b>, sobre todo de uno que siempre ha tenido problemas digestivos y desde que estamos con esta comida le va fenomenal y no se ha vuelto a poner malo.</p>
             <div class="mt-auto flex gap-[2px]" role="img" aria-label="5 de 5 estrellas"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"></div>
             <div class="tm-author flex items-center gap-[10px] pt-[16px] md:pt-[20px] border-t border-solid border-[rgba(42,39,36,.1)]">
               <img alt="" draggable="false" class="size-[36px] rounded-full object-cover" src="assets/testimonios/avatar2.jpg">
               <div class="flex flex-col">
                 <p class="m-0 font-['Youth:Medium'] text-[#2a2724] text-[14px] leading-[19px]">Marc Reus</p>
-                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/google.svg">Reseña en Google</p>
+                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#6b655c] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/google.svg">Reseña en Google</p>
               </div>
             </div>
           </div>
         </article>
         <article class="tm-card snap-start shrink-0 w-[360px] flex flex-col">
           <div class="tm-bubble flex-1 relative bg-white rounded-[24px] p-[28px] flex flex-col gap-[20px]">
-            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[16px] leading-[26px]">Estoy muy satisfecha <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">a mi perrita Suri le encanta se lo come en un pis pas</b> cualquier duda enseguida te lo solucionan</p>
+            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[16px] leading-[26px]">Estoy muy satisfecha <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">a mi perrita Suri le encanta se lo come en un pis pas</b> cualquier duda enseguida te lo solucionan</p>
             <div class="mt-auto flex gap-[2px]" role="img" aria-label="5 de 5 estrellas"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"></div>
             <div class="tm-author flex items-center gap-[10px] pt-[16px] md:pt-[20px] border-t border-solid border-[rgba(42,39,36,.1)]">
               <img alt="" draggable="false" class="size-[36px] rounded-full object-cover" src="assets/testimonios/avatar3.jpg">
               <div class="flex flex-col">
                 <p class="m-0 font-['Youth:Medium'] text-[#2a2724] text-[14px] leading-[19px]">Maribel Sanchez</p>
-                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/source-icon.svg">Reseña en Trustpilot</p>
+                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#6b655c] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/source-icon.svg">Reseña en Trustpilot</p>
               </div>
             </div>
           </div>
         </article>
         <article class="tm-card snap-start shrink-0 w-[360px] flex flex-col">
           <div class="tm-bubble flex-1 relative bg-white rounded-[24px] p-[28px] flex flex-col gap-[20px]">
-            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[16px] leading-[26px]">Lo mejor es la comodidad: llega a casa, lo guardas en el congelador y listo. Y <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">a mi perra le encanta</b>, deja el plato limpio.</p>
+            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[16px] leading-[26px]">Lo mejor es la comodidad: llega a casa, lo guardas en el congelador y listo. Y <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">a mi perra le encanta</b>, deja el plato limpio.</p>
             <div class="mt-auto flex gap-[2px]" role="img" aria-label="5 de 5 estrellas"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"></div>
             <div class="tm-author flex items-center gap-[10px] pt-[16px] md:pt-[20px] border-t border-solid border-[rgba(42,39,36,.1)]">
               <img alt="" draggable="false" class="size-[36px] rounded-full object-cover" src="assets/testimonios/avatar4.jpg">
               <div class="flex flex-col">
                 <p class="m-0 font-['Youth:Medium'] text-[#2a2724] text-[14px] leading-[19px]">Pablo Motos</p>
-                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/google.svg">Reseña en Google</p>
+                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#6b655c] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/google.svg">Reseña en Google</p>
               </div>
             </div>
           </div>
@@ -1337,10 +1335,9 @@
 #empecemos .emp-stage { position: relative; overflow: hidden; }
 #empecemos .emp-panel { position: absolute; overflow: hidden; background: #2a2724; will-change: left, top, width, height; }
 #empecemos .emp-panel > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-/* Velo oscuro al llegar a sangre: el formulario y su mensaje se leen sobre la foto */
-#empecemos .emp-panel::after { content: ""; position: absolute; inset: 0; background: rgba(42,39,36,.55); opacity: var(--bo, 0); pointer-events: none; }
+/* Sin velo: la foto mantiene su color; el formulario va a la izquierda, sobre la pared clara */
 #empecemos .emp-text { position: absolute; z-index: 2; will-change: transform; }
-#empecemos .emp-over { position: absolute; inset: 0; z-index: 3; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+#empecemos .emp-over { position: absolute; inset: 0; z-index: 3; display: flex; align-items: center; justify-content: flex-start; padding-left: 106px; pointer-events: none; }
 #empecemos .emp-over > * { opacity: 0; transform: translateY(48px); transition: opacity .55s cubic-bezier(.22,.61,.36,1), transform .55s cubic-bezier(.22,.61,.36,1); }
 #empecemos .emp-over.show { pointer-events: auto; }
 #empecemos .emp-over.show > * { opacity: 1; transform: none; }
@@ -1355,7 +1352,6 @@
   #empecemos .emp-stage { display: flex; flex-direction: column; gap: 24px; padding: 48px 0 0; }
   #empecemos .emp-text { position: static; transform: none !important; }
   #empecemos .emp-panel { position: relative; inset: auto; width: 100%; height: 420px; border-radius: 0; }
-  #empecemos .emp-panel::after { opacity: 1; }
   #empecemos .emp-over { top: auto; height: 420px; }
   #empecemos .emp-over > * { opacity: 1; transform: none; transition: none; }
 }
@@ -1374,7 +1370,7 @@
     </div>
     <!-- Selector de raza y botón: aparecen sobre la foto a pantalla completa -->
     <div class="emp-over">
-        <form class="emp-form flex gap-[16px] items-center relative shrink-0" novalidate>
+        <form class="emp-form flex flex-col gap-[16px] items-start relative shrink-0" novalidate>
           <div class="flex flex-col gap-[8px] items-start justify-center relative shrink-0 w-[300px]">
             <div data-nui-anchor class="emp-field relative w-full h-[48px] rounded-[12px] border-[1.5px] border-solid border-transparent bg-white transition-[border-color,box-shadow] duration-200">
               <label for="emp-raza" class="sr-only">¿Cuál es la raza de tu perro?</label>
@@ -1401,7 +1397,7 @@
           <a href="https://dogfydiet.com/nuevo-plan?step=1" class="emp-cta bg-[#fa6a3f] flex items-center justify-center px-[24px] h-[48px] relative rounded-[999px] no-underline transition-[filter,transform] duration-200 hover:brightness-110 active:scale-[0.98]">
             <span class="emp-cta-label [word-break:break-word] font-['Youth:Medium'] leading-[24px] not-italic text-[16px] text-center text-black whitespace-nowrap" style="font-feature-settings: 'liga' 0, 'calt' 0">Crear su Menú</span>
           </a>
-          <p class="emp-msg absolute left-0 top-full mt-[8px] whitespace-nowrap m-0 font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[24px] text-white opacity-0 transition-opacity duration-200" aria-live="polite"></p>
+          <p class="emp-msg absolute left-0 top-full mt-[8px] whitespace-nowrap m-0 font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[24px] text-[#2a2724] opacity-0 transition-opacity duration-200" aria-live="polite"></p>
         </form>
     </div>
   </div>
@@ -1450,7 +1446,6 @@
     panel.style.left = (x0 * (1 - g)).toFixed(1) + 'px'; panel.style.top = (y0 + (yF - y0) * g).toFixed(1) + 'px';
     panel.style.width = (w0 + (W - w0) * g).toFixed(1) + 'px'; panel.style.height = (h0 + (HF - h0) * g).toFixed(1) + 'px';
     panel.style.borderRadius = (R * (1 - g)).toFixed(1) + 'px';
-    panel.style.setProperty('--bo', eo(cl(p, .4, .55)).toFixed(3));
     form.classList.toggle('show', forced || g >= .97);
   }
   function req(force) { if (!tick) { tick = true; requestAnimationFrame(upd); } }
@@ -1553,13 +1548,13 @@
   </div>
 </section>
 <!-- ===== faq ===== -->
-<!-- Preguntas frecuentes: centradas, sobre amarillo (texto #2a2724 / #4f4a43 y «FAQs» en #b83f03, todos AAA sobre #fff7c9) -->
+<!-- Preguntas frecuentes: centradas, sobre amarillo (texto #2a2724 / #4f4a43 y «FAQs» en #f33b07; AA sobre #fff7c9, el título es texto grande) -->
 <section id="faq" class="relative w-[1428px] bg-[#fff7c9]" style="padding:96px 0 104px">
   <style>
     #faq .faq-wrap { max-width: 960px; margin: 0 auto; }
     #faq .faq-eyebrow { margin: 0; font-family: "K_Labil_Grotesk:50_Regular", "K Labil Grotesk", system-ui, sans-serif; color: #4f4a43; font-size: 16px; line-height: 22px; }
     #faq .faq-title { margin: 12px 0 0; font-family: "Youth", system-ui, sans-serif; font-weight: 700; color: #2a2724; font-size: 26px; line-height: 31px; }
-    #faq .faq-title em { font-style: normal; color: #b83f03; }
+    #faq .faq-title em { font-style: normal; color: #f33b07; }
     #faq .faq-sub { margin: 16px 0 0; font-family: "K_Labil_Grotesk:50_Regular", "K Labil Grotesk", system-ui, sans-serif; color: #4f4a43; font-size: 16px; line-height: 24px; }
     #faq .faq-list { margin-top: 40px; text-align: left; }
     #faq .faq-head { display: flex; align-items: center; gap: 16px; width: 100%; min-height: 56px; padding: 14px 0; border: 0; background: none; color: #2a2724; text-align: left; cursor: pointer; }
@@ -1656,9 +1651,9 @@
           <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] leading-[28px] text-[18px] w-full">Déjanos tu móvil y te enviamos por SMS un descuento para tu primer pedido.</p>
         </div>
         <form class="dsc-form flex gap-[16px] items-center relative shrink-0" novalidate>
-          <label class="dsc-field bg-white border-[1.5px] border-transparent border-solid flex font-['K_Labil_Grotesk:50_Regular'] gap-[8px] items-center leading-[24px] px-[14px] h-[48px] w-[300px] rounded-[12px] shrink-0 text-[#4f4a43] text-[16px] whitespace-nowrap cursor-text transition-colors">
+          <label class="dsc-field bg-white border-[1.5px] border-transparent border-solid flex font-['K_Labil_Grotesk:50_Regular'] gap-[8px] items-center leading-[24px] px-[14px] h-[48px] w-[300px] rounded-[12px] shrink-0 text-[#6b655c] text-[16px] whitespace-nowrap cursor-text transition-colors">
             <span class="shrink-0">+34</span>
-            <input class="dsc-input flex-1 min-w-0 bg-transparent border-0 outline-none p-0 m-0 text-[16px] leading-[24px] text-[#2a2724] placeholder:text-[#4f4a43] font-['K_Labil_Grotesk:50_Regular']" type="tel" name="phone" inputmode="numeric" autocomplete="tel-national" maxlength="12" placeholder="Número de móvil" aria-label="Número de móvil">
+            <input class="dsc-input flex-1 min-w-0 bg-transparent border-0 outline-none p-0 m-0 text-[16px] leading-[24px] text-[#2a2724] placeholder:text-[#6b655c] font-['K_Labil_Grotesk:50_Regular']" type="tel" name="phone" inputmode="numeric" autocomplete="tel-national" maxlength="12" placeholder="Número de móvil" aria-label="Número de móvil">
           </label>
           <button type="submit" class="bg-[#fa6a3f] border-0 flex gap-[8px] items-center justify-center px-[24px] h-[48px] rounded-[999px] shrink-0 cursor-pointer hover:brightness-110 transition">
             <span class="font-['Youth:Medium'] leading-[24px] text-black text-[16px] whitespace-nowrap">Recibe tu código por SMS</span>
@@ -1726,15 +1721,15 @@
   </div>
 
 
-  <!-- Dálmata asomándose por la derecha (decorativo, en espejo para que mire hacia el contenido) -->
-  <img alt="" aria-hidden="true" class="absolute -right-[70px] bottom-0 h-[1000px] w-auto max-w-none pointer-events-none select-none -scale-x-100" src="assets/footer/perro-dalmata.png">
+  <!-- Dálmata asomándose por la derecha (decorativo, en espejo para que mire hacia el contenido). Subido y con fundido inferior para dejar debajo la fila de redes, pagos y app -->
+  <img alt="" aria-hidden="true" class="absolute -right-[70px] top-[-212px] h-[900px] w-auto max-w-none pointer-events-none select-none -scale-x-100" style="-webkit-mask-image:linear-gradient(to bottom,#000 72%,transparent 90%);mask-image:linear-gradient(to bottom,#000 72%,transparent 90%)" src="assets/footer/perro-dalmata.png">
 
   <div class="absolute h-[330px] left-[78.97px] top-[300px] w-[586px]">
     <img alt="Dogfy Diet" class="absolute block inset-0 max-w-none size-full" src="assets/footer/dogfy-diet.svg">
   </div>
 
-  <!-- Fila inferior: redes, pagos y app -->
-  <div class="absolute left-[78.97px] top-[668px] flex items-end gap-[40px]">
+  <!-- Fila inferior: redes, pagos y app, alineada a la derecha bajo el perro (dos líneas) -->
+  <div class="absolute right-[79px] bottom-[74px] w-[570px] flex flex-wrap items-end gap-x-[40px] gap-y-[20px]">
   <div class="flex flex-col gap-[10px] items-start">
     <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] uppercase text-[14px] leading-[20px] tracking-[1.5px] text-black not-italic shrink-0 w-full">Síguenos</p>
     <div class="flex gap-[8px] items-center shrink-0 w-full">
@@ -1847,7 +1842,7 @@
     #m-header .mh-lang-trigger[aria-expanded=true] .mh-lang-chev { transform:rotate(180deg); }
     #m-header .mh-lang-list { margin-top:8px; padding:4px; border-radius:6px; box-shadow:0 0 0 1px #ebe4da; isolation:isolate; }
     #m-header .mh-lang-list:not([hidden]) { animation:mh-scale-in .12s ease-out; transform-origin:top center; }
-    #m-header .lang-item { position:relative; display:flex; align-items:center; gap:10px; width:100%; padding:10px 12px; border:0; background:transparent; font-family:'K_Labil_Grotesk:50_Regular','K Labil Grotesk',system-ui,sans-serif; font-size:16px; line-height:24px; color:#4f4a43; text-align:left; cursor:pointer; outline:0; }
+    #m-header .lang-item { position:relative; display:flex; align-items:center; gap:10px; width:100%; padding:10px 12px; border:0; background:transparent; font-family:'K_Labil_Grotesk:50_Regular','K Labil Grotesk',system-ui,sans-serif; font-size:16px; line-height:24px; color:#565049; text-align:left; cursor:pointer; outline:0; }
     #m-header .lang-item::before { content:""; position:absolute; inset:1px; z-index:-1; border-radius:6px; transition:background-color .15s; }
     #m-header .lang-item:hover, #m-header .lang-item:focus-visible, #m-header .lang-item[aria-checked=true] { color:#2a2724; }
     #m-header .lang-item:hover::before, #m-header .lang-item:focus-visible::before { background:#f6f1ec; }
@@ -1912,7 +1907,7 @@
           <button type="button" class="mh-lang-trigger flex items-center gap-[10px] w-full py-[10px] p-0 m-0 border-0 bg-transparent text-left text-[#2a2724] hover:opacity-75" aria-expanded="false" aria-controls="m-lang-list">
             <span class="mh-lang-flag lang-flag">🇪🇸</span>
             <span class="flex-1 font-['K_Labil_Grotesk:50_Regular'] text-[17px] leading-[24px]"><span class="sr-only">Idioma: </span><span class="mh-lang-name">Castellano</span></span>
-            <svg class="mh-lang-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4f4a43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="mh-lang-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#767066" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div id="m-lang-list" class="mh-lang-list" role="radiogroup" aria-label="Idioma" hidden>
             <button type="button" role="menuitemradio" class="lang-item" data-code="CA" data-lang="ca" data-name="Català"><span class="lang-flag"><svg viewBox="0 0 9 6" aria-hidden="true"><rect width="9" height="6" fill="#FCDD09"/><path d="M0 .667h9M0 2h9M0 3.333h9M0 4.667h9" stroke="#DA121A" stroke-width=".667"/></svg></span><span class="lang-label">Català</span><svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
@@ -2086,7 +2081,7 @@
         <div class="flex flex-col items-start justify-center relative shrink-0 w-full">
           <div data-nui-anchor data-nui-side="bottom" class="hero-field bg-white border-[1.5px] border-transparent border-solid flex gap-[8px] items-center px-[14px] py-[12px] h-[48px] relative rounded-[12px] w-full cursor-pointer">
             <span class="sr-only">¿Cuál es la raza de tu perro?</span>
-            <select data-nui-select name="raza" class="hero-select flex-1 min-w-0 cursor-pointer font-['K_Labil_Grotesk:50_Regular'] leading-[24px] text-[#4f4a43] text-[16px] p-0 m-0">
+            <select data-nui-select name="raza" class="hero-select flex-1 min-w-0 cursor-pointer font-['K_Labil_Grotesk:50_Regular'] leading-[24px] text-[#6b655c] text-[16px] p-0 m-0">
               <option value="" selected disabled hidden>Raza de tu perro</option>
               <option>Mestizo</option>
               <option>Beagle</option>
@@ -2246,15 +2241,15 @@
     <div class="flex flex-col gap-[8px] items-center text-center w-full">
       <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[22px] md:text-[18px] md:leading-[26px] text-[#4f4a43]">¡Darle lo mejor nunca ha sido tan fácil!</p>
       <h2 class="m-0 [word-break:break-word] font-['Youth'] font-bold text-[19px] min-[380px]:text-[20px] leading-[27px] md:text-[30px] md:leading-[34px] text-[#2a2724] max-w-[354px] md:max-w-[525px]">
-        ¿Cómo empezar a darle una <span class="text-[#cf4803]">buena alimentación</span> a tu perro?
+        ¿Cómo empezar a darle una <span class="text-[#f33b07]">buena alimentación</span> a tu perro?
       </h2>
     </div>
 
     <div class="w-full grid grid-cols-1 md:grid-cols-[1fr_minmax(0,320px)] gap-[16px] md:gap-[20px] items-stretch">
-      <!-- Foto: en tablet se estira al alto de la columna de pasos (como escritorio) -->
-      <div class="relative w-full aspect-[1624/969] md:aspect-auto md:min-h-[300px] rounded-[16px] overflow-hidden">
-        <img alt="Mujer abriendo una caja de Dogfy Diet junto a su perro" class="absolute inset-0 size-full max-w-none object-cover" src="assets/como-empezar/photo.png">
-          <span class="vid-play pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center size-[52px] rounded-full border-[1.5px] border-solid border-white/90 bg-black/15 backdrop-blur-[2px] shadow-[0_4px_16px_rgba(0,0,0,.18)]" aria-hidden="true"><svg viewBox="0 0 24 24" class="block size-[18px] ml-[3px]" fill="#fff"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.86l11.6-7.2a1 1 0 0 0 0-1.72L8.5 3.94A1 1 0 0 0 7 4.8z"/></svg></span>
+      <!-- Foto: en tablet se estira al alto de la columna de pasos (como escritorio); con ratón, la imagen se acerca un poco y el play se oscurece y crece -->
+      <div class="group relative w-full aspect-[1624/969] md:aspect-auto md:min-h-[300px] rounded-[16px] overflow-hidden cursor-pointer">
+        <img alt="Mujer abriendo una caja de Dogfy Diet junto a su perro" class="absolute inset-0 size-full max-w-none object-cover transition-[scale] duration-300 ease-out group-hover:scale-[1.04]" src="assets/como-empezar/photo.png">
+          <span class="vid-play pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center size-[64px] rounded-full bg-black/55 backdrop-blur-[4px] transition-[scale,background-color] duration-300 ease-out group-hover:scale-[1.08] group-hover:bg-black/75" aria-hidden="true"><svg viewBox="0 0 24 24" class="block size-[24px]" fill="#fff"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.86l11.6-7.2a1 1 0 0 0 0-1.72L8.5 3.94A1 1 0 0 0 7 4.8z"/></svg></span>
       </div>
       <div class="stp-card flex flex-col gap-[16px] items-stretch md:items-start w-full">
         <!-- Pasos: stepper vertical con un icono por paso (decorativo; el lector anuncia «Paso N: …») y flechas entre pasos -->
@@ -2341,15 +2336,15 @@
         <span class="relative inline-block shrink-0 w-[95px] h-[25px] md:w-[126px] md:h-[34px]">
           <span class="absolute left-0 top-0 w-[188.724px] h-[49.946px] origin-top-left scale-[.5] md:scale-[.667]">
             <span class="absolute flex h-[56.422px] items-center justify-center left-[51.97px] top-[14.04px] w-[86.051px]">
-              <span class="block flex-none rotate-[153.4deg]"><span class="block h-[19.908px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse108.svg?v=3"></span></span>
+              <span class="block flex-none rotate-[153.4deg]"><span class="block h-[19.908px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse108.svg?v=4"></span></span>
             </span>
             <span class="absolute flex h-[69.706px] items-center justify-center left-[84.72px] top-[4.67px] w-[93.152px]">
-              <span class="block flex-none rotate-[154.1deg]"><span class="block h-[35.601px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse107.svg?v=3"></span></span>
+              <span class="block flex-none rotate-[154.1deg]"><span class="block h-[35.601px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse107.svg?v=4"></span></span>
             </span>
             <span class="absolute flex h-[77.544px] items-center justify-center left-[6.43px] top-[0.5px] w-[91.501px]">
-              <span class="block flex-none rotate-[146.23deg]"><span class="block h-[35.601px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse109.svg?v=3"></span></span>
+              <span class="block flex-none rotate-[146.23deg]"><span class="block h-[35.601px] relative w-[86.267px]"><img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/conoce/ellipse109.svg?v=4"></span></span>
             </span>
-            <span class="absolute inset-0 bg-[#cf4803] flex items-center justify-center px-[11.118px] py-[2.172px] rounded-[7.783px]">
+            <span class="absolute inset-0 bg-[#fa592d] flex items-center justify-center px-[11.118px] py-[2.172px] rounded-[7.783px]">
               <span class="font-['Youth:Bold'] text-[48px] leading-[48px] text-white whitespace-nowrap">natural</span>
             </span>
           </span>
@@ -2406,19 +2401,21 @@
 
 </section>
 <!-- ===== m-sellos ===== -->
-<!-- Sellos de calidad (móvil/tablet): logos en fila con el mismo peso óptico + una sola frase que explica los tres avales -->
-<section id="m-sellos" class="relative w-full bg-[#fff7c9] px-[18px] py-[48px] md:py-[64px]">
-  <div class="mx-auto w-full max-w-[560px] flex flex-col items-center gap-[28px] md:gap-[36px] text-center">
-    <div class="flex flex-col gap-[8px] items-center">
-      <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[22px] md:text-[18px] md:leading-[26px] text-[#4f4a43]">Puedes estar tranquilo</p>
-      <h2 class="m-0 font-['Youth'] font-bold text-[22px] leading-[27px] md:text-[30px] md:leading-[34px] text-[#2a2724]">Respaldados por quienes más saben</h2>
+<!-- Sellos de calidad (móvil/tablet). Móvil: título + logos + frase, centrados. Tablet (md): como escritorio, frase a la izquierda y logos a la derecha
+     igualados por peso óptico (Bolonia, de línea fina, más grande; Generalitat, el más denso, más pequeño) -->
+<section id="m-sellos" class="relative w-full bg-[#fff7c9] px-[18px] py-[48px] md:px-[40px] md:py-[48px]">
+  <div class="mx-auto w-full max-w-[560px] md:max-w-[944px] flex flex-col md:flex-row items-center gap-[28px] md:gap-[40px] text-center md:text-left">
+    <div class="flex flex-col gap-[8px] items-center md:hidden">
+      <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[22px] text-[#4f4a43]">Puedes estar tranquilo</p>
+      <h2 class="m-0 font-['Youth'] font-bold text-[22px] leading-[27px] text-[#2a2724]">Respaldados por quienes más saben</h2>
     </div>
-    <ul class="m-0 p-0 list-none flex items-center justify-center gap-[24px] md:gap-[40px]" role="list">
-      <li><img alt="FEDIAF" class="block h-[52px] md:h-[68px] w-auto" src="assets/primer-pedido/fediaf.png"></li>
+    <h2 class="sr-only hidden md:block">Respaldados por quienes más saben</h2>
+    <ul class="m-0 p-0 list-none flex items-center justify-center gap-[24px] md:flex-1 md:justify-between md:gap-[24px] md:order-2" role="list">
+      <li><img alt="FEDIAF" class="block h-[52px] md:h-[76px] w-auto" src="assets/primer-pedido/fediaf.png"></li>
+      <li><img alt="Università di Bologna" class="block h-[52px] md:h-[100px] w-auto" src="assets/primer-pedido/unibo.png"></li>
       <li><img alt="Generalitat de Catalunya" class="block h-[36px] md:h-[46px] w-auto" src="assets/primer-pedido/generalitat.png"></li>
-      <li><img alt="Università di Bologna" class="block h-[52px] md:h-[68px] w-auto" src="assets/primer-pedido/unibo.png"></li>
     </ul>
-    <p class="m-0 max-w-[340px] md:max-w-[480px] font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[24px] md:text-[18px] md:leading-[28px] text-[#4f4a43]">Recetas según <strong class="font-['K_Labil_Grotesk:70_Bold'] font-bold text-[#2a2724]">estándares FEDIAF</strong>, con <strong class="font-['K_Labil_Grotesk:70_Bold'] font-bold text-[#2a2724]">calidad certificada</strong> y <strong class="font-['K_Labil_Grotesk:70_Bold'] font-bold text-[#2a2724]">digestibilidad testada</strong> por la Universidad de Bolonia.</p>
+    <p class="m-0 max-w-[340px] md:max-w-none md:w-[260px] md:shrink-0 md:order-1 font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[24px] md:text-[17px] md:leading-[26px] text-[#4f4a43]">Recetas según estándares FEDIAF, con calidad certificada y digestibilidad testada por la Universidad de Bolonia.</p>
   </div>
 </section>
 <!-- ===== m-recetas ===== -->
@@ -2488,7 +2485,7 @@
   <div class="flex flex-col gap-[16px] items-center px-[18px] w-full max-w-[720px] mx-auto">
     <p class="font-['K_Labil_Grotesk:50_Regular'] leading-[22px] text-[16px] md:text-[18px] md:leading-[26px] text-[#4f4a43] text-center w-full m-0 -mb-[8px]">¡Tu perro ya está moviendo la cola!</p>
     <h2 class="font-['Youth'] font-bold text-[#2a2724] text-[22px] leading-[27px] md:text-[34px] md:leading-[38px] text-center w-full m-0">
-      Descubre nuestras<br><span class="text-[#cf4803]">recetas cocinadas</span> para perros
+      Descubre nuestras<br><span class="text-[#f33b07]">recetas cocinadas</span> para perros
     </h2>
     <div class="flex flex-nowrap gap-[8px] md:gap-[12px] items-center justify-center pt-[8px] md:pt-[16px] w-full md:max-w-none" role="group" aria-label="Filtrar recetas">
         <button type="button" data-chip="pollo" aria-pressed="true" aria-controls="m-receta-pollo" class="mrc-chip shrink-0 is-active">
@@ -2536,12 +2533,12 @@
               <div class="flex h-[12px] rounded-full overflow-hidden bg-white">
                 <div class="bg-[#fa592d] w-[60%]"></div><div class="bg-[#f7b199] w-[40%]"></div>
               </div>
-              <div class="flex justify-between gap-[12px] mt-[6px] text-[13px] leading-[18px] text-[#4f4a43]">
+              <div class="flex justify-between gap-[12px] mt-[6px] text-[13px] leading-[18px] text-[#565049]">
                 <span class="shrink-0"><span class="font-['K_Labil_Grotesk:70_Bold']">60%</span> pollo</span>
                 <span class="text-right"><span class="font-['K_Labil_Grotesk:70_Bold']">40%</span> zanahoria, calabaza y otras verduras</span>
               </div>
             </div>
-            <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[15px] leading-[22px] text-[#4f4a43]">
+            <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[15px] leading-[22px] text-[#565049]">
               <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Una sola fuente de proteína: pollo.</li>
               <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Receta completa, con vitaminas y minerales.</li>
               <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Cocinada a baja temperatura.</li>
@@ -2576,12 +2573,12 @@
               <div class="flex h-[12px] rounded-full overflow-hidden bg-white">
                 <div class="bg-[#fa592d] w-[60%]"></div><div class="bg-[#f7b199] w-[40%]"></div>
               </div>
-              <div class="flex justify-between gap-[12px] mt-[6px] text-[13px] leading-[18px] text-[#4f4a43]">
+              <div class="flex justify-between gap-[12px] mt-[6px] text-[13px] leading-[18px] text-[#565049]">
                 <span class="shrink-0"><span class="font-['K_Labil_Grotesk:70_Bold']">60%</span> salmón</span>
                 <span class="text-right"><span class="font-['K_Labil_Grotesk:70_Bold']">40%</span> zanahoria, calabaza y otras verduras</span>
               </div>
             </div>
-            <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[15px] leading-[22px] text-[#4f4a43]">
+            <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[15px] leading-[22px] text-[#565049]">
               <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Una sola fuente de proteína: salmón.</li>
               <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Receta completa, con vitaminas y minerales.</li>
               <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Cocinada a baja temperatura.</li>
@@ -2616,12 +2613,12 @@
               <div class="flex h-[12px] rounded-full overflow-hidden bg-white">
                 <div class="bg-[#fa592d] w-[60%]"></div><div class="bg-[#f7b199] w-[40%]"></div>
               </div>
-              <div class="flex justify-between gap-[12px] mt-[6px] text-[13px] leading-[18px] text-[#4f4a43]">
+              <div class="flex justify-between gap-[12px] mt-[6px] text-[13px] leading-[18px] text-[#565049]">
                 <span class="shrink-0"><span class="font-['K_Labil_Grotesk:70_Bold']">60%</span> buey</span>
                 <span class="text-right"><span class="font-['K_Labil_Grotesk:70_Bold']">40%</span> zanahoria, calabaza y otras verduras</span>
               </div>
             </div>
-            <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[15px] leading-[22px] text-[#4f4a43]">
+            <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[15px] leading-[22px] text-[#565049]">
               <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Una sola fuente de proteína: buey.</li>
               <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Receta completa, con vitaminas y minerales.</li>
               <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Cocinada a baja temperatura.</li>
@@ -2656,12 +2653,12 @@
               <div class="flex h-[12px] rounded-full overflow-hidden bg-white">
                 <div class="bg-[#fa592d] w-[60%]"></div><div class="bg-[#f7b199] w-[40%]"></div>
               </div>
-              <div class="flex justify-between gap-[12px] mt-[6px] text-[13px] leading-[18px] text-[#4f4a43]">
+              <div class="flex justify-between gap-[12px] mt-[6px] text-[13px] leading-[18px] text-[#565049]">
                 <span class="shrink-0"><span class="font-['K_Labil_Grotesk:70_Bold']">60%</span> pavo</span>
                 <span class="text-right"><span class="font-['K_Labil_Grotesk:70_Bold']">40%</span> zanahoria, calabaza y otras verduras</span>
               </div>
             </div>
-            <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[15px] leading-[22px] text-[#4f4a43]">
+            <ul class="list-none p-0 m-0 flex flex-col gap-[4px] text-[15px] leading-[22px] text-[#565049]">
               <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Una sola fuente de proteína: pavo.</li>
               <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Receta completa, con vitaminas y minerales.</li>
               <li class="flex gap-[10px]"><span class="text-[#f33b07]">&#10003;</span>Cocinada a baja temperatura.</li>
@@ -2802,7 +2799,7 @@
   <div class="relative flex flex-col gap-[32px] md:gap-[40px] items-center mx-auto w-full max-w-[420px] md:max-w-[720px]">
     <div class="w-full pb-[8px] md:pb-0">
       <h2 class="m-0 font-normal font-['Youth:Bold'] text-[#2a2724] text-[22px] leading-[27px] md:text-[34px] md:leading-[38px] text-center [word-break:break-word]">
-        <span class="block [text-wrap:balance]">Menús <span class="text-[#c34302]">hechos a su medida</span></span><span class="block [text-wrap:balance]">y el precio hecho a la tuya</span>
+        <span class="block [text-wrap:balance]">Menús <span class="text-[#f33b07]">hechos a su medida</span></span><span class="block [text-wrap:balance]">y el precio hecho a la tuya</span>
       </h2>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-[12px] md:gap-[16px] w-full">
@@ -2956,15 +2953,15 @@
         <ul class="m-0 p-0 list-none grid grid-cols-3 gap-[8px] md:gap-[4px] w-full">
           <li class="flex flex-col gap-[12px] items-center min-w-0">
             <img alt="" class="block size-[32px]" src="assets/primer-pedido/check.svg" />
-            <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[14px] leading-[20px] md:text-[16px] md:leading-[24px] text-center">Bolsitas de<br>comida natural</p>
+            <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[14px] leading-[20px] md:text-[16px] md:leading-[24px] text-center">Bolsitas de<br>comida natural</p>
           </li>
           <li class="flex flex-col gap-[12px] items-center min-w-0">
             <img alt="" class="block size-[32px]" src="assets/primer-pedido/check.svg" />
-            <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[14px] leading-[20px] md:text-[16px] md:leading-[24px] text-center">Manual de<br>bienvenida</p>
+            <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[14px] leading-[20px] md:text-[16px] md:leading-[24px] text-center">Manual de<br>bienvenida</p>
           </li>
           <li class="flex flex-col gap-[12px] items-center min-w-0">
             <img alt="" class="block size-[32px]" src="assets/primer-pedido/check.svg" />
-            <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[14px] leading-[20px] md:text-[16px] md:leading-[24px] text-center">Pack de<br>stickers perrunos</p>
+            <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[14px] leading-[20px] md:text-[16px] md:leading-[24px] text-center">Pack de<br>stickers perrunos</p>
           </li>
         </ul>
       </div>
@@ -3050,9 +3047,9 @@
   <!-- Título + valoración -->
   <div class="px-[18px] pt-[32px] md:pt-[48px] flex flex-col items-center gap-[12px] md:gap-[16px]">
     <h2 class="m-0 mx-auto max-w-[720px] [word-break:break-word] font-['Youth'] font-bold text-[22px] leading-[27px] md:text-[32px] md:leading-[36px] text-[#2a2724] text-center">
-      <span class="text-[#b83f03]">Ladridos de felicidad:</span> testimonios de clientes
+      <span class="text-[#f33b07]">Ladridos de felicidad:</span> testimonios de clientes
     </h2>
-    <div class="flex flex-wrap justify-center items-center gap-[6px] md:gap-[10px] font-['K_Labil_Grotesk:50_Regular'] text-[14px] leading-[20px] md:text-[16px] md:leading-[24px] text-[#4f4a43]">
+    <div class="flex flex-wrap justify-center items-center gap-[6px] md:gap-[10px] font-['K_Labil_Grotesk:50_Regular'] text-[14px] leading-[20px] md:text-[16px] md:leading-[24px] text-[#565049]">
       <span class="font-['Youth:Medium'] text-[#2a2724]">Excelente</span>
       <span class="flex gap-[2px]" role="img" aria-label="Valoración excelente en Trustpilot"><img alt="" class="h-[16px] w-[16px] md:h-[22px] md:w-[22px]" src="assets/hero/star1.svg"><img alt="" class="h-[16px] w-[16px] md:h-[22px] md:w-[22px]" src="assets/hero/star2.svg"><img alt="" class="h-[16px] w-[16px] md:h-[22px] md:w-[22px]" src="assets/hero/star3.svg"><img alt="" class="h-[16px] w-[16px] md:h-[22px] md:w-[22px]" src="assets/hero/star4.svg"><img alt="" class="h-[16px] w-[16px] md:h-[22px] md:w-[22px]" src="assets/hero/star5.svg"></span>
       <span class="flex items-center gap-[4px] font-['Youth:Medium'] text-[#2a2724]"><img alt="" class="size-[14px] md:size-[18px]" src="assets/testimonios/source-icon.svg">Trustpilot</span>
@@ -3069,65 +3066,65 @@
   <div class="m-tm-scroller flex gap-[16px] md:gap-[24px] overflow-x-auto snap-x snap-mandatory select-none cursor-grab pt-[24px] pb-[8px]" role="region" tabindex="0" aria-roledescription="carrusel" aria-label="Testimonios de clientes · desplázate con las flechas">
         <article class="m-tm-card snap-start shrink-0 w-[min(300px,calc(100vw-66px))] md:w-[340px] flex flex-col">
           <div class="m-tm-bubble flex-1 relative bg-white rounded-[20px] md:rounded-[24px] p-[20px] md:p-[28px] flex flex-col gap-[14px] md:gap-[20px]">
-            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[14px] leading-[20px] md:text-[16px] md:leading-[26px] line-clamp-5 md:line-clamp-none">Mi perro estaba siempre con el estómago revuelto y desde que come Dogfy <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">está como nuevo</b>. Se nota muchísimo en su energía y en su pelo.</p>
+            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[14px] leading-[20px] md:text-[16px] md:leading-[26px] line-clamp-5 md:line-clamp-none">Mi perro estaba siempre con el estómago revuelto y desde que come Dogfy <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">está como nuevo</b>. Se nota muchísimo en su energía y en su pelo.</p>
             <div class="mt-auto flex gap-[2px]" role="img" aria-label="5 de 5 estrellas"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"></div>
             <div class="tm-author flex items-center gap-[10px] pt-[16px] md:pt-[20px] border-t border-solid border-[rgba(42,39,36,.1)]">
               <img alt="" draggable="false" class="size-[32px] md:size-[36px] rounded-full object-cover" src="assets/testimonios/avatar0.jpg">
               <div class="flex flex-col">
                 <p class="m-0 font-['Youth:Medium'] text-[#2a2724] text-[14px] leading-[19px]">Olivia Wilde</p>
-                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/google.svg">Reseña en Google</p>
+                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#6b655c] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/google.svg">Reseña en Google</p>
               </div>
             </div>
           </div>
         </article>
         <article class="m-tm-card snap-start shrink-0 w-[min(300px,calc(100vw-66px))] md:w-[340px] flex flex-col">
           <div class="m-tm-bubble flex-1 relative bg-white rounded-[20px] md:rounded-[24px] p-[20px] md:p-[28px] flex flex-col gap-[14px] md:gap-[20px]">
-            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[14px] leading-[20px] md:text-[16px] md:leading-[26px] line-clamp-5 md:line-clamp-none">Le ha mejorado y mucho la calidad de vida a mi perrita Nube, <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">ya no volveremos al pienso nunca!</b></p>
+            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[14px] leading-[20px] md:text-[16px] md:leading-[26px] line-clamp-5 md:line-clamp-none">Le ha mejorado y mucho la calidad de vida a mi perrita Nube, <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">ya no volveremos al pienso nunca!</b></p>
             <div class="mt-auto flex gap-[2px]" role="img" aria-label="5 de 5 estrellas"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"></div>
             <div class="tm-author flex items-center gap-[10px] pt-[16px] md:pt-[20px] border-t border-solid border-[rgba(42,39,36,.1)]">
               <img alt="" draggable="false" class="size-[32px] md:size-[36px] rounded-full object-cover" src="assets/testimonios/avatar1.jpg">
               <div class="flex flex-col">
                 <p class="m-0 font-['Youth:Medium'] text-[#2a2724] text-[14px] leading-[19px]">Paola Romero</p>
-                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/google.svg">Reseña en Google</p>
+                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#6b655c] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/google.svg">Reseña en Google</p>
               </div>
             </div>
           </div>
         </article>
         <article class="m-tm-card snap-start shrink-0 w-[min(300px,calc(100vw-66px))] md:w-[340px] flex flex-col">
           <div class="m-tm-bubble flex-1 relative bg-white rounded-[20px] md:rounded-[24px] p-[20px] md:p-[28px] flex flex-col gap-[14px] md:gap-[20px]">
-            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[14px] leading-[20px] md:text-[16px] md:leading-[26px] line-clamp-5 md:line-clamp-none">Para mis perros en su momento favorito del día, saben cuando es la hora y me lo hacen saber, van a la cocina a por su ración puntuales. <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">Es una maravilla verlos disfrutar así de su comida</b>, sobre todo de uno que siempre ha tenido problemas digestivos y desde que estamos con esta comida le va fenomenal y no se ha vuelto a poner malo.</p>
+            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[14px] leading-[20px] md:text-[16px] md:leading-[26px] line-clamp-5 md:line-clamp-none">Para mis perros en su momento favorito del día, saben cuando es la hora y me lo hacen saber, van a la cocina a por su ración puntuales. <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">Es una maravilla verlos disfrutar así de su comida</b>, sobre todo de uno que siempre ha tenido problemas digestivos y desde que estamos con esta comida le va fenomenal y no se ha vuelto a poner malo.</p>
             <div class="mt-auto flex gap-[2px]" role="img" aria-label="5 de 5 estrellas"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"></div>
             <div class="tm-author flex items-center gap-[10px] pt-[16px] md:pt-[20px] border-t border-solid border-[rgba(42,39,36,.1)]">
               <img alt="" draggable="false" class="size-[32px] md:size-[36px] rounded-full object-cover" src="assets/testimonios/avatar2.jpg">
               <div class="flex flex-col">
                 <p class="m-0 font-['Youth:Medium'] text-[#2a2724] text-[14px] leading-[19px]">Marc Reus</p>
-                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/google.svg">Reseña en Google</p>
+                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#6b655c] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/google.svg">Reseña en Google</p>
               </div>
             </div>
           </div>
         </article>
         <article class="m-tm-card snap-start shrink-0 w-[min(300px,calc(100vw-66px))] md:w-[340px] flex flex-col">
           <div class="m-tm-bubble flex-1 relative bg-white rounded-[20px] md:rounded-[24px] p-[20px] md:p-[28px] flex flex-col gap-[14px] md:gap-[20px]">
-            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[14px] leading-[20px] md:text-[16px] md:leading-[26px] line-clamp-5 md:line-clamp-none">Estoy muy satisfecha <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">a mi perrita Suri le encanta se lo come en un pis pas</b> cualquier duda enseguida te lo solucionan</p>
+            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[14px] leading-[20px] md:text-[16px] md:leading-[26px] line-clamp-5 md:line-clamp-none">Estoy muy satisfecha <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">a mi perrita Suri le encanta se lo come en un pis pas</b> cualquier duda enseguida te lo solucionan</p>
             <div class="mt-auto flex gap-[2px]" role="img" aria-label="5 de 5 estrellas"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"></div>
             <div class="tm-author flex items-center gap-[10px] pt-[16px] md:pt-[20px] border-t border-solid border-[rgba(42,39,36,.1)]">
               <img alt="" draggable="false" class="size-[32px] md:size-[36px] rounded-full object-cover" src="assets/testimonios/avatar3.jpg">
               <div class="flex flex-col">
                 <p class="m-0 font-['Youth:Medium'] text-[#2a2724] text-[14px] leading-[19px]">Maribel Sanchez</p>
-                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/source-icon.svg">Reseña en Trustpilot</p>
+                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#6b655c] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/source-icon.svg">Reseña en Trustpilot</p>
               </div>
             </div>
           </div>
         </article>
         <article class="m-tm-card snap-start shrink-0 w-[min(300px,calc(100vw-66px))] md:w-[340px] flex flex-col">
           <div class="m-tm-bubble flex-1 relative bg-white rounded-[20px] md:rounded-[24px] p-[20px] md:p-[28px] flex flex-col gap-[14px] md:gap-[20px]">
-            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[14px] leading-[20px] md:text-[16px] md:leading-[26px] line-clamp-5 md:line-clamp-none">Lo mejor es la comodidad: llega a casa, lo guardas en el congelador y listo. Y <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">a mi perra le encanta</b>, deja el plato limpio.</p>
+            <p class="tm-quote m-0 font-['K_Labil_Grotesk:50_Regular'] text-[#565049] text-[14px] leading-[20px] md:text-[16px] md:leading-[26px] line-clamp-5 md:line-clamp-none">Lo mejor es la comodidad: llega a casa, lo guardas en el congelador y listo. Y <b class="font-['K_Labil_Grotesk'] font-bold text-[#2a2724]">a mi perra le encanta</b>, deja el plato limpio.</p>
             <div class="mt-auto flex gap-[2px]" role="img" aria-label="5 de 5 estrellas"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"><img alt="" draggable="false" class="size-[20px]" src="assets/testimonios/star.svg"></div>
             <div class="tm-author flex items-center gap-[10px] pt-[16px] md:pt-[20px] border-t border-solid border-[rgba(42,39,36,.1)]">
               <img alt="" draggable="false" class="size-[32px] md:size-[36px] rounded-full object-cover" src="assets/testimonios/avatar4.jpg">
               <div class="flex flex-col">
                 <p class="m-0 font-['Youth:Medium'] text-[#2a2724] text-[14px] leading-[19px]">Pablo Motos</p>
-                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#4f4a43] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/google.svg">Reseña en Google</p>
+                <p class="m-0 flex items-center gap-[5px] font-['K_Labil_Grotesk:50_Regular'] text-[#6b655c] text-[13px] leading-[18px]"><img alt="" draggable="false" class="size-[12px]" src="assets/testimonios/google.svg">Reseña en Google</p>
               </div>
             </div>
           </div>
@@ -3265,7 +3262,7 @@
               <div class="flex flex-col gap-[8px] w-full md:w-[300px]">
                 <div data-nui-anchor class="memp-field relative w-full h-[48px] rounded-[12px] border-[1.5px] border-solid border-transparent bg-white">
                   <label for="m-emp-raza" class="sr-only">¿Cuál es la raza de tu perro?</label>
-                  <select data-nui-select id="m-emp-raza" name="raza" required class="memp-select block w-full h-full appearance-none bg-transparent border-0 outline-none cursor-pointer rounded-[12px] pl-[14px] pr-[42px] py-0 font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[24px] text-[#4f4a43]">
+                  <select data-nui-select id="m-emp-raza" name="raza" required class="memp-select block w-full h-full appearance-none bg-transparent border-0 outline-none cursor-pointer rounded-[12px] pl-[14px] pr-[42px] py-0 font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[24px] text-[#6b655c]">
                     <option value="" selected disabled>¿Cuál es la raza de tu perro?</option>
                     <option>Mestizo</option>
                     <option>Labrador</option>
@@ -3438,13 +3435,13 @@
   </div>
 </section>
 <!-- ===== m-faq ===== -->
-<!-- Preguntas frecuentes: centradas, sobre amarillo (texto #2a2724 / #4f4a43 y «FAQs» en #b83f03, todos AAA sobre #fff7c9) -->
+<!-- Preguntas frecuentes: centradas, sobre amarillo (texto #2a2724 / #4f4a43 y «FAQs» en #f33b07; AA sobre #fff7c9, el título es texto grande) -->
 <section id="m-faq" class="relative w-full bg-[#fff7c9] px-[18px] py-[56px] md:py-[80px]">
   <style>
     #m-faq .faq-wrap { max-width: 960px; margin: 0 auto; }
     #m-faq .faq-eyebrow { margin: 0; font-family: "K_Labil_Grotesk:50_Regular", "K Labil Grotesk", system-ui, sans-serif; color: #4f4a43; font-size: 16px; line-height: 22px; }
     #m-faq .faq-title { margin: 12px 0 0; font-family: "Youth", system-ui, sans-serif; font-weight: 700; color: #2a2724; font-size: 26px; line-height: 31px; }
-    #m-faq .faq-title em { font-style: normal; color: #b83f03; }
+    #m-faq .faq-title em { font-style: normal; color: #f33b07; }
     #m-faq .faq-sub { margin: 16px 0 0; font-family: "K_Labil_Grotesk:50_Regular", "K Labil Grotesk", system-ui, sans-serif; color: #4f4a43; font-size: 16px; line-height: 24px; }
     #m-faq .faq-list { margin-top: 40px; text-align: left; }
     #m-faq .faq-head { display: flex; align-items: center; gap: 16px; width: 100%; min-height: 56px; padding: 14px 0; border: 0; background: none; color: #2a2724; text-align: left; cursor: pointer; }
@@ -3538,9 +3535,9 @@
       <p class="m-0 font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[24px] md:text-[18px] md:leading-[28px] w-full md:max-w-[560px]">Déjanos tu móvil y te enviamos por SMS un descuento para tu primer pedido.</p>
     </div>
     <form class="mdsc-form flex flex-col md:flex-row md:items-center gap-[12px] md:gap-[16px] w-full md:w-auto" novalidate>
-      <label class="mdsc-field bg-white border-[1.5px] border-transparent border-solid flex gap-[8px] items-center px-[14px] h-[48px] w-full md:w-[300px] rounded-[12px] shrink-0 cursor-text font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[24px] text-[#4f4a43] whitespace-nowrap">
+      <label class="mdsc-field bg-white border-[1.5px] border-transparent border-solid flex gap-[8px] items-center px-[14px] h-[48px] w-full md:w-[300px] rounded-[12px] shrink-0 cursor-text font-['K_Labil_Grotesk:50_Regular'] text-[16px] leading-[24px] text-[#6b655c] whitespace-nowrap">
         <span class="shrink-0">+34</span>
-        <input class="mdsc-input flex-1 min-w-0 bg-transparent border-0 outline-none p-0 m-0 text-[16px] leading-[24px] text-[#2a2724] placeholder:text-[#4f4a43] font-['K_Labil_Grotesk:50_Regular']" type="tel" name="phone" inputmode="numeric" autocomplete="tel-national" maxlength="12" placeholder="Número de móvil" aria-label="Número de móvil">
+        <input class="mdsc-input flex-1 min-w-0 bg-transparent border-0 outline-none p-0 m-0 text-[16px] leading-[24px] text-[#2a2724] placeholder:text-[#6b655c] font-['K_Labil_Grotesk:50_Regular']" type="tel" name="phone" inputmode="numeric" autocomplete="tel-national" maxlength="12" placeholder="Número de móvil" aria-label="Número de móvil">
       </label>
       <button type="submit" class="bg-[#fa6a3f] border-0 flex gap-[8px] items-center justify-center px-[24px] h-[48px] w-full md:w-auto rounded-[999px] shrink-0 cursor-pointer transition hover:brightness-110 active:brightness-110">
         <span class="font-['Youth:Medium'] text-[16px] leading-[24px] text-black whitespace-nowrap">Recibe tu código por SMS</span>
