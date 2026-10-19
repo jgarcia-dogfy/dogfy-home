@@ -45,30 +45,24 @@
 <body>
 <div class="canvas hidden lg:block" id="canvas">
 <!-- ===== preheader ===== -->
-<!-- Pre-header promocional (común a escritorio y móvil): barra naranja 100 de Nuxt UI / Tailwind orange-100 #ffedd4 (texto negro, 19:1) con borde inferior ondulado suave -->
+<!-- Pre-header promocional (común a escritorio y móvil): barra naranja 100 de Nuxt UI / Tailwind orange-100 #ffedd4 (texto negro, 19:1), recta (sin onda) -->
 <aside class="prebar" aria-label="Promoción">
   <style>
     /* Fija arriba junto al menú (el header se pega justo debajo: top 36px escritorio / 32px móvil).
-       Por encima del header para que su onda se vea también sobre el header blanco; por debajo del menú móvil abierto */
+       Por encima del header y por debajo del menú móvil abierto */
     .prebar { position: sticky; top: 0; z-index: 55; background: #ffedd4; color: #000; }
-    .prebar__text { margin: 0; box-sizing: border-box; height: 36px; padding-top: 12px !important; display: flex; align-items: center; justify-content: center; gap: 12px; padding: 0 16px;
+    .prebar__text { margin: 0; box-sizing: border-box; height: 36px; display: flex; align-items: center; justify-content: center; gap: 12px; padding: 0 16px;
       font-family: "K_Labil_Grotesk:50_Regular", "K Labil Grotesk", system-ui, sans-serif; font-size: 14px; line-height: 20px; white-space: nowrap; }
     .prebar__text strong { font-family: "K_Labil_Grotesk:70_Bold", "K Labil Grotesk", system-ui, sans-serif; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
     .prebar__dot { width: 4px; height: 4px; border-radius: 50%; background: #000; flex-shrink: 0; }
-    /* Onda inferior: mismo color que la barra, cuelga 12px (10px en móvil) sobre el bloque siguiente.
-       El texto lleva ese mismo alto como padding superior para quedar centrado en el alto total (barra + onda) */
-    .prebar__wave { position: absolute; left: 0; top: 100%; display: block; width: 100%; height: 12px; pointer-events: none; }
     html:has(#m-menu[data-state=open]) .prebar { z-index: 0; }
-    @media (max-width: 1023px) { .prebar__text { height: 32px; padding-top: 10px !important; font-size: 13px; gap: 10px; } .prebar__wave { height: 10px; } }
+    @media (max-width: 1023px) { .prebar__text { height: 32px; font-size: 13px; gap: 10px; } }
   </style>
   <p class="prebar__text">
     <span>-30&nbsp;% de descuento</span>
     <span class="prebar__dot" aria-hidden="true"></span>
     <strong>Envío gratis</strong>
   </p>
-  <svg class="prebar__wave" viewBox="0 0 1440 12" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <path fill="#ffedd4" d="M0 0H1440V5C1395 9.5 1335 10.5 1270 7C1200 3.2 1130 2.6 1060 6.2C990 9.8 915 11.2 840 7.6C770 4.2 700 3 625 6.4C550 9.8 480 11 405 7.8C335 4.8 265 3.4 195 6.6C130 9.6 60 10.6 0 7.4Z"/>
-  </svg>
 </aside>
 <!-- ===== header ===== -->
 <header id="site-header" class="sticky top-[36px] z-50 w-[1428px]" style="height:96px; margin-bottom:-96px">
@@ -1849,30 +1843,24 @@
 <!-- ===================== MÓVIL / TABLET (<1024px) ===================== -->
 <div id="m-canvas" class="lg:hidden relative w-full overflow-x-clip bg-white">
 <!-- ===== m-preheader ===== -->
-<!-- Pre-header promocional (común a escritorio y móvil): barra naranja 100 de Nuxt UI / Tailwind orange-100 #ffedd4 (texto negro, 19:1) con borde inferior ondulado suave -->
+<!-- Pre-header promocional (común a escritorio y móvil): barra naranja 100 de Nuxt UI / Tailwind orange-100 #ffedd4 (texto negro, 19:1), recta (sin onda) -->
 <aside class="prebar" aria-label="Promoción">
   <style>
     /* Fija arriba junto al menú (el header se pega justo debajo: top 36px escritorio / 32px móvil).
-       Por encima del header para que su onda se vea también sobre el header blanco; por debajo del menú móvil abierto */
+       Por encima del header y por debajo del menú móvil abierto */
     .prebar { position: sticky; top: 0; z-index: 55; background: #ffedd4; color: #000; }
-    .prebar__text { margin: 0; box-sizing: border-box; height: 36px; padding-top: 12px !important; display: flex; align-items: center; justify-content: center; gap: 12px; padding: 0 16px;
+    .prebar__text { margin: 0; box-sizing: border-box; height: 36px; display: flex; align-items: center; justify-content: center; gap: 12px; padding: 0 16px;
       font-family: "K_Labil_Grotesk:50_Regular", "K Labil Grotesk", system-ui, sans-serif; font-size: 14px; line-height: 20px; white-space: nowrap; }
     .prebar__text strong { font-family: "K_Labil_Grotesk:70_Bold", "K Labil Grotesk", system-ui, sans-serif; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
     .prebar__dot { width: 4px; height: 4px; border-radius: 50%; background: #000; flex-shrink: 0; }
-    /* Onda inferior: mismo color que la barra, cuelga 12px (10px en móvil) sobre el bloque siguiente.
-       El texto lleva ese mismo alto como padding superior para quedar centrado en el alto total (barra + onda) */
-    .prebar__wave { position: absolute; left: 0; top: 100%; display: block; width: 100%; height: 12px; pointer-events: none; }
     html:has(#m-menu[data-state=open]) .prebar { z-index: 0; }
-    @media (max-width: 1023px) { .prebar__text { height: 32px; padding-top: 10px !important; font-size: 13px; gap: 10px; } .prebar__wave { height: 10px; } }
+    @media (max-width: 1023px) { .prebar__text { height: 32px; font-size: 13px; gap: 10px; } }
   </style>
   <p class="prebar__text">
     <span>-30&nbsp;% de descuento</span>
     <span class="prebar__dot" aria-hidden="true"></span>
     <strong>Envío gratis</strong>
   </p>
-  <svg class="prebar__wave" viewBox="0 0 1440 12" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <path fill="#ffedd4" d="M0 0H1440V5C1395 9.5 1335 10.5 1270 7C1200 3.2 1130 2.6 1060 6.2C990 9.8 915 11.2 840 7.6C770 4.2 700 3 625 6.4C550 9.8 480 11 405 7.8C335 4.8 265 3.4 195 6.6C130 9.6 60 10.6 0 7.4Z"/>
-  </svg>
 </aside>
 <!-- ===== m-header ===== -->
 <header id="m-header" class="sticky top-[32px] z-50 w-full h-[64px] md:h-[72px] mb-[-64px] md:mb-[-72px]">
